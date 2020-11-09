@@ -1,21 +1,22 @@
 #include "node.h"
 
 template <typename Data>
-struct LinkedList{
+struct CircularList{
 	Node<Data> * firstNode;
-	Node<Data> * lastNode;
 	
 	int length;
 	
 	// Constructores
-	LinkedList(){
+	CircularList(){
 		firstNode = NULL;
-		lastNode = NULL;
 		length = 0;
 	}
 	
-	LinkedList(Data data){
-		firstNode = lastNode = new Node<Data>(data);
+	CircularList(Data data){
+		firstNode = new Node<Data>(data);
+		
+		firstNode->next = firstNode;
+		firstNode->prev = firstNode;
 		
 		length = 1;
 	}
@@ -31,14 +32,17 @@ struct LinkedList{
 	void add(Data data){
 		Node<Data> * temp = new Node<Data>(data);
 		
-		temp->prev = lastNode;
-		
 		if (!isEmpty()){
-			lastNode->next = temp;
-			lastNode = temp;
-		
+			temp->prev = firstNode->prev;
+			temp->next = firstNode;
+			
+			firstNode->prev->next = temp;
+			firstNode->prev = temp;
 		}else{
-			firstNode = lastNode = temp;
+			firstNode = temp;
+			
+			firstNode->next = firstNode;
+			firstNode->prev = firstNode;
 		}
 		
 		length++;
@@ -48,15 +52,21 @@ struct LinkedList{
 	void addFirst(Data data){
 		Node<Data> * temp = new Node<Data>(data);
 		
-		if (!isEmpty()){
-			temp->next = firstNode;
-			firstNode->prev = temp;
+		if (isEmpty()){
+			firstNode = temp;
+			
+			firstNode->next = firstNode;
+			firstNode->prev = firstNode;
 		
 		} else {
-			lastNode = temp;
+			temp->prev = firstNode->prev;
+			temp->next = firstNode;
+			
+			firstNode->prev->next = temp;
+			firstNode->prev = temp;
+			
+			firstNode = temp;			
 		}
-		
-		firstNode = temp;
 		
 		length++;
 	}
@@ -109,14 +119,13 @@ struct LinkedList{
 	Data remove(){
 		if (isEmpty()) return NULL;
 		
-		Node<Data> * removed = lastNode;
+		Node<Data> * removed = firstNode->prev;
 		
-		lastNode = removed->prev;
+		removed->prev->next = firstNode;
+		firstNode->prev = removed->prev;
 		
-		if (length != 1){
-			lastNode->next = NULL;
-			removed->prev = NULL;
-		}
+		removed->next = NULL;
+		removed->prev = NULL;
 		
 		length--;
 		
@@ -129,12 +138,11 @@ struct LinkedList{
 		
 		Node<Data> * removed = firstNode;
 		
-		firstNode = removed->next;
+		removed->prev->next = removed->next;
+		removed->next->prev = removed->prev;
 		
-		if (length != 1){
-			firstNode->prev = NULL;
-			removed->next = NULL;
-		}
+		removed->prev = NULL;
+		removed->next = NULL;
 		
 		length--;
 		
@@ -172,7 +180,7 @@ struct LinkedList{
 	Data get(){
 		if (isEmpty()) return NULL;
 		
-		return lastNode->data;
+		return firstNode->prev->data;
 	}
 	
 	// Retorna el primero de la lista
@@ -198,9 +206,9 @@ struct LinkedList{
 	}
 	
 	// Retorna la lista al reves
-	LinkedList<Data> * reverse(){
-		LinkedList<Data> * rev = new LinkedList<Data>();
-		Node<Data> * temp = lastNode;
+	CircularList<Data> * reverse(){
+		CircularList<Data> * rev = new CircularList<Data>();
+		Node<Data> * temp = firstNode->prev;
 		
 		for (int i = 0; i < length; i++){
 			rev->add(temp->data);
