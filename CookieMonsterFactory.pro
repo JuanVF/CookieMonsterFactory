@@ -9,10 +9,14 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    factory_structs/BandasTransportadoras.cpp \
     factory_structs/Cookie.cpp \
     factory_structs/CookiePack.cpp \
     factory_structs/DeliveryCar.cpp \
+    factory_structs/Inspectores.cpp \
     factory_structs/PlannerPacks.cpp \
+    factory_structs/Transportador.cpp \
+    factory_structs/Transportadores.cpp \
     lists/CircularList.cpp \
     lists/LinkedList.cpp \
     lists/Queue.cpp \
@@ -23,10 +27,14 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    factory_structs/BandasTransportadoras.h \
     factory_structs/Cookie.h \
     factory_structs/CookiePack.h \
     factory_structs/DeliveryCar.h \
+    factory_structs/Inspectores.h \
     factory_structs/PlannerPacks.h \
+    factory_structs/Transportador.h \
+    factory_structs/Transportadores.h \
     lists/CircularList.h \
     lists/LinkedList.h \
     lists/Queue.h \

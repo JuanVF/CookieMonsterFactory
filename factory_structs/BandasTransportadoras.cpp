@@ -1,16 +1,15 @@
+#include "../lists/Queue.h"
 
-#include../lists/Queue.h"
-
+template <typename Data>
 struct BandasTransportadoras{
 	int maxCapacity;
 	int length;
-	Queue * queue;
+    Queue<Data> * queue;
 	
-	BandasTransportadoras(int _capacity,int _length){
+    BandasTransportadoras(int _capacity, int _length){
 		maxCapacity = _capacity;
 		length = _length;
-		queue = new Queue();
-		
+        queue = new Queue<Data>();
 	}
 	
 };

@@ -1,4 +1,4 @@
 #ifndef BANDASTRANSPORTADORAS_H
-#define BANDASTRANPORTADORAS_H
-#include "BandaTransportadoras.cpp"
+#define BANDASTRANSPORTADORAS_H
+#include "BandasTransportadoras.cpp"
 #endif

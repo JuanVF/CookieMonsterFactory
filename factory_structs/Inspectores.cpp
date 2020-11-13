@@ -7,11 +7,10 @@ using namespace std;
 
 struct Inspectores{
 	double rejectionPercentage;
-	LinkedList<string*> * registro;
+    LinkedList<string> * registro;
 	
 	Inspectores(double _percentage){
-		rejectionPercentage = _percentage;4
-		registro =  new LinkedList();
+        rejectionPercentage = _percentage;
+        registro = new LinkedList<string>();
 	}
-	
 };
