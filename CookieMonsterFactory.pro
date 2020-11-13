@@ -12,10 +12,13 @@ SOURCES += \
     factory_structs/Cookie.cpp \
     factory_structs/CookiePack.cpp \
     factory_structs/DeliveryCar.cpp \
+    factory_structs/PlannerPacks.cpp \
     lists/CircularList.cpp \
     lists/LinkedList.cpp \
     lists/Queue.cpp \
     lists/node.cpp \
+    machines/Planner.cpp \
+    machines/Warehouse.cpp \
     main.cpp \
     mainwindow.cpp
 
@@ -23,10 +26,13 @@ HEADERS += \
     factory_structs/Cookie.h \
     factory_structs/CookiePack.h \
     factory_structs/DeliveryCar.h \
+    factory_structs/PlannerPacks.h \
     lists/CircularList.h \
     lists/LinkedList.h \
     lists/Queue.h \
     lists/node.h \
+    machines/Planner.h \
+    machines/Warehouse.h \
     mainwindow.h
 
 FORMS += \

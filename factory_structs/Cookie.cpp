@@ -4,6 +4,7 @@
 using namespace std;
 #endif
 
+// Esto de momento solo se usa para guardar la receta
 struct Cookie{
 	int amountDough;
 	int amountChocolate;
