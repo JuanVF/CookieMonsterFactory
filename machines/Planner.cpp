@@ -51,6 +51,7 @@ struct Planner{
         pack->addPacks(amount);
     }
 
+    // Retorna el total de galletas
     int getTotalCookies(){
         return totalCookies;
     }
