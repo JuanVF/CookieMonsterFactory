@@ -1,4 +1,4 @@
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
-#include "LinkedList.cpp"
+#include <lists/LinkedList.cpp>
 #endif

@@ -23,7 +23,7 @@ SOURCES += \
     lists/LinkedList.cpp \
     lists/Queue.cpp \
     lists/node.cpp \
-    machines/Mixer.cpp \
+    machines/MixerMachine.cpp \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
     main.cpp \
@@ -40,13 +40,16 @@ HEADERS += \
     factory_structs/Request.h \
     factory_structs/Transportador.h \
     factory_structs/Transportadores.h \
+    factory_structs/factoryStructs.h \
     lists/CircularList.h \
     lists/LinkedList.h \
     lists/Queue.h \
+    lists/dataStructures.h \
     lists/node.h \
-    machines/Mixer.h \
+    machines/MixerMachine.h \
     machines/Planner.h \
     machines/Warehouse.h \
+    machines/machines.h \
     mainwindow.h
 
 FORMS += \

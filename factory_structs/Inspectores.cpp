@@ -1,9 +1,9 @@
 #ifndef IOSSTREAM
 #define IOSSTREAM
 #include <iostream>
-#include "../lists/LinkedList.h"
 using namespace std;
 #endif
+#include <lists/LinkedList.h>
 
 struct Inspectores{
 	double rejectionPercentage;

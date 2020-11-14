@@ -1,4 +1,4 @@
 #ifndef DELIVERYCAR_H
 #define DELIVERYCAR_H
-#include "DeliveryCar.cpp"
+#include <factory_structs/DeliveryCar.cpp>
 #endif

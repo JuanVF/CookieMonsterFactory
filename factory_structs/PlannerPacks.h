@@ -1,4 +1,4 @@
 #ifndef PLANNERPACKS_H
 #define PLANNERPACKS_H
-#include "PlannerPacks.cpp"
+#include <factory_structs/PlannerPacks.cpp>
 #endif

@@ -1,4 +1,4 @@
 #ifndef QUEUE_H
 #define QUEUE_H
-#include "Queue.cpp"
+#include <lists/Queue.cpp>
 #endif

@@ -1,4 +1,4 @@
 #ifndef CIRC_LIST
 #define CIRC_LIST
-#include "CircularList.cpp"
+#include <lists/CircularList.cpp>
 #endif

@@ -1,4 +1,4 @@
-#include "CookiePack.h"
+#include <factory_structs/CookiePack.h>
 
 struct PlannerPacks{
     CookiePack * pack;

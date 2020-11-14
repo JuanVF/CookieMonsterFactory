@@ -1,4 +1,4 @@
-#include "node.h"
+#include <lists/node.h>
 
 template <typename Data>
 struct Queue{

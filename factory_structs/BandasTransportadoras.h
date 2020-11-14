@@ -1,4 +1,4 @@
 #ifndef BANDASTRANSPORTADORAS_H
 #define BANDASTRANSPORTADORAS_H
-#include "BandasTransportadoras.cpp"
+#include <factory_structs/BandasTransportadoras.cpp>
 #endif

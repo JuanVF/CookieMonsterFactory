@@ -1,4 +1,4 @@
 #ifndef TRANSPORTADORES_H
 #define TRANSPORTADORES_H
-#include "Transportadores.cpp"
+#include <factory_structs/Transportadores.cpp>
 #endif

@@ -1,5 +1,5 @@
-#include "../lists/LinkedList.h"
-#include "Transportador.h"
+#include <lists/LinkedList.h>
+#include <factory_structs/Transportador.h>
 
 struct Transportadores{
 	int amount;

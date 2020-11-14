@@ -1,4 +1,4 @@
 #ifndef NODE_H
 #define NODE_H
-#include "node.cpp"
+#include <lists/node.cpp>
 #endif

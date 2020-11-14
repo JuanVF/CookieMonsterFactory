@@ -1,4 +1,4 @@
-#include "../lists/Queue.h"
+#include <lists/Queue.h>
 
 template <typename Data>
 struct BandasTransportadoras{

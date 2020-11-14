@@ -1,5 +1,5 @@
-#include "Request.h"
-#include "../Util.h"
+#include <factory_structs/Request.h>
+#include <Util.h>
 
 struct DeliveryCar{
 	int amountChocolate;
@@ -26,6 +26,6 @@ struct DeliveryCar{
     void deliver(Request * request){
         utils->delay(delay);
 
-        request->mixer->receive(request->amount);
+        // Implementar algo para acceder a las maquinas
     }
 };

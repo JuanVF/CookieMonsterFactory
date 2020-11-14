@@ -1,4 +1,4 @@
 #ifndef COOKIE_H
 #define COOKIE_H
-#include "Cookie.cpp"
+#include <factory_structs/Cookie.cpp>
 #endif
