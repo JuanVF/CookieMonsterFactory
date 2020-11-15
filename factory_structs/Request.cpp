@@ -1,10 +1,12 @@
+#include <machines/machines.h>
+
 struct Request{
-    int machine; // El ID de la maquina a entregar
+    MixerMachine * mixer;
     int amount;
 
     // Constructor
-    Request(int id, int _amount){
-        machine = id;
+    Request(MixerMachine * _mixer, int _amount){
+        mixer = _mixer;
         amount = _amount;
     }
 };

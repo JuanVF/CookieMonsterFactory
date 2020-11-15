@@ -1,4 +1,5 @@
 #include <lists/Queue.h>
+#include <factory_structs/factoryStructs.h>
 #include <machines/Warehouse.h>
 
 struct MixerMachine{
@@ -13,6 +14,7 @@ struct MixerMachine{
     int amount; // Es la cantidad de masa o chocolate que tiene la mezcladora
 
     WareHouse * warehouse;
+    Queue<Request *> * requests;
 
     // Constructor
     MixerMachine(WareHouse * _warehouse, int _id, double _delay, int _min, int _max, int _type){
@@ -24,6 +26,7 @@ struct MixerMachine{
         id = _id;
 
         warehouse = _warehouse;
+        requests = new Queue<Request *>();
     }
 
     // Funciones
@@ -39,13 +42,17 @@ struct MixerMachine{
 
         // Se limita por si se llega al maximo
         if (amount > max) amount = max;
+
+        requests->dequeue();
     }
 
     // Esta funcion hace una peticion al almacen
     void makeRequest(){
         int toRequest = max - amount;
 
-        warehouse->makeRequest(id, toRequest);
+        Request * req = warehouse->makeRequest(this, toRequest);
+
+        requests->enqueue(req);
     }
 
     // Retorna true si necesita ingrediente
