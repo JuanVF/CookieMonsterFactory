@@ -62,4 +62,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     .gitignore \
-    README.md
+    README.md \
+
+RESOURCES += \
+    images.qrc

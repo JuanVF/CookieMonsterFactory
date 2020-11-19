@@ -9,6 +9,7 @@ struct MixerMachine{
     int id;
 
     double delay; // Tiempo que duran mezclando
+    bool isOn;
 
     int type; // Si es 0 es de chocolate, si es 1 es de masa
     int amount; // Es la cantidad de masa o chocolate que tiene la mezcladora
@@ -24,6 +25,7 @@ struct MixerMachine{
         type = _type;
         amount = 0;
         id = _id;
+        isOn = true;
 
         warehouse = _warehouse;
         requests = new Queue<Request *>();
