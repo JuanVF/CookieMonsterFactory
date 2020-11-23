@@ -13,4 +13,17 @@ struct Inspectores{
         rejectionPercentage = _percentage;
         registro = new LinkedList<string>();
 	}
+
+    //Retorna las galletas que pasaron por la revision
+    int qualityCookies(int cookiesReceived){
+        int trash = cookiesReceived * (rejectionPercentage/100);
+        return cookiesReceived - trash;
+    }
+
+    //Retorna el numero de galletas que no fueron aceptadas
+    int badCookies(int cookiesReceived){
+        return cookiesReceived * (rejectionPercentage/100);
+    }
+
+
 };

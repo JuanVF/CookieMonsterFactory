@@ -1,6 +1,7 @@
 #ifndef FACTORYSTRUCTS_H
 #define FACTORYSTRUCTS_H
 struct BandasTransportadoras;
+struct Bandeja;
 struct Cookie;
 struct CookiePack;
 struct DeliveryCar;

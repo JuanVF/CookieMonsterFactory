@@ -3,4 +3,8 @@
 struct Planner;
 struct WareHouse;
 struct MixerMachine;
+struct Oven;
+struct Packer;
+struct Deposit;
 #endif
+

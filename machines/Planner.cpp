@@ -1,5 +1,4 @@
 #include <lists/CircularList.h>
-
 #include <factory_structs/Cookie.h>
 #include <factory_structs/PlannerPacks.h>
 

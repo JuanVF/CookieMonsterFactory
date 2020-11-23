@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     Util.cpp \
     factory_structs/BandasTransportadoras.cpp \
+    factory_structs/Bandeja.cpp \
     factory_structs/Cookie.cpp \
     factory_structs/CookiePack.cpp \
     factory_structs/DeliveryCar.cpp \
@@ -23,7 +24,10 @@ SOURCES += \
     lists/LinkedList.cpp \
     lists/Queue.cpp \
     lists/node.cpp \
+    machines/Deposit.cpp \
     machines/MixerMachine.cpp \
+    machines/Oven.cpp \
+    machines/Packer.cpp \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
     main.cpp \
@@ -32,6 +36,7 @@ SOURCES += \
 HEADERS += \
     Util.h \
     factory_structs/BandasTransportadoras.h \
+    factory_structs/Bandeja.h \
     factory_structs/Cookie.h \
     factory_structs/CookiePack.h \
     factory_structs/DeliveryCar.h \
@@ -46,7 +51,10 @@ HEADERS += \
     lists/Queue.h \
     lists/dataStructures.h \
     lists/node.h \
+    machines/Deposit.h \
     machines/MixerMachine.h \
+    machines/Oven.h \
+    machines/Packer.h \
     machines/Planner.h \
     machines/Warehouse.h \
     machines/machines.h \
@@ -62,4 +70,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     .gitignore \
-    README.md
+    README.md \
+    xd.txt
