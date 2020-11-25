@@ -1,20 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
-#include <pthread.h>
-#include <Util.h>
-
-#ifndef IOSSTREAM
-#define IOSSTREAM
-#include <iostream>
-using namespace std;
-#endif
-
-bool isTurnedOn = false;
-bool isInPause = false;
-
-pthread_t animation_thread;
-Util * util = new Util();
+#include <mainwindowdata.h>
+#include <view/animations.h>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,25 +21,6 @@ void MainWindow::on_pushButton_clicked()
 {
 }
 
-void * ovenQueueAnimation(void * args){
-    QLabel * lbOven = (QLabel *) args;
-
-    QString animations[] = {
-        "border-image: url(:/imgs/images/OvenQueue/oven-queue.svg) 0 0 0 0 stretch stretch;",
-        "border-image: url(:/imgs/images/OvenQueue/oven-queue2.svg) 0 0 0 0 stretch stretch;",
-        "border-image: url(:/imgs/images/OvenQueue/oven-queue3.svg) 0 0 0 0 stretch stretch;",
-        "border-image: url(:/imgs/images/OvenQueue/oven-queue4.svg) 0 0 0 0 stretch stretch;",
-    };
-
-    while (isTurnedOn && !isInPause){
-        for (int i = 0; i < 4; i++){
-            util->delay(0.2);
-            lbOven->setStyleSheet(animations[i]);
-        }
-    }
-
-    lbOven->setStyleSheet(animations[0]);
-}
 
 // Funcion que se va a encargar de encender todas las maquinas
 void setup(QLabel * lbChocolateQueue){

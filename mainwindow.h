@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 
+// UI Stuff
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -23,4 +24,5 @@ private slots:
 private:
     Ui::MainWindow *ui;
 };
+
 #endif // MAINWINDOW_H

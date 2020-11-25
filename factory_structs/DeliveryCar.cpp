@@ -3,8 +3,6 @@
 #include <Util.h>
 
 struct DeliveryCar{
-	int amountChocolate;
-	int amountDough;
 	int capacity;
 	double delay;
 
@@ -12,11 +10,9 @@ struct DeliveryCar{
 	
 	// Constructor
     // Delay en segundos
-	DeliveryCar(int _capacity, double _delay){
-		capacity = _capacity;
-        delay = _delay;
-		amountChocolate = 0;
-		amountDough = 0;
+    DeliveryCar(){
+        capacity = 0;
+        delay = 0;
 
         utils = new Util();
 	}

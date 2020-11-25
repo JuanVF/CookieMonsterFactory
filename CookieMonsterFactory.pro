@@ -28,7 +28,8 @@ SOURCES += \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    view/animations.cpp
 
 HEADERS += \
     Util.h \
@@ -53,7 +54,9 @@ HEADERS += \
     machines/Planner.h \
     machines/Warehouse.h \
     machines/machines.h \
-    mainwindow.h
+    mainwindow.h \
+    mainwindowdata.h \
+    view/animations.h
 
 FORMS += \
     mainwindow.ui

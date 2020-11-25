@@ -1,20 +1,21 @@
 #include <lists/Queue.h>
 #include <factory_structs/factoryStructs.h>
-#include <machines/Warehouse.h>
+#include <machines/machines.h>
 #include <enums.h>
 
 // Constructor
-MixerMachine::MixerMachine(WareHouse * _warehouse, int _id, double _delay, int _min, int _max, MixerType _type){
-    delay = _delay;
-    min = _min;
-    max = _max;
-    type = _type;
+MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type){
+    delay = 0;
+    min = 0;
+    max = 0;
     amount = 0;
-    id = _id;
-    isRunning = true;
-    isStarting = true;
 
+    isRunning = false;
+
+    type = _type;
     warehouse = _warehouse;
+    assembler = _assembler;
+
     requests = new Queue<Request *>();
 }
 
@@ -24,7 +25,7 @@ MixerMachine::MixerMachine(WareHouse * _warehouse, int _id, double _delay, int _
 void MixerMachine::mix(){
     // Al principio va a hacer el primer pedido
     // Y va a esperar que llegue
-    if (needsIngredient()){
+    if (isRunning && needsIngredient()){
         makeRequest();
         while(requests->isEmpty());
     }
@@ -32,11 +33,22 @@ void MixerMachine::mix(){
     // Ciclo de mezcla
     while(isRunning){
         if (!needsIngredient()){
-            // Mezcle haga algo
-            // Necesito a la ensambladora
+            amount -= capacity;
+
+            send(capacity);
         }else{
             makeRequest();
         }
+    }
+}
+
+// Esta funcion envia datos a la ensambladora
+void MixerMachine::send(int amount){
+    bool wasSended = assembler->receive(type, amount);
+
+    // Si la banda transportadora se llena la maquina se apaga
+    if (!wasSended){
+        isRunning = false;
     }
 }
 
@@ -61,5 +73,5 @@ void MixerMachine::makeRequest(){
 
 // Retorna true si necesita ingrediente
 bool MixerMachine::needsIngredient(){
-    return amount < max;
+    return amount < max || amount - capacity < max;
 }

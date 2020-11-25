@@ -10,9 +10,9 @@ struct Cookie{
 	int amountChocolate;
 	string measure;
 	
-	Cookie(int dough, int chocolate){
+    Cookie(){
 		measure = "gramos";
-		amountDough = dough;
-		amountChocolate = chocolate;
+        amountDough = 0;
+        amountChocolate = 0;
 	}	
 };

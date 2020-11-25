@@ -3,6 +3,12 @@
 #include <enums.h>
 #include <Util.h>
 
+#ifndef IOSTREAM_H
+#define IOSTREAM_H
+#include <iostream>
+using namespace std;
+#endif
+
 #ifndef MACHINES_H
 #define MACHINES_H
 struct Planner;
@@ -12,12 +18,26 @@ struct Assembler;
 
 // La razon de mover esto aca es por el problema de que la estructura no esta completa
 // Esta es la solucion
+struct Planner{
+    CircularList<PlannerPacks *> * packs;
+    Cookie * recipe;
+    int totalCookies;
+
+    Planner();
+
+    void plan();
+    bool addPack(int amountCookies, string name);
+    void setPackAmount(int amount, string name);
+    int getTotalCookies();
+    PlannerPacks * findPack(string name);
+};
+
 struct WareHouse{
     DeliveryCar * car;
     Queue<Request*> * requests;
     bool isRunning;
 
-    WareHouse(int carCapacity, int carDelay);
+    WareHouse();
     Request * makeRequest(MixerMachine * mixer, int amount);
     void sendRequest();
     void checking();
@@ -27,21 +47,23 @@ struct MixerMachine{
     // Capacidad minima y maxima de la mezcladora
     int min;
     int max;
-    int id;
+    int capacity;
 
     double delay; // Tiempo que duran mezclando
     bool isRunning;
-    bool isStarting;
 
     MixerType type;
     int amount; // Es la cantidad de masa o chocolate que tiene la mezcladora
 
     WareHouse * warehouse;
+    Assembler * assembler;
+
     Queue<Request *> * requests;
 
-    MixerMachine(WareHouse * _warehouse, int _id, double _delay, int _min, int _max, MixerType _type);
+    MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type);
     void mix();
     void receive(int received);
+    void send(int amount);
     void makeRequest();
     bool needsIngredient();
 };
@@ -57,7 +79,7 @@ struct Assembler{
     BandasTransportadoras<int> * dough;
     BandasTransportadoras<int> * chocolate;
 
-    Assembler(double _delay, int _doughCapacity, int chocolateCapacity);
+    Assembler();
 
     bool receive(MixerType type, int amount);
     void send();

@@ -5,8 +5,8 @@
 
 
 // Constructor
-WareHouse::WareHouse(int carCapacity, int carDelay){
-    car = new DeliveryCar(carCapacity, carDelay);
+WareHouse::WareHouse(){
+    car = new DeliveryCar();
     requests = new Queue<Request*>();
 }
 

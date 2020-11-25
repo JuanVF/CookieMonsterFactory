@@ -3,12 +3,12 @@
 #include <enums.h>
 
 // Constructor
-Assembler::Assembler(double _delay, int _doughCapacity, int _chocolateCapacity){
-    delay = _delay;
+Assembler::Assembler(){
+    delay = 0;
     util = new Util();
 
-    dough = new BandasTransportadoras<int>(_doughCapacity);
-    chocolate = new BandasTransportadoras<int>(_chocolateCapacity);
+    dough = new BandasTransportadoras<int>(0);
+    chocolate = new BandasTransportadoras<int>(0);
 }
 
 // Aqui se reciben los datos para mezclar
