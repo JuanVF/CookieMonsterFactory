@@ -17,9 +17,20 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButton_clicked();
     void on_btnPause_clicked();
     void on_btnTurnOn_clicked();
+
+    void on_btnWarehouse_clicked();
+
+    void on_btnPlanner_clicked();
+
+    void on_btnChocMix1_clicked();
+
+    void on_btnChocMix2_clicked();
+
+    void on_btnDoughMix_clicked();
+
+    void on_btnAssembly_clicked();
 
 private:
     Ui::MainWindow *ui;

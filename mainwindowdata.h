@@ -13,13 +13,20 @@
 
 #include <Util.h>
 #include <pthread.h>
+#include <QRegularExpressionValidator>
+#include <QRegularExpression>
 
 // Definicion de variables
+
+// Estas variables se encargan de manejar
+// todos los estados de las maquinas dependiendo si esta encendida o pausada
 bool isTurnedOn = false;
 bool isInPause = false;
-Util * util = new Util();
-pthread_t animation_thread;
 
+Util * util = new Util();
+pthread_t animation_thread; // Este es el hilo en el corren las animaciones
+
+// Aqui se inicializan las maquinas
 Planner * planner = new Planner();
 WareHouse * warehouse = new WareHouse();
 Assembler * assembler = new Assembler();
@@ -27,5 +34,11 @@ Assembler * assembler = new Assembler();
 MixerMachine * chocolateMixer1 = new MixerMachine(warehouse, assembler, Chocolate);
 MixerMachine * chocolateMixer2 = new MixerMachine(warehouse, assembler, Chocolate);
 MixerMachine * doughMixer = new MixerMachine(warehouse, assembler, Dough);
+
+// Estos son las que se encargan de hacer esas validaciones
+// con las Regular Expression
+// El string con simbolos raros es el RegEx
+QRegularExpressionValidator * floatVal = new QRegularExpressionValidator(QRegularExpression("\\d+(\\.)?(\\d{1,5})?"), NULL);
+QRegularExpressionValidator * intVal = new QRegularExpressionValidator(QRegularExpression("\\d+"), NULL);
 
 #endif
