@@ -3,32 +3,34 @@
 #include <factory_structs/DeliveryCar.h>
 #include <factory_structs/Request.h>
 
-// NOTA: La MixerMachine tiene que ser importada solo su prototipo...
-//       Si se importa como tal va a dar muchos errores de definicion
-//       no lo modifique si lo va a hacer
-struct WareHouse{
-    DeliveryCar * car;
-    Queue<Request*> * requests;
 
-    // Constructor
-    WareHouse(int carCapacity, int carDelay){
-        car = new DeliveryCar(carCapacity, carDelay);
-        requests = new Queue<Request*>();
+// Constructor
+WareHouse::WareHouse(int carCapacity, int carDelay){
+    car = new DeliveryCar(carCapacity, carDelay);
+    requests = new Queue<Request*>();
+}
+
+// Permite al mixer machine hacer pedidos
+Request * WareHouse::makeRequest(MixerMachine * mixer, int amount){
+    Request * req = new Request(mixer, amount);
+    isRunning = false;
+
+    requests->enqueue(req);
+
+    return req;
+}
+
+// Envia los pedidos a la maquina mezcladora
+void WareHouse::sendRequest(){
+    car->deliver(requests->dequeue());
+}
+
+// Esta es la funcion que se esta ejecutando para estar verificando
+// Los pedidos
+void WareHouse::checking(){
+    while(isRunning){
+        if (!requests->isEmpty()){
+            sendRequest();
+        }
     }
-
-    // Funciones
-
-    // Esta funcion agrega una peticion a la cola
-    Request * makeRequest(MixerMachine * mixer, int amount){
-        Request * req = new Request(mixer, amount);
-
-        requests->enqueue(req);
-
-        return req;
-    }
-
-    // Esta funcion va a permitir enviar una peticion a la maquina que lo solicito
-    void sendRequest(){
-        car->deliver(requests->dequeue());
-    }
-};
+}

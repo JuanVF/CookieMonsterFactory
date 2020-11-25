@@ -46,7 +46,7 @@ void * ovenQueueAnimation(void * args){
 
     while (isTurnedOn && !isInPause){
         for (int i = 0; i < 4; i++){
-            util->delay(1);
+            util->delay(0.2);
             lbOven->setStyleSheet(animations[i]);
         }
     }

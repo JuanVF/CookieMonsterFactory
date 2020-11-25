@@ -23,6 +23,7 @@ SOURCES += \
     lists/LinkedList.cpp \
     lists/Queue.cpp \
     lists/node.cpp \
+    machines/Assembler.cpp \
     machines/MixerMachine.cpp \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     Util.h \
+    enums.h \
     factory_structs/BandasTransportadoras.h \
     factory_structs/Cookie.h \
     factory_structs/CookiePack.h \
@@ -46,6 +48,7 @@ HEADERS += \
     lists/Queue.h \
     lists/dataStructures.h \
     lists/node.h \
+    machines/Assembler.h \
     machines/MixerMachine.h \
     machines/Planner.h \
     machines/Warehouse.h \

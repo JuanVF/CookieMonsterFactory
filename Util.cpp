@@ -12,9 +12,9 @@ struct Util{
     // Funciones
 
     // Esta funcion pone a dormir el programa x segundos
-    void delay(int seconds){
+    void delay(double seconds){
         clock_t start_time = clock();
-        int end_time = start_time + (seconds * 1000);
+        double end_time = start_time + (seconds * 1000);
 
         while(clock() < end_time);
     }
