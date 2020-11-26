@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>4</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -870,14 +870,14 @@ color: rgb(0, 0, 0);</string>
         <number>10</number>
        </property>
        <property name="placeholderText">
-        <string>Cantidad...</string>
+        <string>Nombre...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="btnPlannerApply">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>200</y>
+         <y>230</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -905,11 +905,11 @@ selection-color: rgb(40, 49, 73);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_10">
+      <widget class="QPushButton" name="btnPlannerAdd">
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>200</y>
+         <y>230</y>
          <width>161</width>
          <height>31</height>
         </rect>
@@ -939,8 +939,8 @@ selection-color: rgb(40, 49, 73);</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>240</y>
+         <x>200</x>
+         <y>270</y>
          <width>161</width>
          <height>21</height>
         </rect>
@@ -956,11 +956,11 @@ selection-color: rgb(40, 49, 73);</string>
         <string>Empaques agregados</string>
        </property>
       </widget>
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="cbPlannerPacks">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>270</y>
+         <x>190</x>
+         <y>300</y>
          <width>161</width>
          <height>22</height>
         </rect>
@@ -976,8 +976,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>300</y>
+         <x>190</x>
+         <y>330</y>
          <width>161</width>
          <height>21</height>
         </rect>
@@ -990,14 +990,14 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Seleccionado:</string>
+        <string>Cantidad:</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lePlannerDel">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>330</y>
+         <x>190</x>
+         <y>370</y>
          <width>161</width>
          <height>21</height>
         </rect>
@@ -1013,13 +1013,13 @@ color: rgb(0, 0, 0);</string>
         <number>10</number>
        </property>
        <property name="placeholderText">
-        <string>Cantidad a borrar...</string>
+        <string>Cantidad a borrar/agregar...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="btnDelPack">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>10</x>
          <y>410</y>
          <width>161</width>
          <height>31</height>
@@ -1051,7 +1051,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>240</y>
+         <y>270</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -1071,7 +1071,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>270</y>
+         <y>300</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -1098,7 +1098,7 @@ background-color: rgb(255, 255, 255);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>300</y>
+         <y>330</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -1114,11 +1114,11 @@ background-color: rgb(255, 255, 255);</string>
         <string>Cantidad paquetes</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_12">
+      <widget class="QPushButton" name="btnPlannerDel">
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>160</y>
+         <y>190</y>
          <width>161</width>
          <height>31</height>
         </rect>
@@ -1145,11 +1145,11 @@ background-color: rgb(255, 255, 255);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_13">
+      <widget class="QPushButton" name="btnAddPack">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>370</y>
+         <x>190</x>
+         <y>410</y>
          <width>161</width>
          <height>31</height>
         </rect>
@@ -1180,7 +1180,7 @@ background-color: rgb(255, 255, 255);</string>
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>330</y>
+         <y>370</y>
          <width>141</width>
          <height>21</height>
         </rect>
@@ -1201,6 +1201,49 @@ background-color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lePlannerAmount">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>160</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Cantidad...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_63">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>130</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cantidad galletas</string>
        </property>
       </widget>
      </widget>
@@ -1331,7 +1374,7 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_14">
+      <widget class="QPushButton" name="btnWHApply">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1735,7 +1778,7 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_15">
+      <widget class="QPushButton" name="btnCM2Apply">
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -2099,7 +2142,7 @@ color: rgb(0, 0, 0);</string>
         <string>Tiempo produccion...</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_16">
+      <widget class="QPushButton" name="btnDMApply">
        <property name="geometry">
         <rect>
          <x>180</x>
@@ -2463,7 +2506,7 @@ color: rgb(0, 0, 0);</string>
         <string>Produccion</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_17">
+      <widget class="QPushButton" name="btnCM1Apply">
        <property name="geometry">
         <rect>
          <x>180</x>

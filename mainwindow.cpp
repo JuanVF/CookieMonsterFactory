@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->leDMMax->setValidator(intVal);
     ui->leDMMin->setValidator(intVal);
     ui->leDMProd->setValidator(floatVal);
+    ui->lePlannerAmount->setValidator(intVal);
 }
 
 MainWindow::~MainWindow(){
@@ -80,6 +81,24 @@ void MainWindow::on_btnPause_clicked(){
     }
 }
 
+// Actualiza los datos del combo box del planner
+void setPlannerComboBox(Ui::MainWindow *ui){
+    QStringList list = QStringList();
+
+    ui->cbPlannerPacks->clear();
+
+    for (int i = 0; i < planner->packs->length; i++){
+        PlannerPacks * pack = planner->packs->get(i);
+        string name = pack->getName();
+
+        list.append(QString("").append(name.c_str()));
+    }
+
+    cout << endl;
+
+    ui->cbPlannerPacks->addItems(list);
+}
+
 // OnClicks de las maquinas
 void MainWindow::on_btnPlanner_clicked(){
     ui->swProperties->setCurrentIndex(0);
@@ -103,4 +122,131 @@ void MainWindow::on_btnChocMix1_clicked(){
 
 void MainWindow::on_btnAssembly_clicked(){
     ui->swProperties->setCurrentIndex(5);
+}
+
+// Setteo de los parametros de las maquinas
+
+/*
+ *  MAQUINA: Planner -es una persona pero bueh
+ * */
+void MainWindow::on_btnPlannerApply_clicked(){
+    double amountChocolate = util->toDouble(ui->lePlannerChoc->text().toStdString());
+    double amountDough = util->toDouble(ui->lePlannerDough->text().toStdString());
+
+    planner->recipe->setData(amountDough, amountChocolate);
+
+    QMessageBox msgBox;
+
+    msgBox.setText("Cambios hechos!");
+    msgBox.exec();
+}
+
+void MainWindow::on_btnPlannerAdd_clicked(){
+    string name = ui->lePlannerName->text().toStdString();
+    int amount = 0;
+
+    QMessageBox msgBox;
+
+    if (name == ""){
+        msgBox.setText("Introduzca el nombre del paquetes!");
+    } else if (ui->lePlannerAmount->text().toStdString() == ""){
+        msgBox.setText("Introduzca la cantidad de galletas!");
+    } else {
+        amount = util->toInt(ui->lePlannerAmount->text().toStdString());
+        bool added = planner->addPack(amount, name);
+
+        if (added){
+            msgBox.setText("Cambios hechos!");
+
+            ui->lePlannerAmount->setText(QString(""));
+            ui->lePlannerName->setText(QString(""));
+
+            setPlannerComboBox(ui);
+        } else {
+            msgBox.setText("El paquete ya existe!");
+        }
+    }
+
+    msgBox.exec();
+}
+
+void MainWindow::on_btnPlannerDel_clicked(){
+    string name = ui->lePlannerName->text().toStdString();
+
+    QMessageBox msgBox;
+
+    if (name == ""){
+        msgBox.setText("Introduzca el nombre del paquete!");
+
+    } else{
+        bool deleted = planner->removePack(name);
+
+        if (deleted){
+            msgBox.setText("Paquete eliminado!");
+            ui->lePlannerName->setText("");
+            setPlannerComboBox(ui);
+        }else {
+            msgBox.setText("El paquete no existe...");
+        }
+    }
+
+    msgBox.exec();
+}
+
+void MainWindow::on_btnAddPack_clicked(){
+    string amountTxt = ui->lePlannerDel->text().toStdString();
+    string name = ui->cbPlannerPacks->currentText().toStdString();
+
+    QMessageBox msgBox;
+
+    if (amountTxt == ""){
+        msgBox.setText("Ingrese una cantidad a agregar...");
+    } else if (name == ""){
+        msgBox.setText("Agregue paquetes al planeador...");
+    }else{
+        int amount = util->toInt(amountTxt);
+
+        PlannerPacks * pack = planner->findPack(name);
+
+        if (pack == NULL){
+            // En teoria nunca deberia llegar a esta parte...
+            // Pero esta bien tener la validacion en caso de bugs...
+            msgBox.setText("El paquete no existe...");
+        } else{
+            pack->addPacks(amount);
+            ui->lePlannerDel->setText("");
+            msgBox.setText("Cantidad de paquetes agregados!");
+        }
+    }
+
+    msgBox.exec();
+}
+
+void MainWindow::on_btnDelPack_clicked(){
+    string amountTxt = ui->lePlannerDel->text().toStdString();
+    string name = ui->cbPlannerPacks->currentText().toStdString();
+
+    QMessageBox msgBox;
+
+    if (amountTxt == ""){
+        msgBox.setText("Ingrese una cantidad a agregar...");
+    } else if (name == ""){
+        msgBox.setText("Agregue paquetes al planeador...");
+    }else{
+        int amount = util->toInt(amountTxt);
+
+        PlannerPacks * pack = planner->findPack(name);
+
+        if (pack == NULL){
+            // En teoria nunca deberia llegar a esta parte...
+            // Pero esta bien tener la validacion en caso de bugs...
+            msgBox.setText("El paquete no existe...");
+        } else{
+            pack->removePacks(amount);
+            ui->lePlannerDel->setText("");
+            msgBox.setText("Cantidad de paquetes removidos!");
+        }
+    }
+
+    msgBox.exec();
 }

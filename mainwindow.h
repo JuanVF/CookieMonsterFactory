@@ -32,6 +32,16 @@ private slots:
 
     void on_btnAssembly_clicked();
 
+    void on_btnPlannerApply_clicked();
+
+    void on_btnPlannerAdd_clicked();
+
+    void on_btnPlannerDel_clicked();
+
+    void on_btnAddPack_clicked();
+
+    void on_btnDelPack_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

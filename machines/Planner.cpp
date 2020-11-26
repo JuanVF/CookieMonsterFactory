@@ -36,6 +36,19 @@ bool Planner::addPack(int amountCookies, string name){
     return true;
 }
 
+// Esta funcion se encarga de remover un pack de la lista
+// Retorna true si se elimino, false de lo contrario
+bool Planner::removePack(string name){
+    for (int i = 0; i < packs->length; i++){
+        if (packs->get(i)->getName() == name){
+            packs->remove(i);
+            return true;
+        }
+    }
+
+    return false;
+}
+
 // Esta funcion permite settear la cantidad de paquetes a producir
 void Planner::setPackAmount(int amount, string name){
     PlannerPacks * pack = findPack(name);
@@ -55,7 +68,7 @@ PlannerPacks * Planner::findPack(string name){
     string currentName;
 
     for (int i = 0; i < packs->length; i++){
-        currentName = packs->get(i)->pack->name;
+        currentName = packs->get(i)->getName();
 
         if (currentName == name)
             return packs->get(i);

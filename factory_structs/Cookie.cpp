@@ -15,4 +15,10 @@ struct Cookie{
         amountDough = 0;
         amountChocolate = 0;
 	}	
+
+    // Permite settear los datos de la receta
+    void setData(double _amountDough, double _amountChocolate){
+        amountDough = _amountDough;
+        amountChocolate = _amountChocolate;
+    }
 };

@@ -15,6 +15,7 @@
 #include <pthread.h>
 #include <QRegularExpressionValidator>
 #include <QRegularExpression>
+#include <QMessageBox>
 
 // Definicion de variables
 
@@ -40,5 +41,4 @@ MixerMachine * doughMixer = new MixerMachine(warehouse, assembler, Dough);
 // El string con simbolos raros es el RegEx
 QRegularExpressionValidator * floatVal = new QRegularExpressionValidator(QRegularExpression("\\d+(\\.)?(\\d{1,5})?"), NULL);
 QRegularExpressionValidator * intVal = new QRegularExpressionValidator(QRegularExpression("\\d+"), NULL);
-
 #endif

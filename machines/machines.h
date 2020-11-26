@@ -27,6 +27,7 @@ struct Planner{
 
     void plan();
     bool addPack(int amountCookies, string name);
+    bool removePack(string name);
     void setPackAmount(int amount, string name);
     int getTotalCookies();
     PlannerPacks * findPack(string name);
