@@ -15,7 +15,12 @@ struct Oven{
 
     Oven(int _capacity, int _maxc, int _length){
         cookies = new BandasTransportadoras<Cookie *>(_maxc, _length);
+
         bandejas = new LinkedList<Bandeja *>();
+        for (int i=0; i<6; i++){
+            bandejas->add(new Bandeja());
+        }
+
         inspectores = new LinkedList<Inspectores *>();
         capacity = _capacity;
         totalCookiesCooked = 0;
