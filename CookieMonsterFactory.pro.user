@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.13.2, 2020-11-23T03:10:22. -->
+=======
+<!-- Written by QtCreator 4.13.2, 2020-11-25T16:59:19. -->
+>>>>>>> 210005feeb19b5c7379d9f51a98569bc18617755
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -75,8 +79,15 @@
    <valuemap type="QVariantMap" key="ClangTools">
     <value type="bool" key="ClangTools.BuildBeforeAnalysis">true</value>
     <value type="QString" key="ClangTools.DiagnosticConfig">Builtin.DefaultTidyAndClazy</value>
+<<<<<<< HEAD
     <value type="int" key="ClangTools.ParallelJobs">4</value>
     <valuelist type="QVariantList" key="ClangTools.SelectedDirs"/>
+=======
+    <value type="int" key="ClangTools.ParallelJobs">2</value>
+    <valuelist type="QVariantList" key="ClangTools.SelectedDirs">
+     <value type="QString">F:/TEC/II Semestre 2020/Estructuras de datos/Progras/CookieMonsterFactory/CookieMonsterFactory.pro</value>
+    </valuelist>
+>>>>>>> 210005feeb19b5c7379d9f51a98569bc18617755
     <valuelist type="QVariantList" key="ClangTools.SelectedFiles"/>
     <valuelist type="QVariantList" key="ClangTools.SuppressedDiagnostics"/>
     <value type="bool" key="ClangTools.UseGlobalSettings">true</value>

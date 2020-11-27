@@ -1,71 +1,78 @@
 #include <lists/CircularList.h>
 #include <factory_structs/Cookie.h>
 #include <factory_structs/PlannerPacks.h>
+#include <machines/machines.h>
 
-struct Planner{
-    CircularList<PlannerPacks *> * packs;
-    Cookie * recipe;
+// Constructores
+Planner::Planner(){
+    recipe = new Cookie();
+    packs = new CircularList<PlannerPacks *>();
 
-    int totalCookies;
+    totalCookies = 0;
+}
 
-    // Constructores
-    Planner(int amountDough, int amountChocolate){
-        recipe = new Cookie(amountDough, amountChocolate);
-        packs = new CircularList<PlannerPacks *>();
+// Funciones
 
-        totalCookies = 0;
+// Esta es la funcion que se va a encargar de planificar la cantidad total de chocolate y masa a producir
+// Tambien la cantidad total de galletas
+void Planner::plan(){
+    int amount, cookies;
+
+    for (int i = 0; i < packs->length; i++){
+        cookies = packs->get(i)->pack->amountCookies;
+        amount = packs->get(i)->amountPacks;
+
+        totalCookies += cookies * amount;
     }
+}
 
-    // Funciones
+// Esta funcion agrega un nuevo tipo de empaque al plan
+// Retorna true si se pudo agregar
+bool Planner::addPack(int amountCookies, string name){
+    if (findPack(name) != NULL) return false;
 
-    // Esta es la funcion que se va a encargar de planificar la cantidad total de chocolate y masa a producir
-    // Tambien la cantidad total de galletas
-    void plan(){
-        int amount, cookies;
+    packs->add(new PlannerPacks(name, amountCookies));
 
-        for (int i = 0; i < packs->length; i++){
-            cookies = packs->get(i)->pack->amountCookies;
-            amount = packs->get(i)->amountPacks;
+    return true;
+}
 
-            totalCookies += cookies * amount;
+// Esta funcion se encarga de remover un pack de la lista
+// Retorna true si se elimino, false de lo contrario
+bool Planner::removePack(string name){
+    for (int i = 0; i < packs->length; i++){
+        if (packs->get(i)->getName() == name){
+            packs->remove(i);
+            return true;
         }
     }
 
-    // Esta funcion agrega un nuevo tipo de empaque al plan
-    // Retorna true si se pudo agregar
-    bool addPack(int amountCookies, string name){
-        if (findPack(name) != NULL) return false;
+    return false;
+}
 
-        packs->add(new PlannerPacks(name, amountCookies));
+// Esta funcion permite settear la cantidad de paquetes a producir
+void Planner::setPackAmount(int amount, string name){
+    PlannerPacks * pack = findPack(name);
 
-        return true;
+    if (pack == NULL) return;
+
+    pack->addPacks(amount);
+}
+
+// Retorna el total de galletas
+int Planner::getTotalCookies(){
+    return totalCookies;
+}
+
+// Esta funcion busca un pack por su nombre y lo retorna
+PlannerPacks * Planner::findPack(string name){
+    string currentName;
+
+    for (int i = 0; i < packs->length; i++){
+        currentName = packs->get(i)->getName();
+
+        if (currentName == name)
+            return packs->get(i);
     }
 
-    // Esta funcion permite settear la cantidad de paquetes a producir
-    void setPackAmount(int amount, string name){
-        PlannerPacks * pack = findPack(name);
-
-        if (pack == NULL) return;
-
-        pack->addPacks(amount);
-    }
-
-    // Retorna el total de galletas
-    int getTotalCookies(){
-        return totalCookies;
-    }
-
-    // Esta funcion busca un pack por su nombre y lo retorna
-    PlannerPacks * findPack(string name){
-        string currentName;
-
-        for (int i = 0; i < packs->length; i++){
-            currentName = packs->get(i)->pack->name;
-
-            if (currentName == name)
-                return packs->get(i);
-        }
-
-        return NULL;
-    }
-};
+    return NULL;
+}

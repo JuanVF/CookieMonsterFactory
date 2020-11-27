@@ -25,16 +25,19 @@ SOURCES += \
     lists/Queue.cpp \
     lists/node.cpp \
     machines/Deposit.cpp \
+    machines/Assembler.cpp \
     machines/MixerMachine.cpp \
     machines/Oven.cpp \
     machines/Packer.cpp \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    view/animations.cpp
 
 HEADERS += \
     Util.h \
+    enums.h \
     factory_structs/BandasTransportadoras.h \
     factory_structs/Bandeja.h \
     factory_structs/Cookie.h \
@@ -52,13 +55,16 @@ HEADERS += \
     lists/dataStructures.h \
     lists/node.h \
     machines/Deposit.h \
+    machines/Assembler.h \
     machines/MixerMachine.h \
     machines/Oven.h \
     machines/Packer.h \
     machines/Planner.h \
     machines/Warehouse.h \
     machines/machines.h \
-    mainwindow.h
+    mainwindow.h \
+    mainwindowdata.h \
+    view/animations.h
 
 FORMS += \
     mainwindow.ui
@@ -72,3 +78,7 @@ DISTFILES += \
     .gitignore \
     README.md \
     xd.txt
+
+RESOURCES += \
+    images.qrc
+

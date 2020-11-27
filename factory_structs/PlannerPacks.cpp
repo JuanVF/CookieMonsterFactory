@@ -28,6 +28,10 @@ struct PlannerPacks{
         amountPacks = (amountPacks < 0) ? 0 : amountPacks;
     }
 
+    string getName(){
+        return pack->name;
+    }
+
     void changeName(string name){
         pack->name = name;
     }

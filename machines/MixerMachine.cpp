@@ -1,62 +1,77 @@
 #include <lists/Queue.h>
 #include <factory_structs/factoryStructs.h>
-#include <machines/Warehouse.h>
+#include <machines/machines.h>
+#include <enums.h>
 
-struct MixerMachine{
-    // Capacidad minima y maxima de la mezcladora
-    int min;
-    int max;
-    int id;
+// Constructor
+MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type){
+    delay = 0;
+    min = 0;
+    max = 0;
+    amount = 0;
 
-    double delay; // Tiempo que duran mezclando
+    isRunning = false;
 
-    int type; // Si es 0 es de chocolate, si es 1 es de masa
-    int amount; // Es la cantidad de masa o chocolate que tiene la mezcladora
+    type = _type;
+    warehouse = _warehouse;
+    assembler = _assembler;
 
-    WareHouse * warehouse;
-    Queue<Request *> * requests;
+    requests = new Queue<Request *>();
+}
 
-    // Constructor
-    MixerMachine(WareHouse * _warehouse, int _id, double _delay, int _min, int _max, int _type){
-        delay = _delay;
-        min = _min;
-        max = _max;
-        type = _type;
-        amount = 0;
-        id = _id;
+// Funciones
 
-        warehouse = _warehouse;
-        requests = new Queue<Request *>();
+// Esta es la funcion que se va encargar de mezclar
+void MixerMachine::mix(){
+    // Al principio va a hacer el primer pedido
+    // Y va a esperar que llegue
+    if (isRunning && needsIngredient()){
+        makeRequest();
+        while(requests->isEmpty());
     }
 
-    // Funciones
+    // Ciclo de mezcla
+    while(isRunning){
+        if (!needsIngredient()){
+            amount -= capacity;
 
-    // Esta es la funcion que se va encargar de mezclar
-    void mix(){
-
+            send(capacity);
+        }else{
+            makeRequest();
+        }
     }
+}
 
-    // Esta funcion recibe la solicitud que le hizo al almacen
-    void receive(int received){
-        amount += received;
+// Esta funcion envia datos a la ensambladora
+void MixerMachine::send(int amount){
+    bool wasSended = assembler->receive(type, amount);
 
-        // Se limita por si se llega al maximo
-        if (amount > max) amount = max;
-
-        requests->dequeue();
+    // Si la banda transportadora se llena la maquina se apaga
+    if (!wasSended){
+        isRunning = false;
     }
+}
 
-    // Esta funcion hace una peticion al almacen
-    void makeRequest(){
-        int toRequest = max - amount;
+// Esta funcion recibe la solicitud que le hizo al almacen
+void MixerMachine::receive(int received){
+    amount += received;
 
-        Request * req = warehouse->makeRequest(this, toRequest);
+    // Se limita por si se llega al maximo
+    if (amount > max) amount = max;
 
-        requests->enqueue(req);
-    }
+    requests->dequeue();
+}
 
-    // Retorna true si necesita ingrediente
-    bool needsIngredient(){
-        return amount < max;
-    }
-};
+// Esta funcion hace una peticion al almacen
+void MixerMachine::makeRequest(){
+    int toRequest = max - amount;
+
+    Request * req = warehouse->makeRequest(this, toRequest);
+
+    requests->enqueue(req);
+}
+
+// Retorna true si necesita ingrediente
+bool MixerMachine::needsIngredient(){
+    return amount < max || amount - capacity < max;
+}

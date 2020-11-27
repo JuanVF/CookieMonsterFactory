@@ -1,0 +1,23 @@
+<RCC>
+    <qresource prefix="/imgs">
+        <file>images/OvenQueue/oven-queue.svg</file>
+        <file>images/OvenQueue/oven-queue2.svg</file>
+        <file>images/OvenQueue/oven-queue3.svg</file>
+        <file>images/OvenQueue/oven-queue4.svg</file>
+        <file>images/construction-and-tools.svg</file>
+        <file>images/conveyor.svg</file>
+        <file>images/delivery-box.svg</file>
+        <file>images/mixer-blender.svg</file>
+        <file>images/mixer-blender2.svg</file>
+        <file>images/mixer-queue.gif</file>
+        <file>images/oven-queue-2.svg</file>
+        <file>images/oven.svg</file>
+        <file>images/pause-button-off.svg</file>
+        <file>images/pause-button-on.svg</file>
+        <file>images/power-button.svg</file>
+        <file>images/power.svg</file>
+        <file>images/small.svg</file>
+        <file>images/trolley.svg</file>
+        <file>images/warehouse-queue.svg</file>
+    </qresource>
+</RCC>
