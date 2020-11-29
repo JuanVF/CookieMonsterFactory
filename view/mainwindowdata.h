@@ -28,10 +28,7 @@ Util * util = new Util();
 
 pthread_t animation_thread; // Este es el hilo en el corren las animaciones
 pthread_t ui_thread; // Este hilo es para los cambios en la UI
-pthread_t wh_thread; // Este hilo es para el almacen/carrito
-pthread_t cm1_thread; // Este hilo es para la mezcladora de chocolate #1
-pthread_t cm2_thread; // Este hilo es para la mezcladora de chocolate #2
-pthread_t dm_thread; // Este hilo es para la mezcladora de masa
+pthread_t machines_thread; // Este hilo es para los cambios en la UI
 
 // Aqui se inicializan las maquinas
 Planner * planner = new Planner();

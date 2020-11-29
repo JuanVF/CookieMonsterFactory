@@ -2,7 +2,11 @@
 #include <factory_structs/factoryStructs.h>
 #include <machines/machines.h>
 #include <enums.h>
-#include <Util.h>
+
+#ifndef TIME_H
+#define TIME_H
+#include <time.h>
+#endif
 
 // Constructor
 MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string _name){
@@ -14,6 +18,7 @@ MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, Mixer
     capacity = 0;
 
     isRunning = false;
+    started = clock();
 
     type = _type;
     warehouse = _warehouse;
@@ -32,25 +37,18 @@ void MixerMachine::setData(int _min, int _max, int _capacity, double _delay){
 
 // Esta es la funcion que se va encargar de mezclar
 void MixerMachine::mix(){
-    Util * util = new Util();
+    bool canStart = (started + delay * 1000 - clock()) < 0;
 
     // Al principio va a hacer el primer pedido
     // Y va a esperar que llegue
-    if (isRunning && needsIngredient()){
+    if (!needsIngredient() && canStart){
+        started = clock();
+        amount -= capacity;
+
+        cout << name << " esta cocinando..." << endl;
+        send(capacity);
+    }else if (requests->isEmpty()){
         makeRequest();
-    }
-
-    while(isRunning){
-        if (!needsIngredient()){
-            amount -= capacity;
-
-            cout << type << " esta cocinando..." << endl;
-            send(capacity);
-        }else{
-            makeRequest();
-        }
-
-        util->delay(1/60);
     }
 }
 
@@ -67,6 +65,7 @@ void MixerMachine::send(int amount){
 // Esta funcion recibe la solicitud que le hizo al almacen
 void MixerMachine::receive(int received){
     amount += received;
+    cout << name << " ha recibido " << received << endl;
 
     // Se limita por si se llega al maximo
     if (amount > max) amount = max;
@@ -77,6 +76,7 @@ void MixerMachine::receive(int received){
 // Esta funcion hace una peticion al almacen
 void MixerMachine::makeRequest(){
     int toRequest = max - amount;
+    cout << name << " ha hecho un pedido de " << toRequest << endl;
 
     Request * req = warehouse->makeRequest(this, toRequest);
 
@@ -85,5 +85,5 @@ void MixerMachine::makeRequest(){
 
 // Retorna true si necesita ingrediente
 bool MixerMachine::needsIngredient(){
-    return amount < max || amount - capacity < max;
+    return amount - capacity <= 0;
 }

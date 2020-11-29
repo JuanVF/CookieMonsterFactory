@@ -19,6 +19,7 @@ void WareHouse::setData(double _delay, int _capacity){
 
 // Permite al mixer machine hacer pedidos
 Request * WareHouse::makeRequest(MixerMachine * mixer, int amount){
+    cout << "Se ha solicitado: " << amount << " por parte de " << mixer->name << endl;
     Request * req = new Request(mixer, amount);
     isRunning = false;
 
@@ -54,14 +55,7 @@ void WareHouse::sendRequest(){
 // Esta es la funcion que se esta ejecutando para estar verificando
 // Los pedidos
 void WareHouse::checking(){
-    Util * util = new Util();
-
-    while(isRunning){
-        if (!requests->isEmpty()){
-            cout << "El almacen esta enviando..." << endl;
-            sendRequest();
-        }
-
-        util->delay(1/60);
+    if (!requests->isEmpty()){
+        sendRequest();
     }
 }

@@ -53,11 +53,11 @@ struct MixerMachine{
     int min;
     int max;
     int capacity;
-
     string name;
-
     double delay; // Tiempo que duran mezclando
     bool isRunning;
+
+    clock_t started;
 
     MixerType type;
     int amount; // Es la cantidad de masa o chocolate que tiene la mezcladora

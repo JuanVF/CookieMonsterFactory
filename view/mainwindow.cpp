@@ -58,9 +58,14 @@ void initComponents(Ui::MainWindow * ui){
     ui->lePlannerAmount->setValidator(intVal);
 }
 
-// Funcion donde se van a estar cambiando cosas en la UI
-void * ui_set_thread(void * args){
-    Ui::MainWindow * ui = (Ui::MainWindow *) args;
+// Funcion que se va a encargar de encender todas las maquinas
+void setup(Ui::MainWindow * ui){
+    // Como el planner no cambia no es necesario que tenga un hilo
+    planner->plan();
+    ui->lbPlannerCookies->setText(to_string(planner->getTotalCookies()).c_str());
+
+    pthread_create(&machines_thread, NULL, machines_thread_run, NULL);
+    //pthread_create(&animation_thread, NULL, ovenQueueAnimation, (void *) ui->lbChocolateQueue);
 
     int whRequest = warehouse->requests->length;
 
@@ -72,45 +77,12 @@ void * ui_set_thread(void * args){
 
         util->delay(1/60);
     }
-
-    warehouse->isRunning = false;
-    chocolateMixer1->isRunning = false;
-    chocolateMixer2->isRunning = false;
-    doughMixer->isRunning = false;
-    assembler->isRunning = false;
-
-    return (void *) 0;
-}
-
-// Funcion que se va a encargar de encender todas las maquinas
-void setup(Ui::MainWindow * ui){
-    // Como el planner no cambia no es necesario que tenga un hilo
-    planner->plan();
-    ui->lbPlannerCookies->setText(to_string(planner->getTotalCookies()).c_str());
-
-    warehouse->isRunning = true;
-    chocolateMixer1->isRunning = true;
-    chocolateMixer2->isRunning = true;
-    doughMixer->isRunning = true;
-    assembler->isRunning = true;
-
-    pthread_create(&wh_thread, NULL, wh_thread_run, NULL);
-    pthread_create(&cm1_thread, NULL, cm1_thread_run, NULL);
-    pthread_create(&cm2_thread, NULL, cm2_thread_run, NULL);
-    pthread_create(&dm_thread, NULL, dm_thread_run, NULL);
-    pthread_create(&ui_thread, NULL, ui_set_thread, (void *) ui);
-    //pthread_create(&animation_thread, NULL, ovenQueueAnimation, (void *) ui->lbChocolateQueue);
 }
 
 void MainWindow::on_btnTurnOn_clicked(){
     if (isTurnedOn){
         turnOffAnimation(ui->btnTurnOn, ui->btnPause, ui->lbStatus);
         isInPause = false;
-        warehouse->isRunning = false;
-        chocolateMixer1->isRunning = false;
-        chocolateMixer2->isRunning = false;
-        doughMixer->isRunning = false;
-        assembler->isRunning = false;
     }else if (!isInPause){
         turnOnAnimation(ui->btnTurnOn, ui->lbStatus);
         setup(ui);
