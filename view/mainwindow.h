@@ -42,6 +42,16 @@ private slots:
 
     void on_btnDelPack_clicked();
 
+    void on_btnWHApply_clicked();
+
+    void on_btnCM2Apply_clicked();
+
+    void on_btnDMApply_clicked();
+
+    void on_btnCM1Apply_clicked();
+
+    void on_btnAsmApply_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

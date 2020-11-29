@@ -17,8 +17,8 @@ struct Queue{
 		length = 1;
 	}
 	
-	// Funciones
-	
+    // Funciones
+
 	// Retorna true si la lista esta vacia
 	bool isEmpty(){
 		return length == 0;
@@ -79,6 +79,7 @@ struct Queue{
 	}
 	
 	// Imprime la cola
+    // debug only
 	void print(){
 		cout << "[ ";
 		

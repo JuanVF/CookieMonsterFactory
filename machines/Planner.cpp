@@ -17,6 +17,7 @@ Planner::Planner(){
 // Tambien la cantidad total de galletas
 void Planner::plan(){
     int amount, cookies;
+    totalCookies = 0;
 
     for (int i = 0; i < packs->length; i++){
         cookies = packs->get(i)->pack->amountCookies;

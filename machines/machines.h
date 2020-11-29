@@ -11,6 +11,7 @@ using namespace std;
 
 #ifndef MACHINES_H
 #define MACHINES_H
+
 struct Planner;
 struct MixerMachine;
 struct WareHouse;
@@ -37,9 +38,12 @@ struct WareHouse{
     DeliveryCar * car;
     Queue<Request*> * requests;
     bool isRunning;
+    bool hasChanged;
 
     WareHouse();
+    void setData(double delay, int capacity);
     Request * makeRequest(MixerMachine * mixer, int amount);
+    string requestsInfo();
     void sendRequest();
     void checking();
 };
@@ -49,6 +53,8 @@ struct MixerMachine{
     int min;
     int max;
     int capacity;
+
+    string name;
 
     double delay; // Tiempo que duran mezclando
     bool isRunning;
@@ -61,8 +67,9 @@ struct MixerMachine{
 
     Queue<Request *> * requests;
 
-    MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type);
+    MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string name);
     void mix();
+    void setData(int min, int max, int capacity, double delay);
     void receive(int received);
     void send(int amount);
     void makeRequest();
@@ -74,6 +81,7 @@ struct Assembler{
     double delay;
 
     int assembledCookies;
+    int capacity;
 
     Util * util;
 
@@ -81,6 +89,8 @@ struct Assembler{
     BandasTransportadoras<int> * chocolate;
 
     Assembler();
+
+    void setData(int _dough, int _choc, double _delay, int _capacity);
 
     bool receive(MixerType type, int amount);
     void send();

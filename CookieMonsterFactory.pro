@@ -28,8 +28,9 @@ SOURCES += \
     machines/Planner.cpp \
     machines/Warehouse.cpp \
     main.cpp \
-    mainwindow.cpp \
-    view/animations.cpp
+    view/mainwindow.cpp \
+    view/animations.cpp \
+    view/threads.cpp
 
 HEADERS += \
     Util.h \
@@ -54,12 +55,13 @@ HEADERS += \
     machines/Planner.h \
     machines/Warehouse.h \
     machines/machines.h \
-    mainwindow.h \
-    mainwindowdata.h \
-    view/animations.h
+    view/mainwindow.h \
+    view/mainwindowdata.h \
+    view/animations.h \
+    view/threads.h
 
 FORMS += \
-    mainwindow.ui
+    view/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

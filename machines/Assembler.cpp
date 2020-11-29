@@ -2,6 +2,11 @@
 #include <factory_structs/BandasTransportadoras.h>
 #include <enums.h>
 
+#ifndef TIME_H
+#define TIME_H
+#include <time.h>
+#endif
+
 // Constructor
 Assembler::Assembler(){
     delay = 0;
@@ -9,6 +14,13 @@ Assembler::Assembler(){
 
     dough = new BandasTransportadoras<int>(0);
     chocolate = new BandasTransportadoras<int>(0);
+}
+
+void Assembler::setData(int _dough, int _choc, double _delay, int _capacity){
+    dough->maxCapacity = _dough;
+    chocolate->maxCapacity = _choc;
+    delay = _delay;
+    capacity = _capacity;
 }
 
 // Aqui se reciben los datos para mezclar

@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>5</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -1067,7 +1067,7 @@ color: rgb(0, 0, 0);</string>
         <string>Total de galletas:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_18">
+      <widget class="QLabel" name="lbPlannerCookies">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1176,7 +1176,7 @@ background-color: rgb(255, 255, 255);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="lbPlannerPackAmount">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1406,7 +1406,7 @@ selection-color: rgb(40, 49, 73);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="lbCarQueue">
        <property name="geometry">
         <rect>
          <x>20</x>

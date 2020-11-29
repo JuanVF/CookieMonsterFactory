@@ -1,9 +1,10 @@
-#include "mainwindow.h"
+#include "view/mainwindow.h"
 #include <QApplication>
 
 #include <Util.h>
 #include <iostream>
 using namespace std;
+
 
 int main(int argc, char *argv[])
 {

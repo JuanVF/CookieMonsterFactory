@@ -20,9 +20,18 @@ struct DeliveryCar{
     // Funciones
 
     // Esta funcion le envia el pedido a la maquina mezcladora
-    void deliver(Request * request){
+    bool deliver(Request * request){
         utils->delay(delay);
 
-        request->mixer->receive(request->amount);
+        int amount = request->amount;
+
+        if (amount >= capacity){
+            amount = capacity;
+            request->amount -= capacity;
+        }
+
+        request->mixer->receive(amount);
+
+        return amount < capacity;
     }
 };
