@@ -10,9 +10,15 @@ struct Cookie{
 	int amountChocolate;
 	string measure;
 	
-	Cookie(int dough, int chocolate){
+    Cookie(){
 		measure = "gramos";
-		amountDough = dough;
-		amountChocolate = chocolate;
+        amountDough = 0;
+        amountChocolate = 0;
 	}	
+
+    // Permite settear los datos de la receta
+    void setData(double _amountDough, double _amountChocolate){
+        amountDough = _amountDough;
+        amountChocolate = _amountChocolate;
+    }
 };

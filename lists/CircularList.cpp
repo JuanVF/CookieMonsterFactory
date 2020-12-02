@@ -134,9 +134,11 @@ struct CircularList{
 	
 	// Remueve el primero de la lista
 	Data removeFirst(){
-		if (isEmpty()) return NULL;
+        if (isEmpty()) return NULL;
 		
-		Node<Data> * removed = firstNode;
+        Node<Data> * removed = firstNode;
+
+        firstNode = removed->next;
 		
 		removed->prev->next = removed->next;
 		removed->next->prev = removed->prev;

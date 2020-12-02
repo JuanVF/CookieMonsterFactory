@@ -1,19 +1,14 @@
 #include "mainwindow.h"
 #include <QApplication>
 
-#include <lists/dataStructures.h>
-#include <machines/machines.h>
-#include <factory_structs/factoryStructs.h>
-
-#include <machines/Planner.h>
-#include <machines/Warehouse.h>
-#include <machines/MixerMachine.h>
+#include <Util.h>
+#include <iostream>
+using namespace std;
 
 int main(int argc, char *argv[])
 {
-    return 0;
-    //QApplication a(argc, argv);
-    //MainWindow w;
-    //w.show();
-    //return a.exec();
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+    return a.exec();
 }

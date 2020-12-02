@@ -1,11 +1,12 @@
 #include <factory_structs/CookiePack.h>
+#include <factory_structs/PlannerPacks.h>
 #include <lists/LinkedList.h>
 
 struct Transportador{
-	LinkedList<CookiePack*> * packagesType;
+    LinkedList<PlannerPacks*> * packagesType;
 	
 	Transportador(){
-		packagesType = new  LinkedList<CookiePack*>();
+        packagesType = new  LinkedList<PlannerPacks*>();
 	}
 	
 };
