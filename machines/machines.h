@@ -14,6 +14,9 @@ using namespace std;
 
 struct Planner;
 struct MixerMachine;
+struct Oven;
+struct Packer;
+struct Deposit;
 struct WareHouse;
 struct Assembler;
 
@@ -100,4 +103,57 @@ struct Assembler{
     void assembly();
 };
 
+struct Oven{
+    BandasTransportadoras<Cookie *> *bandaEntrada;
+    LinkedList<Bandeja *> *bandejas ;
+    BandasTransportadoras<Cookie *> *bandaSalida ;
+    LinkedList<Inspectores *> * inspectores;
+
+    int capacity;
+    int cookiesCooked;
+    double delay;
+    bool isRunning;
+
+    Cronometro * cronometro;
+
+    Oven(int capacidadHorno, int capacidadBanda, double _delay);
+
+    void restartOven();
+    void addCookiesToTrays(int num);
+    void modifyCapacity(int newCap);
+    int galletasHorneadas();
+    int send(int waitingTime);
+
+};
+
+struct Packer{
+    int capacity;
+    int content;
+    bool isRunning;
+
+    Planner * planner;
+
+    Packer(int _c, Planner * planner);
+
+    void addCapacity(int new_capacity);
+    void destroyContent();
+    int sobrante(int received);
+    void receive(int received);
+    void send();;
+
+};
+
+struct Deposit{
+    LinkedList<CookiePack *>* galletas;
+    int amountProduced;
+    bool isRunning;
+
+    Deposit();
+
+    void defineAmountProduced(int num);
+    void addToDeposit(int num);
+    int totalInDeposit();
+};
+
 #endif
+
