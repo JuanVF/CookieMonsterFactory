@@ -148,7 +148,7 @@ void MainWindow::on_btnChocMix2_clicked(){
     ui->leCM2Max->setText(to_string(chocolateMixer2->max).c_str());
     ui->leCM2Prod->setText(to_string(chocolateMixer2->capacity).c_str());
     ui->leCM2Delay->setText(to_string(chocolateMixer2->delay).c_str());
-    ui->swProperties->setCurrentIndex(2);
+    ui->swProperties->setCurrentIndex(4);
 }
 
 void MainWindow::on_btnDoughMix_clicked(){
@@ -164,7 +164,7 @@ void MainWindow::on_btnChocMix1_clicked(){
     ui->leDMMax->setText(to_string(doughMixer->max).c_str());
     ui->leDMProd->setText(to_string(doughMixer->capacity).c_str());
     ui->leDMDelay->setText(to_string(doughMixer->delay).c_str());
-    ui->swProperties->setCurrentIndex(4);
+    ui->swProperties->setCurrentIndex(2);
 }
 
 void MainWindow::on_btnAssembly_clicked(){
@@ -174,6 +174,14 @@ void MainWindow::on_btnAssembly_clicked(){
     ui->leAsmDelay->setText(to_string(assembler->delay).c_str());
     ui->swProperties->setCurrentIndex(5);
 
+}
+
+void MainWindow::on_btnOven_clicked(){
+    ui->swProperties->setCurrentIndex(6);
+}
+
+void MainWindow::on_btnPacker_clicked(){
+    ui->swProperties->setCurrentIndex(7);
 }
 
 // Setteo de los parametros de las maquinas

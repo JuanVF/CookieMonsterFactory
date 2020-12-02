@@ -2,6 +2,7 @@
 #include <factory_structs/factoryStructs.h>
 #include <enums.h>
 #include <Util.h>
+#include <lists/CircularList.h>
 
 #ifndef IOSTREAM_H
 #define IOSTREAM_H

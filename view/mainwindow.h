@@ -52,6 +52,10 @@ private slots:
 
     void on_btnAsmApply_clicked();
 
+    void on_btnOven_clicked();
+
+    void on_btnPacker_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
