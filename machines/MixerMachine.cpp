@@ -1,12 +1,9 @@
+#include <lists/LinkedList.h>
 #include <lists/Queue.h>
 #include <factory_structs/factoryStructs.h>
 #include <machines/machines.h>
+#include <factory_structs/Request.h>
 #include <enums.h>
-
-#ifndef TIME_H
-#define TIME_H
-#include <time.h>
-#endif
 
 // Constructor
 MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string _name){
@@ -25,6 +22,7 @@ MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, Mixer
     assembler = _assembler;
 
     requests = new Queue<Request *>();
+    processed = new LinkedList<Request *>();
 }
 
 // Funciones
@@ -47,7 +45,7 @@ void MixerMachine::mix(){
 
         cout << name << " esta cocinando..." << endl;
         send(capacity);
-    }else if (requests->isEmpty()){
+    }else if (requests->isEmpty() && needsIngredient()){
         makeRequest();
     }
 }
@@ -70,7 +68,7 @@ void MixerMachine::receive(int received){
     // Se limita por si se llega al maximo
     if (amount > max) amount = max;
 
-    requests->dequeue();
+    processed->add(requests->dequeue());
 }
 
 // Esta funcion hace una peticion al almacen
@@ -86,4 +84,34 @@ void MixerMachine::makeRequest(){
 // Retorna true si necesita ingrediente
 bool MixerMachine::needsIngredient(){
     return amount - capacity <= 0;
+}
+
+// Retorna info necesaria para la UI
+string MixerMachine::requestsPendingInfo(){
+    string data = "";
+    Node<Request *> * temp = requests->tail;
+
+    if (temp == NULL) return data;
+
+    for (int i = 0; i < requests->length; i++){
+        data += temp->data->toString();
+        temp = temp->next;
+    }
+
+    return data;
+}
+
+// Retorna info necesaria para la UI
+string MixerMachine::requestsProcessedInfo(){
+    string data = "";
+    Node<Request *> * temp = processed->firstNode;
+
+    if (temp == NULL) return data;
+
+    for (int i = 0; i < processed->length; i++){
+        data += temp->data->toString();
+        temp = temp->next;
+    }
+
+    return data;
 }

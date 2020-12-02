@@ -66,6 +66,7 @@ struct MixerMachine{
     Assembler * assembler;
 
     Queue<Request *> * requests;
+    LinkedList<Request *> * processed;
 
     MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string name);
     void mix();
@@ -74,6 +75,8 @@ struct MixerMachine{
     void send(int amount);
     void makeRequest();
     bool needsIngredient();
+    string requestsProcessedInfo();
+    string requestsPendingInfo();
 };
 
 struct Assembler{

@@ -3,15 +3,15 @@
 #include <view/mainwindowdata.h>
 #include <view/animations.h>
 #include <view/threads.h>
+#include <QMutex>
 
 #include <string>
 
 void initComponents(Ui::MainWindow * ui);
 
-// Retorna un string con el texto de un lineedit
-string getText(QLineEdit * le){
-    return le->text().toStdString();
-}
+Machines machines;
+UIThread uiThread;
+QMutex app_mutex;
 
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow){
     ui->setupUi(this);
@@ -26,6 +26,23 @@ MainWindow::~MainWindow(){
 
 // Inicializa algunos componentes
 void initComponents(Ui::MainWindow * ui){
+    // Algunos componentes que necesitan los hilos
+    LinkedList<QPlainTextEdit *> * textEdits = new LinkedList<QPlainTextEdit *>();
+
+    textEdits->add(ui->lbCarQueue);
+
+    textEdits->add(ui->teCM1Pending);
+    textEdits->add(ui->teCM1Processed);
+
+    textEdits->add(ui->teCM2Pending);
+    textEdits->add(ui->teCM2Processed);
+
+    textEdits->add(ui->teDMPending);
+    textEdits->add(ui->teDMProcessed);
+
+    uiThread.init(textEdits, &app_mutex);
+    machines.init(&app_mutex);
+
     // Estos son validaciones para evitar que el usuario
     // Meta letras donde solo van numeros
     // Se usan Regular Expressions para hacer las validaciones
@@ -60,23 +77,8 @@ void initComponents(Ui::MainWindow * ui){
 
 // Funcion que se va a encargar de encender todas las maquinas
 void setup(Ui::MainWindow * ui){
-    // Como el planner no cambia no es necesario que tenga un hilo
-    planner->plan();
-    ui->lbPlannerCookies->setText(to_string(planner->getTotalCookies()).c_str());
-
-    pthread_create(&machines_thread, NULL, machines_thread_run, NULL);
-    //pthread_create(&animation_thread, NULL, ovenQueueAnimation, (void *) ui->lbChocolateQueue);
-
-    int whRequest = warehouse->requests->length;
-
-    while(isTurnedOn) if (!isInPause){
-        if (whRequest != warehouse->requests->length){
-            cout << warehouse->requestsInfo() << endl;
-            ui->lbCarQueue->setPlainText(warehouse->requestsInfo().c_str());
-        }
-
-        util->delay(1/60);
-    }
+    machines.start();
+    uiThread.start();
 }
 
 void MainWindow::on_btnTurnOn_clicked(){
@@ -101,6 +103,11 @@ void MainWindow::on_btnPause_clicked(){
 
         isInPause = !isInPause;
     }
+}
+
+// Retorna un string con el texto de un lineedit
+string getText(QLineEdit * le){
+    return le->text().toStdString();
 }
 
 // Actualiza los datos del combo box del planner
@@ -270,6 +277,9 @@ void MainWindow::on_btnAddPack_clicked(){
             pack->addPacks(amount);
             ui->lePlannerDel->setText("");
             msgBox.setText("Cantidad de paquetes agregados!");
+
+            planner->plan();
+            ui->lbPlannerCookies->setText(to_string(planner->getTotalCookies()).c_str());
         }
     }
 
@@ -299,6 +309,9 @@ void MainWindow::on_btnDelPack_clicked(){
             pack->removePacks(amount);
             ui->lePlannerDel->setText("");
             msgBox.setText("Cantidad de paquetes removidos!");
+
+            planner->plan();
+            ui->lbPlannerCookies->setText(to_string(planner->getTotalCookies()).c_str());
         }
     }
 

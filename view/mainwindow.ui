@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>5</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -1720,7 +1720,7 @@ color: rgb(0, 0, 0);</string>
         <string>Peticiones pendientes:</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <widget class="QPlainTextEdit" name="teCM2Pending">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1733,7 +1733,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -1759,7 +1760,7 @@ color: rgb(0, 0, 0);</string>
         <string>Peticiones procesadas:</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_3">
+      <widget class="QPlainTextEdit" name="teCM2Processed">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1772,7 +1773,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -1878,7 +1880,7 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad minima...</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_4">
+      <widget class="QPlainTextEdit" name="teDMPending">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1891,7 +1893,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -1957,7 +1960,7 @@ color: rgb(0, 0, 0);</string>
         <string>Detalles</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_5">
+      <widget class="QPlainTextEdit" name="teDMProcessed">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -1970,7 +1973,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -2199,7 +2203,7 @@ color: rgb(0, 0, 0);</string>
         <string>Tiempo produccion...</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_7">
+      <widget class="QPlainTextEdit" name="teCM1Processed">
        <property name="geometry">
         <rect>
          <x>190</x>
@@ -2212,7 +2216,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -2404,7 +2409,7 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad Max:</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_6">
+      <widget class="QPlainTextEdit" name="teCM1Pending">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -2417,7 +2422,8 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>

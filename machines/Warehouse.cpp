@@ -31,12 +31,13 @@ Request * WareHouse::makeRequest(MixerMachine * mixer, int amount){
 // Esto le brinda a la UI un string con la info de los strings
 string WareHouse::requestsInfo(){
     string data = "";
-    Node<Request *> * temp;
+    Node<Request *> * temp = requests->tail;
+
+    if (temp == NULL) return "";
 
     for (int i = 0; i < requests->length; i++){
-        temp = requests->tail;
-
         data += temp->data->toString();
+        temp = temp->next;
     }
 
     return data;

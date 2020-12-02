@@ -21,7 +21,7 @@ struct Queue{
 
 	// Retorna true si la lista esta vacia
 	bool isEmpty(){
-		return length == 0;
+        return length == 0 || tail == NULL;
 	}
 	
 	// Encola un elemento
