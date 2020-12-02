@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>6</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -939,7 +939,7 @@ selection-color: rgb(40, 49, 73);</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>180</x>
          <y>270</y>
          <width>161</width>
          <height>21</height>
@@ -959,7 +959,7 @@ selection-color: rgb(40, 49, 73);</string>
       <widget class="QComboBox" name="cbPlannerPacks">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>300</y>
          <width>161</width>
          <height>22</height>
@@ -976,7 +976,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>330</y>
          <width>161</width>
          <height>21</height>
@@ -996,7 +996,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="lePlannerDel">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>370</y>
          <width>161</width>
          <height>21</height>
@@ -1779,7 +1779,7 @@ color: rgb(0, 0, 0);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPushButton" name="btnCM2Apply">
+      <widget class="QPushButton" name="btnCM1Apply">
        <property name="geometry">
         <rect>
          <x>180</x>

@@ -386,6 +386,7 @@ void setMixer(MixerMachine * mixer, QLineEdit * leMin, QLineEdit * leMax, QLineE
     msgBox.exec();
 }
 
+
 void MainWindow::on_btnCM2Apply_clicked(){
     setMixer(chocolateMixer2, ui->leCM2Min, ui->leCM2Max, ui->leCM2Delay, ui->leCM2Prod);
 }
