@@ -17,11 +17,16 @@ void WareHouse::setData(double _delay, int _capacity){
     car->capacity = _capacity;
 }
 
+// Resetea los datos de las maquinas
+void WareHouse::reset(){
+    // Se vacia la lista
+    while(requests->dequeue() != NULL);
+}
+
 // Permite al mixer machine hacer pedidos
 Request * WareHouse::makeRequest(MixerMachine * mixer, int amount){
     cout << "Se ha solicitado: " << amount << " por parte de " << mixer->name << endl;
     Request * req = new Request(mixer, amount);
-    isRunning = false;
 
     requests->enqueue(req);
 

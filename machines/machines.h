@@ -31,6 +31,7 @@ struct Planner{
     Planner();
 
     void plan();
+    void reset();
     bool addPack(int amountCookies, string name);
     bool removePack(string name);
     void setPackAmount(int amount, string name);
@@ -46,6 +47,7 @@ struct WareHouse{
 
     WareHouse();
     void setData(double delay, int capacity);
+    void reset();
     Request * makeRequest(MixerMachine * mixer, int amount);
     string requestsInfo();
     void sendRequest();
@@ -74,6 +76,7 @@ struct MixerMachine{
 
     MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string name);
     void mix();
+    void reset();
     void setData(int min, int max, int capacity, double delay);
     void receive(int received);
     void send(int amount);
@@ -104,13 +107,13 @@ struct Assembler{
     Assembler(Oven * _oven, Planner * _planner);
 
     void setData(int _dough, int _choc, double _delay, int _capacity);
-
+    void reset();
+    void send(int amount);
+    void assembly();
     bool receive(MixerType type, int amount);
     bool couldAssembly();
     int amountChocolate();
     int amountDough();
-    void send(int amount);
-    void assembly();
 };
 
 struct Oven{

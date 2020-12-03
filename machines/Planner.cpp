@@ -27,6 +27,14 @@ void Planner::plan(){
     }
 }
 
+// Reinicia algunos datos del planner
+void Planner::reset(){
+    // Eliminamos los paquetes
+    while(packs->removeFirst() != NULL);
+
+    totalCookies = 0;
+}
+
 // Esta funcion agrega un nuevo tipo de empaque al plan
 // Retorna true si se pudo agregar
 bool Planner::addPack(int amountCookies, string name){

@@ -52,6 +52,13 @@ void MixerMachine::mix(){
     }
 }
 
+// Resetea los datos de las mezcladoras
+void MixerMachine::reset(){
+    while(requests->dequeue() != NULL);
+    while(processed->removeFirst() != NULL);
+
+}
+
 // Esta funcion envia datos a la ensambladora
 void MixerMachine::send(int amount){
     bool wasSended = assembler->receive(type, amount);

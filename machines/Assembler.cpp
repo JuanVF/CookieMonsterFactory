@@ -22,6 +22,14 @@ void Assembler::setData(int _dough, int _choc, double _delay, int _capacity){
     started = clock();
 }
 
+// Resetea los datos de la maquina
+void Assembler::reset(){
+    while(dough->queue->dequeue() != NULL);
+    while(chocolate->queue->dequeue() != NULL);
+    chocolate->length = 0;
+    dough->length = 0;
+}
+
 // Retorna la cantida de chocolate que tiene la banda
 int Assembler::amountChocolate(){
     Node<int> * temp = dough->queue->tail;

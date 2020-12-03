@@ -15,6 +15,15 @@ private:
         doughMixer->isRunning = status;
         assembler->isRunning = status;
     }
+
+    void resetMachines(){
+        planner->reset();
+        warehouse->reset();
+        chocolateMixer1->reset();
+        chocolateMixer2->reset();
+        doughMixer->reset();
+        assembler->reset();
+    }
 public:
     void init(QMutex * _mutex){
         mutex = _mutex;
@@ -36,6 +45,7 @@ public:
         }
 
         setMachines(false);
+        resetMachines();
     }
 };
 
