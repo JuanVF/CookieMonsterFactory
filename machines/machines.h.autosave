@@ -120,8 +120,9 @@ struct Packer{
     bool isRunning;
     BandasTransportadoras<int> *bandaEntrada;
     Planner * planner;
+    Transportadores * transportadores;
 
-    Packer(int _c, Planner * planner, int capacidadBanda);
+    Packer(int _c, Planner * planner, int capacidadBanda, Transportadores * _transportadores);
 
     void addCapacity(int new_capacity);
     void destroyContent();
@@ -135,8 +136,9 @@ struct Deposit{
     LinkedList<CookiePack *>* galletas;
     int amountProduced;
     bool isRunning;
+    Planner * planner;
 
-    Deposit();
+    Deposit(Planner * planner);
 
     void defineAmountProduced(int num);
     void addToDeposit(int num);

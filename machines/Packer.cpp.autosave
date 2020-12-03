@@ -7,11 +7,12 @@
 
 
 //Contructor
-Packer::Packer(int _c, Planner * _planner, int capacidadBanda){
+Packer::Packer(int _c, Planner * _planner, int capacidadBanda, Transportadores * _transportadores){
     capacity = _c;
     content = 0;
     isRunning = false;
 
+    transportadores = _transportadores;
     planner = _planner;
     bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
 }

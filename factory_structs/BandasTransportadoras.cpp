@@ -11,6 +11,7 @@ struct BandasTransportadoras{
 	
     BandasTransportadoras(int _capacity){
         maxCapacity = _capacity;
+
         queue = new Queue<Data>();
 
         isTurnedOn = true;
@@ -39,5 +40,18 @@ struct BandasTransportadoras{
     // Determina si la banda ya esta a sobre capacidad
     bool isOverCapacity(){
         return queue->length >= maxCapacity;
+    }
+
+    //Agrega los ints 1 por 1, para que cuente cada galleta y no cuente un numero grande como un solo elemento
+    int agregarIndividual (int numero){
+        while (numero>0){
+            add(1);
+            numero--;
+            if (isOverCapacity(1)){
+                return 1;
+            }
+        }
+        return 0;
+
     }
 };

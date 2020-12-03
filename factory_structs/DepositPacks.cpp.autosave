@@ -1,0 +1,41 @@
+#include <factory_structs/CookiePack.h>
+
+struct DepositPacks{
+    string nombre;
+    int galletasTotal;      //Las galletas que debe tener cada Paquete
+    int actual;
+    int tiempo;
+    
+    DepositPacks(string _nombre, int _galletasTotal, int _tiempo){
+        nombre = _nombre;
+        galletasTotal = _galletasTotal;
+        actual = 0;
+        tiempo = _tiempo;
+    }
+    
+    //void 
+    
+    int agregarGalletas(int num){
+        int sobrantes = 0;
+        if (num+actual<=galletasTotal){
+            actual += num;
+            return 0;
+        }
+        else{
+            while (num+actual>galletasTotal){
+                num--;
+                sobrantes++;
+                }
+            if (num == 0 ){
+                return 0;
+            }
+            
+            else{
+                return sobrantes;
+               // agregarGalletas(num);
+                
+            }
+        }
+    }
+    
+};
