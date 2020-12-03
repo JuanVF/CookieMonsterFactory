@@ -44,4 +44,5 @@ MixerMachine * doughMixer = new MixerMachine(warehouse, assembler, Dough, "Mezcl
 // El string con simbolos raros es el RegEx
 QRegularExpressionValidator * floatVal = new QRegularExpressionValidator(QRegularExpression("\\d+(\\.)?(\\d{1,5})?"), NULL);
 QRegularExpressionValidator * intVal = new QRegularExpressionValidator(QRegularExpression("\\d+"), NULL);
+
 #endif

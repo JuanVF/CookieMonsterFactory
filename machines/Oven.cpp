@@ -21,12 +21,19 @@ Oven::Oven(){
     cookiesCooked = 0;
 }
 
-void Oven::init(int capacidadHorno, int capacidadBanda, double _delay){
+// Esto es para settear los datos desde la
+// La razon es porque el horno se crea apenas se crea la UI entonces no se pueden settear los datos ahi
+void Oven::init(int capacidadHorno, int capacidadBanda, double _delay, LinkedList<int> * traysCap){
     bandaSalida = new BandasTransportadoras<int>(capacidadBanda);
     bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
 
     capacity = capacidadHorno;
     delay = _delay;
+
+    // Se modifica la capacidad de cada bandeja
+    for (int i = 0; i < bandejas->length; i++){
+        bandejas->get(i)->modifyCapacity(traysCap->get(i));
+    }
 }
 
 //Su proposito es que cada vez que se manden galletas al empacador, se reinicie el total (empiece desde 0)

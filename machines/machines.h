@@ -59,6 +59,7 @@ struct MixerMachine{
     int min;
     int max;
     int capacity;
+    float total;
     string name;
     double delay; // Tiempo que duran mezclando
     bool isRunning;
@@ -133,16 +134,17 @@ struct Oven{
 
     Oven();
 
-    void init(int capacidadHorno, int capacidadBanda, double _delay);
+    void init(int capacidadHorno, int capacidadBanda, double _delay, LinkedList<int> * traysCap);
     void restartOven();
-    bool addCookiesToTrays(int num);
+    void setData(LinkedList<int> * trays, LinkedList<int> * traysDelay);
     void modifyCapacity(int newCap);
-    int galletasHorneadas();
-    int send(int waitingTime);
     void apagarBandejas(int indiceBandeja);
     int galletasEnEspera();
     int galletasCocinadas(int ind);
     int totalGalletas();
+    int galletasHorneadas();
+    int send(int waitingTime);
+    bool addCookiesToTrays(int num);
 
 
 };

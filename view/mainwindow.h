@@ -64,6 +64,12 @@ private slots:
 
     void on_btnOvenApply_clicked();
 
+    void on_btnPackerApply_clicked();
+
+    void on_btnTranApply_clicked();
+
+    void on_btnInspApply_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

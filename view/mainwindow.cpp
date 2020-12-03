@@ -42,13 +42,18 @@ void initComponents(Ui::MainWindow * ui){
     textEdits->add(ui->teDMProcessed);
 
     labels->add(ui->lbAsmAssembled);
+
     textEdits->add(ui->teAsmChocolate);
     textEdits->add(ui->teAsmDough);
+
+    labels->add(ui->lbCM1Processed);
+    labels->add(ui->lbCM2Processed);
+    labels->add(ui->lbDMProcessed);
 
     uiThread.init(textEdits, labels, &app_mutex);
     machines.init(&app_mutex);
 
-    // Estos son validaciones para evitar que el usuario
+    // Estos son validaciones para evitar que el usuario no
     // Meta letras donde solo van numeros
     // Se usan Regular Expressions para hacer las validaciones
     ui->leAsmDelay->setValidator(floatVal);
@@ -78,6 +83,30 @@ void initComponents(Ui::MainWindow * ui){
     ui->leDMMin->setValidator(intVal);
     ui->leDMProd->setValidator(floatVal);
     ui->lePlannerAmount->setValidator(intVal);
+
+    ui->leOvenBand1->setValidator(intVal);
+    ui->leOvenBand2->setValidator(intVal);
+    ui->leOvenBand3->setValidator(intVal);
+    ui->leOvenBand4->setValidator(intVal);
+    ui->leOvenBand5->setValidator(intVal);
+    ui->leOvenBand6->setValidator(intVal);
+
+    ui->leOvenBand1Delay->setValidator(floatVal);
+    ui->leOvenBand2Delay->setValidator(floatVal);
+    ui->leOvenBand3Delay->setValidator(floatVal);
+    ui->leOvenBand4Delay->setValidator(floatVal);
+    ui->leOvenBand5Delay->setValidator(floatVal);
+    ui->leOvenBand6Delay->setValidator(floatVal);
+
+    ui->leOvenCapacity->setValidator(intVal);
+    ui->leOvenBandCapacity->setValidator(intVal);
+
+    ui->lePackerCapacity->setValidator(intVal);
+    ui->lePackerDelay->setValidator(floatVal);
+    ui->lePackerMaxBand->setValidator(intVal);
+
+    ui->leTransCapacity->setValidator(intVal);
+    ui->leTransDelay->setValidator(floatVal);
 }
 
 // Funcion que se va a encargar de encender todas las maquinas
@@ -453,5 +482,154 @@ void MainWindow::on_btnAsmApply_clicked(){
  * */
 
 void MainWindow::on_btnOvenApply_clicked(){
+    LinkedList<string> * bands = new LinkedList<string>();
+    LinkedList<string> * bandsDelay = new LinkedList<string>();
 
+    bool areBandsEmpty = false;
+    bool areBandsDelayEmpty = false;
+
+    string ovenCapacity = getText(ui->leOvenCapacity);
+    string ovenBandCapacity = getText(ui->leOvenBandCapacity);
+
+    bands->add(getText(ui->leOvenBand1));
+    bandsDelay->add(getText(ui->leOvenBand1Delay));
+
+    bands->add(getText(ui->leOvenBand2));
+    bandsDelay->add(getText(ui->leOvenBand2Delay));
+
+    bands->add(getText(ui->leOvenBand3));
+    bandsDelay->add(getText(ui->leOvenBand3Delay));
+
+    bands->add(getText(ui->leOvenBand4));
+    bandsDelay->add(getText(ui->leOvenBand4Delay));
+
+    bands->add(getText(ui->leOvenBand5));
+    bandsDelay->add(getText(ui->leOvenBand5Delay));
+
+    bands->add(getText(ui->leOvenBand6));
+    bandsDelay->add(getText(ui->leOvenBand6Delay));
+
+    // Verificamos que no haya alguna vacia...
+    for (int i = 0; i < bands->length; i++){
+        areBandsEmpty = bands->get(i) == "";
+        areBandsDelayEmpty = bandsDelay->get(i) == "";
+
+        if (areBandsEmpty && areBandsDelayEmpty) break;
+    }
+
+    QMessageBox msgBox;
+
+    if (ovenCapacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else if (ovenBandCapacity == ""){
+        msgBox.setText("El input de la capacidad de la banda esta vacio...");
+
+    } else if (areBandsEmpty){
+        msgBox.setText("Algun input de la bandeja esta vacio...");
+
+    } else if (areBandsDelayEmpty){
+        msgBox.setText("Algun input del delay de la bandeja esta vacio...");
+
+    } else {
+        LinkedList<int> * bandsInt = new LinkedList<int>();
+        LinkedList<float> * bandsDelay = new LinkedList<float>();
+
+        int capacity = util->toInt(ovenCapacity);
+        int bandCapacity = util->toInt(ovenBandCapacity);
+
+        for (int i = 0; i < bands->length; i++){
+            bandsInt->add(util->toInt(bands->get(i)));
+            bandsDelay->add(util->toDouble(bands->get(i)));
+        }
+
+        oven->init(capacity, bandCapacity, 5, bandsInt);
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+/*
+ *  MAQUINA: Empacadora
+ * */
+
+void MainWindow::on_btnPackerApply_clicked(){
+    string capacity = getText(ui->lePackerCapacity);
+    string delay = getText(ui->lePackerDelay);
+    string bandMax = getText(ui->lePackerMaxBand);
+
+    QMessageBox msgBox;
+
+    if (capacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else if (delay == ""){
+        msgBox.setText("El input del delay esta vacio...");
+
+    } else if (bandMax == ""){
+        msgBox.setText("El input de la capacidad de la banda esta vacio...");
+
+    } else {
+        int intCapacity = util->toInt(capacity);
+        float intDelay = util->toDouble(delay);
+        int intBandMax = util->toInt(bandMax);
+
+        // Esperar a que Maximo termine la empacadora
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+// Boton de apply de los transportadores
+void MainWindow::on_btnTranApply_clicked(){
+    string strCapacity = getText(ui->leTransCapacity);
+    string strDelay = getText(ui->leTransDelay);
+
+    QMessageBox msgBox;
+
+    if (strDelay == ""){
+        msgBox.setText("El input del delay esta vacio...");
+
+    } else if (strCapacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else {
+        int capacity = util->toInt(strCapacity);
+        float delay = util->toDouble(strDelay);
+
+        // Esperar a que Maximo termine la empacadora
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+// Boton de apply de los inspectores
+void MainWindow::on_btnInspApply_clicked(){
+    string strProb1 = getText(ui->leInspProb1);
+    string strProb2 = getText(ui->leInspProb2);
+
+    QMessageBox msgBox;
+
+    if (strProb1 == ""){
+        msgBox.setText("La probabilidad del inspector 1 esta vacia...");
+
+    } else if (strProb2 == ""){
+        msgBox.setText("La probabilidad del inspector 2 esta vacia...");
+
+    } else{
+        float prob1 = util->toDouble(strProb1);
+        float prob2 = util->toDouble(strProb2);
+
+        // Esperar a que Maximo termine la empacadora
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
 }
