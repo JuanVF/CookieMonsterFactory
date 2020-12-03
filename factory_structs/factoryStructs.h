@@ -12,4 +12,5 @@ struct Request;
 struct Transportador;
 struct Transportadores;
 struct Cronometro;
+struct DepositPacks;
 #endif

@@ -1,5 +1,4 @@
 #include <factory_structs/Bandeja.h>
-#include <factory_structs/Inspectores.h>
 #include <factory_structs/Cookie.h>
 #include <factory_structs/Cronometro.h>
 #include <factory_structs/BandasTransportadoras.h>
@@ -11,8 +10,9 @@
 
 //Contructor
 Oven::Oven(int capacidadHorno, int capacidadBanda, double _delay){
-        bandaSalida = new BandasTransportadoras<Cookie *>(capacidadBanda);
-        bandaEntrada = new BandasTransportadoras<Cookie *>(capacidadBanda);
+        bandaSalida = new BandasTransportadoras<int >(capacidadBanda);
+        //bandaSalida = new BandasTransportadoras<Cookie *>(capacidadBanda);
+        bandaEntrada = new BandasTransportadoras<int >(capacidadBanda);
 
         bandejas = new LinkedList<Bandeja *>();
         for (int i=0; i<6; i++){
@@ -20,7 +20,7 @@ Oven::Oven(int capacidadHorno, int capacidadBanda, double _delay){
         }
 
         cronometro = new Cronometro();
-        inspectores = new LinkedList<Inspectores *>();
+        //inspectores = new LinkedList<Inspectores *>();
         isRunning = false;
         capacity = capacidadHorno;
         cookiesCooked = 0;
@@ -39,16 +39,17 @@ void Oven::addCookiesToTrays(int num){
         if (bandejas->get(i)->sobrantes(num)== 0 and bandejas->get(i)->state){
             bandejas->get(i)->agregarGalletas(num);
         }
-        else if ((num)+bandejas->get(i)->quantity>bandejas->get(i)->capacity and bandejas->get(i)->state){
+        else if (((num)+bandejas->get(i)->quantity)>bandejas->get(i)->capacity and bandejas->get(i)->state){
             bandejas->get(i)->quantity = bandejas->get(i)->capacity;
-            if ((i+1)< (bandejas->length)){
-                bandejas->get(i+1)->agregarGalletas(bandejas->get(i)->sobrantes(num));
-            }
-            else{
-                //apagar la maquina ensambladora
-
-                //Assembler().isRunning = false;
-                //devolver las galletas sobrantes (quizas?)
+            for (int j = i+1; j<bandejas->length; j++){
+                if (bandejas->get(j)->state){
+                    bandejas->get(j)->agregarGalletas(bandejas->get(i)->sobrantes(num));
+                }
+                else{
+                    //apagar la maquina ensambladora
+                    //Assembler().isRunning = false;
+                    bandaEntrada->agregarIndividual(num);
+                }
             }
         }
     }
@@ -76,6 +77,33 @@ int Oven::send(int waitingTime){
     for (int i =0; i<bandejas->length;i++){
         total+= bandejas->get(i)->quantity;
         bandejas->get(i)->vaciarBandeja();
+    }
+    bandaSalida->add(total);
+    return total;
+}
+
+void Oven::apagarBandejas(int indiceBandeja){
+    if (indiceBandeja<6 and indiceBandeja>1){
+        bandejas->get(indiceBandeja)->turnOff();
+    }
+}
+
+int Oven::galletasEnEspera(){
+    int wc = bandaEntrada->length; //wc significa waiting cookies//
+    return wc;
+}
+
+int Oven::galletasCocinadas(int ind){
+    if (ind<bandejas->length){
+        return bandejas->get(ind)->quantity;
+    }
+    return 0;
+}
+
+int Oven::totalGalletas(){
+    int total = 0;
+    for (int i =0; i<bandejas->length;i++){
+        total+= bandejas->get(i)->quantity;
     }
     return total;
 }

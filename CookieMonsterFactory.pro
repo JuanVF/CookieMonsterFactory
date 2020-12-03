@@ -16,6 +16,7 @@ SOURCES += \
     factory_structs/CookiePack.cpp \
     factory_structs/Cronometro.cpp \
     factory_structs/DeliveryCar.cpp \
+    factory_structs/DepositPacks.cpp \
     factory_structs/Inspectores.cpp \
     factory_structs/PlannerPacks.cpp \
     factory_structs/Request.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     factory_structs/CookiePack.h \
     factory_structs/Cronometro.h \
     factory_structs/DeliveryCar.h \
+    factory_structs/DepositPacks.h \
     factory_structs/Inspectores.h \
     factory_structs/PlannerPacks.h \
     factory_structs/Request.h \

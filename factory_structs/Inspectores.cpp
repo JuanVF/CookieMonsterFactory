@@ -1,28 +1,29 @@
-#ifndef IOSSTREAM
-#define IOSSTREAM
-#include <iostream>
-using namespace std;
-#endif
+#include <QRandomGenerator>
 #include <lists/LinkedList.h>
+using namespace std;
+
 
 struct Inspectores{
-	double rejectionPercentage;
-    LinkedList<string> * registro;
-	
-	Inspectores(double _percentage){
-        rejectionPercentage = _percentage;
-        registro = new LinkedList<string>();
+    LinkedList<int> * registro;
+    int random = QRandomGenerator::global()->bounded(15);
+
+    Inspectores(){
+        registro = new LinkedList<int>();
+        random = QRandomGenerator::global()->bounded(15);
 	}
 
     //Retorna las galletas que pasaron por la revision
     int qualityCookies(int cookiesReceived){
-        int trash = cookiesReceived * (rejectionPercentage/100);
+        int trash = cookiesReceived * (random/100);
         return cookiesReceived - trash;
     }
 
     //Retorna el numero de galletas que no fueron aceptadas
     int badCookies(int cookiesReceived){
-        return cookiesReceived * (rejectionPercentage/100);
+        int bc =cookiesReceived * (random/100);
+        //string x = to_string(bc);
+        registro->addFirst(bc);
+        return bc;
     }
 
 

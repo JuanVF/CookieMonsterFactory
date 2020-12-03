@@ -24,7 +24,6 @@ struct PlannerPacks{
 
     void removePacks(int n){
         amountPacks -= n;
-
         amountPacks = (amountPacks < 0) ? 0 : amountPacks;
     }
 

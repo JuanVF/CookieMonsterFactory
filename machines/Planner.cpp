@@ -7,7 +7,6 @@
 Planner::Planner(){
     recipe = new Cookie();
     packs = new CircularList<PlannerPacks *>();
-
     totalCookies = 0;
 }
 
