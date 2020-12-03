@@ -35,19 +35,30 @@ void MixerMachine::setData(int _min, int _max, int _capacity, double _delay){
 
 // Esta es la funcion que se va encargar de mezclar
 void MixerMachine::mix(){
+    if (!isRunning) return;
+
     bool canStart = (started + delay * 1000 - clock()) < 0;
 
     // Al principio va a hacer el primer pedido
     // Y va a esperar que llegue
-    if (!needsIngredient() && canStart){
+    if (canStart){
+        if (needsIngredient()) return;
+
         started = clock();
         amount -= capacity;
 
-        cout << name << " esta cocinando..." << endl;
+        cout << name << " esta mezclando..." << endl;
         send(capacity);
     }else if (requests->isEmpty() && needsIngredient()){
         makeRequest();
     }
+}
+
+// Resetea los datos de las mezcladoras
+void MixerMachine::reset(){
+    while(requests->dequeue() != NULL);
+    while(processed->removeFirst() != NULL);
+
 }
 
 // Esta funcion envia datos a la ensambladora
@@ -56,6 +67,7 @@ void MixerMachine::send(int amount){
 
     // Si la banda transportadora se llena la maquina se apaga
     if (!wasSended){
+        cout << name << " se ha apagado..." << endl;
         isRunning = false;
     }
 }
@@ -74,6 +86,9 @@ void MixerMachine::receive(int received){
 // Esta funcion hace una peticion al almacen
 void MixerMachine::makeRequest(){
     int toRequest = max - amount;
+
+    if (toRequest == 0) return;
+
     cout << name << " ha hecho un pedido de " << toRequest << endl;
 
     Request * req = warehouse->makeRequest(this, toRequest);
@@ -83,7 +98,7 @@ void MixerMachine::makeRequest(){
 
 // Retorna true si necesita ingrediente
 bool MixerMachine::needsIngredient(){
-    return amount - capacity <= 0;
+    return amount - min <= 0 || amount - capacity <= 0;
 }
 
 // Retorna info necesaria para la UI
@@ -94,6 +109,8 @@ string MixerMachine::requestsPendingInfo(){
     if (temp == NULL) return data;
 
     for (int i = 0; i < requests->length; i++){
+        if (temp->data == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }
@@ -109,6 +126,8 @@ string MixerMachine::requestsProcessedInfo(){
     if (temp == NULL) return data;
 
     for (int i = 0; i < processed->length; i++){
+        if (temp->data == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }

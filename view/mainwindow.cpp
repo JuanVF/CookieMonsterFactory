@@ -28,6 +28,7 @@ MainWindow::~MainWindow(){
 void initComponents(Ui::MainWindow * ui){
     // Algunos componentes que necesitan los hilos
     LinkedList<QPlainTextEdit *> * textEdits = new LinkedList<QPlainTextEdit *>();
+    LinkedList<QLabel *> * labels = new LinkedList<QLabel *>();
 
     textEdits->add(ui->lbCarQueue);
 
@@ -40,7 +41,11 @@ void initComponents(Ui::MainWindow * ui){
     textEdits->add(ui->teDMPending);
     textEdits->add(ui->teDMProcessed);
 
-    uiThread.init(textEdits, &app_mutex);
+    labels->add(ui->lbAsmAssembled);
+    textEdits->add(ui->teAsmChocolate);
+    textEdits->add(ui->teAsmDough);
+
+    uiThread.init(textEdits, labels, &app_mutex);
     machines.init(&app_mutex);
 
     // Estos son validaciones para evitar que el usuario
@@ -76,7 +81,7 @@ void initComponents(Ui::MainWindow * ui){
 }
 
 // Funcion que se va a encargar de encender todas las maquinas
-void setup(Ui::MainWindow * ui){
+void setup(){
     machines.start();
     uiThread.start();
 }
@@ -87,7 +92,7 @@ void MainWindow::on_btnTurnOn_clicked(){
         isInPause = false;
     }else if (!isInPause){
         turnOnAnimation(ui->btnTurnOn, ui->lbStatus);
-        setup(ui);
+        setup();
     }
 
     isTurnedOn = !isTurnedOn;
@@ -148,7 +153,7 @@ void MainWindow::on_btnChocMix2_clicked(){
     ui->leCM2Max->setText(to_string(chocolateMixer2->max).c_str());
     ui->leCM2Prod->setText(to_string(chocolateMixer2->capacity).c_str());
     ui->leCM2Delay->setText(to_string(chocolateMixer2->delay).c_str());
-    ui->swProperties->setCurrentIndex(2);
+    ui->swProperties->setCurrentIndex(4);
 }
 
 void MainWindow::on_btnDoughMix_clicked(){
@@ -164,7 +169,7 @@ void MainWindow::on_btnChocMix1_clicked(){
     ui->leDMMax->setText(to_string(doughMixer->max).c_str());
     ui->leDMProd->setText(to_string(doughMixer->capacity).c_str());
     ui->leDMDelay->setText(to_string(doughMixer->delay).c_str());
-    ui->swProperties->setCurrentIndex(4);
+    ui->swProperties->setCurrentIndex(2);
 }
 
 void MainWindow::on_btnAssembly_clicked(){
@@ -173,7 +178,26 @@ void MainWindow::on_btnAssembly_clicked(){
     ui->leAsmProd->setText(to_string(assembler->capacity).c_str());
     ui->leAsmDelay->setText(to_string(assembler->delay).c_str());
     ui->swProperties->setCurrentIndex(5);
+}
 
+void MainWindow::on_btnOven_clicked(){
+    ui->swProperties->setCurrentIndex(6);
+}
+
+void MainWindow::on_btnPacker_clicked(){
+    ui->swProperties->setCurrentIndex(7);
+}
+
+void MainWindow::on_btnTrans_clicked(){
+    ui->swProperties->setCurrentIndex(8);
+}
+
+void MainWindow::on_btnInspector_clicked(){
+    ui->swProperties->setCurrentIndex(9);
+}
+
+void MainWindow::on_btnDeposit_clicked(){
+    ui->swProperties->setCurrentIndex(10);
 }
 
 // Setteo de los parametros de las maquinas
@@ -378,6 +402,7 @@ void setMixer(MixerMachine * mixer, QLineEdit * leMin, QLineEdit * leMax, QLineE
     msgBox.exec();
 }
 
+
 void MainWindow::on_btnCM2Apply_clicked(){
     setMixer(chocolateMixer2, ui->leCM2Min, ui->leCM2Max, ui->leCM2Delay, ui->leCM2Prod);
 }
@@ -393,7 +418,6 @@ void MainWindow::on_btnCM1Apply_clicked(){
 /*
  *  MAQUINA: Ensambladora
  * */
-
 void MainWindow::on_btnAsmApply_clicked(){
     string strChoc = getText(ui->leAsmChoc);
     string strDelay = getText(ui->leAsmDelay);
@@ -422,4 +446,12 @@ void MainWindow::on_btnAsmApply_clicked(){
     }
 
     msgBox.exec();
+}
+
+/*
+ *  MAQUINA: Horno
+ * */
+
+void MainWindow::on_btnOvenApply_clicked(){
+
 }

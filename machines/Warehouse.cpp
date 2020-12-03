@@ -17,11 +17,16 @@ void WareHouse::setData(double _delay, int _capacity){
     car->capacity = _capacity;
 }
 
+// Resetea los datos de las maquinas
+void WareHouse::reset(){
+    // Se vacia la lista
+    while(requests->dequeue() != NULL);
+}
+
 // Permite al mixer machine hacer pedidos
 Request * WareHouse::makeRequest(MixerMachine * mixer, int amount){
     cout << "Se ha solicitado: " << amount << " por parte de " << mixer->name << endl;
     Request * req = new Request(mixer, amount);
-    isRunning = false;
 
     requests->enqueue(req);
 
@@ -36,6 +41,8 @@ string WareHouse::requestsInfo(){
     if (temp == NULL) return "";
 
     for (int i = 0; i < requests->length; i++){
+        if (temp == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }
@@ -56,6 +63,8 @@ void WareHouse::sendRequest(){
 // Esta es la funcion que se esta ejecutando para estar verificando
 // Los pedidos
 void WareHouse::checking(){
+    if (!isRunning) return;
+
     if (!requests->isEmpty()){
         sendRequest();
     }

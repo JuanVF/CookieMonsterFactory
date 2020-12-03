@@ -44,13 +44,25 @@ private slots:
 
     void on_btnWHApply_clicked();
 
+    void on_btnAsmApply_clicked();
+
+    void on_btnOven_clicked();
+
+    void on_btnPacker_clicked();
+
     void on_btnCM2Apply_clicked();
 
     void on_btnDMApply_clicked();
 
     void on_btnCM1Apply_clicked();
 
-    void on_btnAsmApply_clicked();
+    void on_btnInspector_clicked();
+
+    void on_btnTrans_clicked();
+
+    void on_btnDeposit_clicked();
+
+    void on_btnOvenApply_clicked();
 
 private:
     Ui::MainWindow *ui;

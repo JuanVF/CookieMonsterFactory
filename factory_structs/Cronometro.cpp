@@ -1,5 +1,5 @@
 #include <stdlib.h>
-#include <windows.h>
+#include <Util.h>
 
 using namespace std;
 
@@ -16,10 +16,8 @@ struct Cronometro{
             if (segundos ==limite){
                 return true;
             }
-            Sleep(1000);
+            (new Util())->delay(1);
         }
         segundos = 0 ;
     }
-
-
 };

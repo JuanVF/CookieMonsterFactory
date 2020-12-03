@@ -2,6 +2,7 @@
 #include <factory_structs/factoryStructs.h>
 #include <enums.h>
 #include <Util.h>
+#include <lists/CircularList.h>
 
 #ifndef IOSTREAM_H
 #define IOSTREAM_H
@@ -30,6 +31,7 @@ struct Planner{
     Planner();
 
     void plan();
+    void reset();
     bool addPack(int amountCookies, string name);
     bool removePack(string name);
     void setPackAmount(int amount, string name);
@@ -45,6 +47,7 @@ struct WareHouse{
 
     WareHouse();
     void setData(double delay, int capacity);
+    void reset();
     Request * makeRequest(MixerMachine * mixer, int amount);
     string requestsInfo();
     void sendRequest();
@@ -73,6 +76,7 @@ struct MixerMachine{
 
     MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string name);
     void mix();
+    void reset();
     void setData(int min, int max, int capacity, double delay);
     void receive(int received);
     void send(int amount);
@@ -89,18 +93,29 @@ struct Assembler{
     int assembledCookies;
     int capacity;
 
-    Util * util;
+    int currentDough;
+    int currentChocolate;
+
+    clock_t started;
+
+    Planner * planner; // Se necesita al planner para la receta
+    Oven * oven;
 
     BandasTransportadoras<int> * dough;
     BandasTransportadoras<int> * chocolate;
 
-    Assembler();
+    Assembler(Oven * _oven, Planner * _planner);
 
     void setData(int _dough, int _choc, double _delay, int _capacity);
-
-    bool receive(MixerType type, int amount);
-    void send();
+    void reset();
+    void send(int amount);
     void assembly();
+    bool receive(MixerType type, int amount);
+    bool couldAssembly();
+    int amountChocolate();
+    int amountDough();
+    string chocolateInfo();
+    string doughInfo();
 };
 
 struct Oven{
@@ -116,10 +131,11 @@ struct Oven{
 
     Cronometro * cronometro;
 
-    Oven(int capacidadHorno, int capacidadBanda, double _delay);
+    Oven();
 
+    void init(int capacidadHorno, int capacidadBanda, double _delay);
     void restartOven();
-    void addCookiesToTrays(int num);
+    bool addCookiesToTrays(int num);
     void modifyCapacity(int newCap);
     int galletasHorneadas();
     int send(int waitingTime);
@@ -139,8 +155,9 @@ struct Packer{
     Transportadores * transportadores;
     LinkedList<DepositPacks* >* listaGalletas;
 
-    Packer( Planner * planner, int capacidadBanda, Transportadores * _transportadores);
+    Packer(Planner * _planner, Transportadores * _transportadores);
 
+    void init(int _c);
     void addCapacity(int new_capacity);
     void destroyContent();
     void receive(int received);

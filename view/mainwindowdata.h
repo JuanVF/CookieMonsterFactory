@@ -10,6 +10,9 @@
 #include <machines/Warehouse.h>
 #include <machines/Assembler.h>
 #include <machines/MixerMachine.h>
+#include <machines/Oven.h>
+#include <machines/Packer.h>
+#include <machines/Deposit.h>
 
 #include <Util.h>
 #include <pthread.h>
@@ -26,14 +29,11 @@ bool isInPause = false;
 
 Util * util = new Util();
 
-pthread_t animation_thread; // Este es el hilo en el corren las animaciones
-pthread_t ui_thread; // Este hilo es para los cambios en la UI
-pthread_t machines_thread; // Este hilo es para los cambios en la UI
-
 // Aqui se inicializan las maquinas
+Oven * oven = new Oven();
 Planner * planner = new Planner();
 WareHouse * warehouse = new WareHouse();
-Assembler * assembler = new Assembler();
+Assembler * assembler = new Assembler(oven, planner);
 
 MixerMachine * chocolateMixer1 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #1");
 MixerMachine * chocolateMixer2 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #2");

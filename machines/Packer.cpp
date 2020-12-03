@@ -8,14 +8,16 @@
 
 
 //Contructor
-Packer::Packer(Planner * _planner, int capacidadBanda, Transportadores * _transportadores){
+Packer::Packer(Planner * _planner, Transportadores * _transportadores){
     recibidas = 0;
     isRunning = false;
     transportadores = _transportadores;
     planner = _planner;
-
-    bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
     listaGalletas =  new LinkedList<DepositPacks*>();
+}
+
+void Packer::init(int capacidadBanda){
+    bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
 }
 
 //Funcion que recibe las galletas
@@ -62,3 +64,4 @@ void Packer::addCookies(string name, int num){
         //listaGalletas->add();
     }
 }*/
+
