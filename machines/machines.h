@@ -90,17 +90,26 @@ struct Assembler{
     int assembledCookies;
     int capacity;
 
-    Util * util;
+    int currentDough;
+    int currentChocolate;
+
+    clock_t started;
+
+    Planner * planner; // Se necesita al planner para la receta
+    Oven * oven;
 
     BandasTransportadoras<int> * dough;
     BandasTransportadoras<int> * chocolate;
 
-    Assembler();
+    Assembler(Oven * _oven, Planner * _planner);
 
     void setData(int _dough, int _choc, double _delay, int _capacity);
 
     bool receive(MixerType type, int amount);
-    void send();
+    bool couldAssembly();
+    int amountChocolate();
+    int amountDough();
+    void send(int amount);
     void assembly();
 };
 
@@ -117,10 +126,11 @@ struct Oven{
 
     Cronometro * cronometro;
 
-    Oven(int capacidadHorno, int capacidadBanda, double _delay);
+    Oven();
 
+    void init(int capacidadHorno, int capacidadBanda, double _delay);
     void restartOven();
-    void addCookiesToTrays(int num);
+    bool addCookiesToTrays(int num);
     void modifyCapacity(int newCap);
     int galletasHorneadas();
     int send(int waitingTime);

@@ -38,8 +38,8 @@ struct Queue{
 	}
 	
 	// Desencola un elemento
-	Data dequeue(){
-		if (isEmpty()) return NULL;
+    Data dequeue(){
+        if (isEmpty()) return (Data) NULL;
 		
 		if (length == 1){
 			Data data = tail->data;
@@ -67,7 +67,7 @@ struct Queue{
 	
 	// Retorna el primer elemento de la cola sin borrarlo
 	Data peek(){
-		if (isEmpty()) return NULL;
+        if (isEmpty()) return (Data) NULL;
 		
 		Node<Data> * temp = tail;
 		

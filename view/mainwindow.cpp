@@ -28,6 +28,7 @@ MainWindow::~MainWindow(){
 void initComponents(Ui::MainWindow * ui){
     // Algunos componentes que necesitan los hilos
     LinkedList<QPlainTextEdit *> * textEdits = new LinkedList<QPlainTextEdit *>();
+    LinkedList<QLabel *> * labels = new LinkedList<QLabel *>();
 
     textEdits->add(ui->lbCarQueue);
 
@@ -40,7 +41,11 @@ void initComponents(Ui::MainWindow * ui){
     textEdits->add(ui->teDMPending);
     textEdits->add(ui->teDMProcessed);
 
-    uiThread.init(textEdits, &app_mutex);
+    labels->add(ui->lbAsmAssembled);
+    labels->add(ui->lbAsmChocolate);
+    labels->add(ui->lbAsmDough);
+
+    uiThread.init(textEdits, labels, &app_mutex);
     machines.init(&app_mutex);
 
     // Estos son validaciones para evitar que el usuario
@@ -76,7 +81,7 @@ void initComponents(Ui::MainWindow * ui){
 }
 
 // Funcion que se va a encargar de encender todas las maquinas
-void setup(Ui::MainWindow * ui){
+void setup(){
     machines.start();
     uiThread.start();
 }
@@ -87,7 +92,7 @@ void MainWindow::on_btnTurnOn_clicked(){
         isInPause = false;
     }else if (!isInPause){
         turnOnAnimation(ui->btnTurnOn, ui->lbStatus);
-        setup(ui);
+        setup();
     }
 
     isTurnedOn = !isTurnedOn;

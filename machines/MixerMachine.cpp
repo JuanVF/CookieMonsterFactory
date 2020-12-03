@@ -35,6 +35,8 @@ void MixerMachine::setData(int _min, int _max, int _capacity, double _delay){
 
 // Esta es la funcion que se va encargar de mezclar
 void MixerMachine::mix(){
+    if (!isRunning) return;
+
     bool canStart = (started + delay * 1000 - clock()) < 0;
 
     // Al principio va a hacer el primer pedido
@@ -43,7 +45,7 @@ void MixerMachine::mix(){
         started = clock();
         amount -= capacity;
 
-        cout << name << " esta cocinando..." << endl;
+        cout << name << " esta mezclando..." << endl;
         send(capacity);
     }else if (requests->isEmpty() && needsIngredient()){
         makeRequest();
@@ -74,6 +76,9 @@ void MixerMachine::receive(int received){
 // Esta funcion hace una peticion al almacen
 void MixerMachine::makeRequest(){
     int toRequest = max - amount;
+
+    if (toRequest == 0) return;
+
     cout << name << " ha hecho un pedido de " << toRequest << endl;
 
     Request * req = warehouse->makeRequest(this, toRequest);

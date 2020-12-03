@@ -56,6 +56,8 @@ void WareHouse::sendRequest(){
 // Esta es la funcion que se esta ejecutando para estar verificando
 // Los pedidos
 void WareHouse::checking(){
+    if (!isRunning) return;
+
     if (!requests->isEmpty()){
         sendRequest();
     }

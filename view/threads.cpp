@@ -1,8 +1,8 @@
 #include "view/mainwindow.h"
 #include <view/mainwindowdata.h>
 #include <QPlainTextEdit>
+#include <QLabel>
 #include <QThread>
-#include <QPlainTextEdit>
 #include <QMutex>
 
 class Machines : public QThread {
@@ -29,15 +29,17 @@ public:
             chocolateMixer1->mix();
             chocolateMixer2->mix();
             doughMixer->mix();
+            assembler->assembly();
             mutex->unlock();
 
-            util->delay(1/60);
+            util->delay(1/30);
         }
 
         setMachines(false);
     }
 };
 
+// Esta clase es para los hilos de la UI
 class UIThread : public QThread {
 private:
     QMutex * mutex;
@@ -51,6 +53,10 @@ private:
 
     QPlainTextEdit * lbDMPending;
     QPlainTextEdit * lbDMProcessed;
+
+    QLabel * lbAsmAssembled;
+    QLabel * lbAsmChocolate;
+    QLabel * lbAsmDough;
 
     // Se limpian todos los textEdit
     void cleanFields(){
@@ -79,6 +85,10 @@ private:
         string dmPending = doughMixer->requestsPendingInfo();
         string dmProcessed = doughMixer->requestsProcessedInfo();
 
+        string asmProduced = to_string(assembler->assembledCookies);
+        string asmChocolate = to_string(assembler->amountChocolate());
+        string asmDough = to_string(assembler->amountDough());
+
         QMetaObject::invokeMethod(lbCarQueue, "setPlainText", Q_ARG(QString, warehouseInfo.c_str()));
 
         QMetaObject::invokeMethod(lbCM1Pending, "setPlainText", Q_ARG(QString, cm1Pending.c_str()));
@@ -89,10 +99,14 @@ private:
 
         QMetaObject::invokeMethod(lbDMPending, "setPlainText", Q_ARG(QString, dmPending.c_str()));
         QMetaObject::invokeMethod(lbDMProcessed, "setPlainText", Q_ARG(QString, dmProcessed.c_str()));
+
+        QMetaObject::invokeMethod(lbAsmAssembled, "setText", Q_ARG(QString, asmProduced.c_str()));
+        QMetaObject::invokeMethod(lbAsmChocolate, "setText", Q_ARG(QString, asmChocolate.c_str()));
+        QMetaObject::invokeMethod(lbAsmDough, "setText", Q_ARG(QString, asmDough.c_str()));
     }
 
 public:
-    void init(LinkedList<QPlainTextEdit *> * textEdits, QMutex * _mutex){
+    void init(LinkedList<QPlainTextEdit *> * textEdits, LinkedList<QLabel *> * labels, QMutex * _mutex){
         lbCarQueue = textEdits->get(0);
 
         lbCM1Pending = textEdits->get(1);
@@ -104,13 +118,15 @@ public:
         lbDMPending = textEdits->get(5);
         lbDMProcessed = textEdits->get(6);
 
+        lbAsmAssembled = labels->get(0);
+        lbAsmChocolate = labels->get(1);
+        lbAsmDough = labels->get(2);
+
         mutex = _mutex;
     }
 
     void run() {
-        while(isTurnedOn) if (!isInPause){
-            mutex->lock();
-
+        while(isTurnedOn) if (!isInPause && mutex->tryLock()){
             cleanFields();
             setFields();
 
