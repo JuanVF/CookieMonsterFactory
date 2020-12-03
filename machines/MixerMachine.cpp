@@ -41,7 +41,9 @@ void MixerMachine::mix(){
 
     // Al principio va a hacer el primer pedido
     // Y va a esperar que llegue
-    if (!needsIngredient() && canStart){
+    if (canStart){
+        if (needsIngredient()) return;
+
         started = clock();
         amount -= capacity;
 
@@ -65,6 +67,7 @@ void MixerMachine::send(int amount){
 
     // Si la banda transportadora se llena la maquina se apaga
     if (!wasSended){
+        cout << name << " se ha apagado..." << endl;
         isRunning = false;
     }
 }
@@ -95,7 +98,7 @@ void MixerMachine::makeRequest(){
 
 // Retorna true si necesita ingrediente
 bool MixerMachine::needsIngredient(){
-    return amount - capacity <= 0;
+    return amount - min <= 0 || amount - capacity <= 0;
 }
 
 // Retorna info necesaria para la UI
@@ -106,6 +109,8 @@ string MixerMachine::requestsPendingInfo(){
     if (temp == NULL) return data;
 
     for (int i = 0; i < requests->length; i++){
+        if (temp->data == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }
@@ -121,6 +126,8 @@ string MixerMachine::requestsProcessedInfo(){
     if (temp == NULL) return data;
 
     for (int i = 0; i < processed->length; i++){
+        if (temp->data == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }

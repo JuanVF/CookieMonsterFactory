@@ -7,11 +7,14 @@
 
 
 //Contructor
-Packer::Packer(int _c, Planner * _planner){
-    capacity = _c;
+Packer::Packer(Planner * _planner){
     content = 0;
     isRunning = false;
     planner = _planner;
+}
+
+void Packer::init(int _c){
+    capacity = _c;
 }
 
 //Aumentar la capacidad

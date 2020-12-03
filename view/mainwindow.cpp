@@ -42,8 +42,8 @@ void initComponents(Ui::MainWindow * ui){
     textEdits->add(ui->teDMProcessed);
 
     labels->add(ui->lbAsmAssembled);
-    labels->add(ui->lbAsmChocolate);
-    labels->add(ui->lbAsmDough);
+    textEdits->add(ui->teAsmChocolate);
+    textEdits->add(ui->teAsmDough);
 
     uiThread.init(textEdits, labels, &app_mutex);
     machines.init(&app_mutex);
@@ -178,7 +178,6 @@ void MainWindow::on_btnAssembly_clicked(){
     ui->leAsmProd->setText(to_string(assembler->capacity).c_str());
     ui->leAsmDelay->setText(to_string(assembler->delay).c_str());
     ui->swProperties->setCurrentIndex(5);
-
 }
 
 void MainWindow::on_btnOven_clicked(){
@@ -187,6 +186,18 @@ void MainWindow::on_btnOven_clicked(){
 
 void MainWindow::on_btnPacker_clicked(){
     ui->swProperties->setCurrentIndex(7);
+}
+
+void MainWindow::on_btnTrans_clicked(){
+    ui->swProperties->setCurrentIndex(8);
+}
+
+void MainWindow::on_btnInspector_clicked(){
+    ui->swProperties->setCurrentIndex(9);
+}
+
+void MainWindow::on_btnDeposit_clicked(){
+    ui->swProperties->setCurrentIndex(10);
 }
 
 // Setteo de los parametros de las maquinas
@@ -407,7 +418,6 @@ void MainWindow::on_btnCM1Apply_clicked(){
 /*
  *  MAQUINA: Ensambladora
  * */
-
 void MainWindow::on_btnAsmApply_clicked(){
     string strChoc = getText(ui->leAsmChoc);
     string strDelay = getText(ui->leAsmDelay);
@@ -436,4 +446,11 @@ void MainWindow::on_btnAsmApply_clicked(){
     }
 
     msgBox.exec();
+}
+
+/*
+ *  MAQUINA: Horno
+ * */
+void MainWindow::on_btnOvenApply_clicked(){
+
 }

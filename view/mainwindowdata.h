@@ -11,6 +11,8 @@
 #include <machines/Assembler.h>
 #include <machines/MixerMachine.h>
 #include <machines/Oven.h>
+#include <machines/Packer.h>
+#include <machines/Deposit.h>
 
 #include <Util.h>
 #include <pthread.h>
@@ -28,9 +30,11 @@ bool isInPause = false;
 Util * util = new Util();
 
 // Aqui se inicializan las maquinas
-Planner * planner = new Planner();
-WareHouse * warehouse = new WareHouse();
 Oven * oven = new Oven();
+Planner * planner = new Planner();
+Deposit * deposit = new Deposit();
+Packer * packer = new Packer(planner);
+WareHouse * warehouse = new WareHouse();
 Assembler * assembler = new Assembler(oven, planner);
 
 MixerMachine * chocolateMixer1 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #1");

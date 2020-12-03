@@ -114,6 +114,8 @@ struct Assembler{
     bool couldAssembly();
     int amountChocolate();
     int amountDough();
+    string chocolateInfo();
+    string doughInfo();
 };
 
 struct Oven{
@@ -147,8 +149,9 @@ struct Packer{
 
     Planner * planner;
 
-    Packer(int _c, Planner * planner);
+    Packer(Planner * planner);
 
+    void init(int _c);
     void addCapacity(int new_capacity);
     void destroyContent();
     int sobrante(int received);

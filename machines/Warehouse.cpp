@@ -41,6 +41,8 @@ string WareHouse::requestsInfo(){
     if (temp == NULL) return "";
 
     for (int i = 0; i < requests->length; i++){
+        if (temp == NULL) break;
+
         data += temp->data->toString();
         temp = temp->next;
     }

@@ -24,6 +24,14 @@ private:
         doughMixer->reset();
         assembler->reset();
     }
+
+    void initTimes(){
+        warehouse->car->started = clock();
+        chocolateMixer1->started = clock();
+        chocolateMixer2->started = clock();
+        doughMixer->started = clock();
+        assembler->started = clock();
+    }
 public:
     void init(QMutex * _mutex){
         mutex = _mutex;
@@ -33,7 +41,9 @@ public:
     void run(){
         setMachines(true);
 
-        while(isTurnedOn) if (!isInPause && mutex->tryLock()){
+        initTimes();
+
+        while(isTurnedOn) if (!isInPause & mutex->tryLock()){
             warehouse->checking();
             chocolateMixer1->mix();
             chocolateMixer2->mix();
@@ -41,7 +51,7 @@ public:
             assembler->assembly();
             mutex->unlock();
 
-            util->delay(1/30);
+            util->delay(1/10);
         }
 
         setMachines(false);
@@ -65,8 +75,8 @@ private:
     QPlainTextEdit * lbDMProcessed;
 
     QLabel * lbAsmAssembled;
-    QLabel * lbAsmChocolate;
-    QLabel * lbAsmDough;
+    QPlainTextEdit * lbAsmChocolate;
+    QPlainTextEdit * lbAsmDough;
 
     // Se limpian todos los textEdit
     void cleanFields(){
@@ -95,9 +105,9 @@ private:
         string dmPending = doughMixer->requestsPendingInfo();
         string dmProcessed = doughMixer->requestsProcessedInfo();
 
-        string asmProduced = to_string(assembler->assembledCookies);
-        string asmChocolate = to_string(assembler->amountChocolate());
-        string asmDough = to_string(assembler->amountDough());
+        string asmProduced = "Galletas ensambladas: " + to_string(assembler->assembledCookies);
+        string asmChocolate = assembler->chocolateInfo();
+        string asmDough = assembler->doughInfo();
 
         QMetaObject::invokeMethod(lbCarQueue, "setPlainText", Q_ARG(QString, warehouseInfo.c_str()));
 
@@ -111,8 +121,8 @@ private:
         QMetaObject::invokeMethod(lbDMProcessed, "setPlainText", Q_ARG(QString, dmProcessed.c_str()));
 
         QMetaObject::invokeMethod(lbAsmAssembled, "setText", Q_ARG(QString, asmProduced.c_str()));
-        QMetaObject::invokeMethod(lbAsmChocolate, "setText", Q_ARG(QString, asmChocolate.c_str()));
-        QMetaObject::invokeMethod(lbAsmDough, "setText", Q_ARG(QString, asmDough.c_str()));
+        QMetaObject::invokeMethod(lbAsmChocolate, "setPlainText", Q_ARG(QString, asmChocolate.c_str()));
+        QMetaObject::invokeMethod(lbAsmDough, "setPlainText", Q_ARG(QString, asmDough.c_str()));
     }
 
 public:
@@ -129,19 +139,19 @@ public:
         lbDMProcessed = textEdits->get(6);
 
         lbAsmAssembled = labels->get(0);
-        lbAsmChocolate = labels->get(1);
-        lbAsmDough = labels->get(2);
+        lbAsmChocolate = textEdits->get(7);
+        lbAsmDough = textEdits->get(8);
 
         mutex = _mutex;
     }
 
     void run() {
-        while(isTurnedOn) if (!isInPause && mutex->tryLock()){
+        while(isTurnedOn) if (!isInPause & mutex->tryLock()){
             cleanFields();
             setFields();
 
             mutex->unlock();
-            util->delay(0.3);
+            util->delay(1);
         }
     }
 };
