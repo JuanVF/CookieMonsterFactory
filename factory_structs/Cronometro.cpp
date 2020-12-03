@@ -3,27 +3,20 @@
 
 using namespace std;
 
-struct Cronometro{
-    int segundos = 0;
-    double limite;
+#include <factory_structs/factoryStructs.h>
 
-    Cronometro(double _limit){
-        segundos = 0;
-        limite = _limit;
-    }
+Cronometro::Cronometro(double _limit){
+    segundos = 0;
+    limite = _limit;
+}
 
-    bool contadorB(){
-        while (1){
-            segundos++;
-            if (segundos ==limite){
-                return true;
-            }
-            (new Util())->delay(1);
+bool Cronometro::contadorB(){
+    while (1){
+        segundos++;
+        if (segundos ==limite){
+            return true;
         }
-        segundos = 0 ;
+        (new Util())->delay(1);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
-};
+    segundos = 0 ;
+}

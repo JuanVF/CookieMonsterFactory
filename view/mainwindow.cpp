@@ -543,7 +543,7 @@ void MainWindow::on_btnOvenApply_clicked(){
             bandsDelay->add(util->toDouble(bands->get(i)));
         }
 
-        oven->init(capacity, bandCapacity, 5, bandsInt);
+        oven->init(capacity, bandCapacity, bandsDelay, bandsInt);
 
         msgBox.setText("Cambios aplicados!");
     }

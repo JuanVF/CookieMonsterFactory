@@ -25,6 +25,13 @@ struct PlannerPacks;
 struct Request;
 struct Transportador;
 struct Transportadores;
-struct Cronometro;
+struct Cronometro{
+    int segundos = 0;
+    double limite;
+
+    Cronometro(double _limit);
+
+    bool contadorB();
+};
 struct DepositPacks;
 #endif

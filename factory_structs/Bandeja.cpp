@@ -1,7 +1,8 @@
+#include <factory_structs/factoryStructs.h>
+#include <factory_structs/Cronometro.h>
 #ifndef IOSSTREAM
 #define IOSSTREAM
 #include <iostream>
-#include <factory_structs/Cronometro.h>
 using namespace std;
 #endif
 

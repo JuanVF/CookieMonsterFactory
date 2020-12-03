@@ -47,7 +47,7 @@ struct BandasTransportadoras{
         while (numero>0){
             add(1);
             numero--;
-            if (isOverCapacity(1)){
+            if (isOverCapacity()){
                 return 1;
             }
         }
