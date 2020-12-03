@@ -5,10 +5,12 @@
 
 
 //Contructor
-Deposit::Deposit(){       //ap = amount produced
+Deposit::Deposit(Planner * _planner){       //ap = amount produced
     amountProduced = 0;
     isRunning = false;
     galletas = new LinkedList<CookiePack *>();
+    planner = _planner;
+
 }
 
 //Le define un int x como cantidad al deposito

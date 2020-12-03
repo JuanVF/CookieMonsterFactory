@@ -111,32 +111,39 @@ struct Oven{
     int galletasHorneadas();
     int send(int waitingTime);
     void apagarBandejas(int indiceBandeja);
+    int galletasEnEspera();
+    int galletasCocinadas(int ind);
+    int totalGalletas();
+
 
 };
 
 struct Packer{
-    int capacity;
-    int content;
+    int recibidas;
     bool isRunning;
     BandasTransportadoras<int> *bandaEntrada;
     Planner * planner;
+    Transportadores * transportadores;
+    LinkedList<DepositPacks* >* listaGalletas;
 
-    Packer(int _c, Planner * planner, int capacidadBanda);
+    Packer( Planner * planner, int capacidadBanda, Transportadores * _transportadores);
 
     void addCapacity(int new_capacity);
     void destroyContent();
-    int sobrante(int received);
     void receive(int received);
-    void send();;
-
+    void agregarPaquete();
+    void cambiarDelay(string _name, int newTime);
+    void addCookies(string name, int num);
+    void send();
 };
 
 struct Deposit{
     LinkedList<CookiePack *>* galletas;
     int amountProduced;
     bool isRunning;
+    Planner * planner;
 
-    Deposit();
+    Deposit(Planner * planner);
 
     void defineAmountProduced(int num);
     void addToDeposit(int num);

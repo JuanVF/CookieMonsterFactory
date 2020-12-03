@@ -1,61 +1,64 @@
 #include <machines/Oven.h>
-#include <factory_structs/Inspectores.h>
-#include <factory_structs/CookiePack.h>
-#include <factory_structs/BandasTransportadoras.h>
-#include <factory_structs/Transportadores.h>
 #include <machines/machines.h>
+#include <factory_structs/CookiePack.h>
+#include <factory_structs/Inspectores.h>
+#include <factory_structs/DepositPacks.h>
+#include <factory_structs/Transportadores.h>
+#include <factory_structs/BandasTransportadoras.h>
 
 
 //Contructor
-Packer::Packer(int _c, Planner * _planner, int capacidadBanda){
-    capacity = _c;
-    content = 0;
+Packer::Packer(Planner * _planner, int capacidadBanda, Transportadores * _transportadores){
+    recibidas = 0;
     isRunning = false;
-
+    transportadores = _transportadores;
     planner = _planner;
+
     bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
-}
-
-//Aumentar la capacidad
-void Packer::addCapacity(int new_capacity){
-    capacity += new_capacity;
-}
-
-//Destruit contenido
-void Packer::destroyContent(){
-    content = 0;
-}
-
-//Retorna un int con la cantidad que sobro
-int Packer::sobrante(int received){
-    if (received>capacity){
-        int acumulado = received - capacity;
-        return acumulado;
-    }
-    else
-        return 0;
+    listaGalletas =  new LinkedList<DepositPacks*>();
 }
 
 //Funcion que recibe las galletas
 void Packer::receive(int received){
-    int sobras = 0;
-    if ((received+content)<=capacity and isRunning){
-        content += received;
+    recibidas += received;
+}
+
+//Agregar las galletas
+void Packer::agregarPaquete(){
+    for (int i=0; i<listaGalletas->length;i++){
+        string _name = planner->packs->get(i)->getName();
+        int total = planner->packs->get(i)->pack->amountCookies;
+        int paquetesTotales =planner->packs->get(i)->amountPacks;
+        int _delay = 5;
+        listaGalletas->add(new DepositPacks(_name, total, _delay, paquetesTotales));
     }
-    else if ((received+content)>capacity){
-        while ((received+content)>capacity){
-            sobras++;
-            received--;
+}
+
+//Cambiar tiempo de empaque de las galletas
+void Packer:: cambiarDelay(string _name, int newTime){
+    for (int i=0; i<listaGalletas->length;i++){
+        if (listaGalletas->get(i)->nombre == _name){
+            listaGalletas->get(i)->tiempo = newTime;
         }
-        content+=received;
-        bandaEntrada->agregarIndividual(sobras);
+    }
+}
+
+void Packer::addCookies(string name, int num){
+    for (int i=0; i<listaGalletas->length;i++){
+        if (listaGalletas->get(i)->nombre == name){
+            listaGalletas->get(i)->agregarGalletas(num);
+            //Preguntar
+
+        }
     }
 }
 
 //Enviar al transporte
-void Packer::send(){
+/*void Packer::send(){
     for (int i =0; i<planner->packs->length;i++){
-
+        string _name = planner->packs->get(i)->getName();
+        int _galletasP = planner->packs->get(i)->amountPacks;
+        //int _delay =  tiempo
+        //listaGalletas->add();
     }
-}
-
+}*/

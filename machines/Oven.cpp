@@ -51,7 +51,6 @@ void Oven::addCookiesToTrays(int num){
                     bandaEntrada->agregarIndividual(num);
                 }
             }
-
         }
     }
 }
@@ -88,3 +87,24 @@ void Oven::apagarBandejas(int indiceBandeja){
         bandejas->get(indiceBandeja)->turnOff();
     }
 }
+
+int Oven::galletasEnEspera(){
+    int wc = bandaEntrada->length; //wc significa waiting cookies//
+    return wc;
+}
+
+int Oven::galletasCocinadas(int ind){
+    if (ind<bandejas->length){
+        return bandejas->get(ind)->quantity;
+    }
+    return 0;
+}
+
+int Oven::totalGalletas(){
+    int total = 0;
+    for (int i =0; i<bandejas->length;i++){
+        total+= bandejas->get(i)->quantity;
+    }
+    return total;
+}
+
