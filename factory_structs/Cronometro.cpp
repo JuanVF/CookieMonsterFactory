@@ -4,13 +4,15 @@
 using namespace std;
 
 struct Cronometro{
-    int segundos =0;
+    int segundos = 0;
+    double limite;
 
-    Cronometro(){
+    Cronometro(double _limit){
         segundos = 0;
+        limite = _limit;
     }
 
-    bool contadorB(int limite){
+    bool contadorB(){
         while (1){
             segundos++;
             if (segundos ==limite){
@@ -20,4 +22,8 @@ struct Cronometro{
         }
         segundos = 0 ;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
 };

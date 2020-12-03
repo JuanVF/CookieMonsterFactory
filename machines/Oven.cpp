@@ -1,13 +1,13 @@
 #include <factory_structs/factoryStructs.h>
 #include <factory_structs/Bandeja.h>
 #include <factory_structs/Cookie.h>
-#include <factory_structs/Cronometro.h>
 #include <factory_structs/BandasTransportadoras.h>
 #include <lists/LinkedList.h>
 #include <machines/machines.h>
 
 
 //Contructor
+<<<<<<< HEAD
 Oven::Oven(){
     bandejas = new LinkedList<Bandeja *>();
 
@@ -24,6 +24,22 @@ Oven::Oven(){
 void Oven::init(int capacidadHorno, int capacidadBanda, double _delay){
     bandaSalida = new BandasTransportadoras<int>(capacidadBanda);
     bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
+=======
+Oven::Oven(int capacidadHorno, int capacidadBanda){
+        bandaSalida = new BandasTransportadoras<int >(capacidadBanda);
+        //bandaSalida = new BandasTransportadoras<Cookie *>(capacidadBanda);
+        bandaEntrada = new BandasTransportadoras<int >(capacidadBanda);
+
+        bandejas = new LinkedList<Bandeja *>();
+        for (int i=0; i<6; i++){
+            bandejas->add(new Bandeja());
+        }
+
+        //inspectores = new LinkedList<Inspectores *>();
+        isRunning = false;
+        capacity = capacidadHorno;
+        cookiesCooked = 0;
+>>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
 
     capacity = capacidadHorno;
     delay = _delay;
@@ -63,6 +79,12 @@ void Oven::modifyCapacity(int newCap){
     capacity = newCap;
 }
 
+//Cambia el tiempo del cronometro
+void Oven::changeTrayTiming(int ind,double num){
+    if (ind<6 and ind >=0){
+        bandejas->get(ind)->cronometro->limite = num;
+    }
+}
 
 //Funcion temporal (Probablemente despues usemos una que funcione con tiempo real)
 int Oven::galletasHorneadas(){
@@ -71,18 +93,17 @@ int Oven::galletasHorneadas(){
 
 
 //Esta funcion sirve para retornar su capacidad
-int Oven::send(int waitingTime){
+int Oven::send(){
     int total = 0;
-
-    if (cronometro->contadorB(waitingTime)){
-        for (int i =0; i<bandejas->length;i++){
-            total+= bandejas->get(i)->quantity;
-            bandejas->get(i)->vaciarBandeja();
+    for (int i =0; i<bandejas->length;i++){
+        if (bandejas->get(i)->state == true){
+            if (bandejas->get(i)->cronometro->contadorB() == true){
+                total+= bandejas->get(i)->quantity;
+                bandejas->get(i)->vaciarBandeja();
+            }
         }
-        return total;
     }
-    
-    bandaSalida->add(total);
+    bandaSalida->agregarIndividual(total);
     return total;
 }
 

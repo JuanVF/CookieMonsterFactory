@@ -126,20 +126,25 @@ struct Oven{
 
     int capacity;
     int cookiesCooked;
-    double delay;
     bool isRunning;
 
+<<<<<<< HEAD
     Cronometro * cronometro;
 
     Oven();
+=======
+    Oven(int capacidadHorno, int capacidadBanda);
+>>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
 
     void init(int capacidadHorno, int capacidadBanda, double _delay);
     void restartOven();
     bool addCookiesToTrays(int num);
     void modifyCapacity(int newCap);
-    int galletasHorneadas();
-    int send(int waitingTime);
     void apagarBandejas(int indiceBandeja);
+    void changeTrayTiming(int ind,double num);
+
+    int galletasHorneadas();
+    int send();
     int galletasEnEspera();
     int galletasCocinadas(int ind);
     int totalGalletas();

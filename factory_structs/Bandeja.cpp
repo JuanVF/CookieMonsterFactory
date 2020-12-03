@@ -1,6 +1,7 @@
 #ifndef IOSSTREAM
 #define IOSSTREAM
 #include <iostream>
+#include <factory_structs/Cronometro.h>
 using namespace std;
 #endif
 
@@ -8,6 +9,7 @@ struct Bandeja{
     int capacity;
     int quantity;
     bool state;
+    Cronometro * cronometro;
 
     Bandeja(){
         capacity = 50;
@@ -17,7 +19,13 @@ struct Bandeja{
     Bandeja (int _c, int _q){
         capacity = _c;
         quantity = _q;
+        cronometro = new Cronometro(10);
         state = false;
+    }
+
+    //modificar tiempo de la bandeja
+    void modifyTime(double _time){
+        cronometro->limite = _time;
     }
 
     //Modificar capacidad

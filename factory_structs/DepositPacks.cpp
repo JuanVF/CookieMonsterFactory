@@ -2,9 +2,11 @@
 
 struct DepositPacks{
     string nombre;
-    int actual;
+
     int tiempo;
-    int galletasPorPaquete;      //Las galletas que debe tener cada Paquete
+    int actual;
+    int galletasPorPaquete;
+
     int paquetesActuales;
     int totalPaquetes;
 
