@@ -2,8 +2,8 @@
 #define MAINWINDOWDATA_H
 
 #include <lists/dataStructures.h>
-#include <machines/machines.h>
 #include <factory_structs/factoryStructs.h>
+#include <machines/machines.h>
 #include <enums.h>
 
 #include <machines/Planner.h>
@@ -11,6 +11,7 @@
 #include <machines/Assembler.h>
 #include <machines/MixerMachine.h>
 #include <machines/Oven.h>
+#include <machines/Transportadores.h>
 #include <machines/Packer.h>
 #include <machines/Deposit.h>
 
@@ -30,9 +31,12 @@ bool isInPause = false;
 Util * util = new Util();
 
 // Aqui se inicializan las maquinas
-Oven * oven = new Oven();
 Planner * planner = new Planner();
+Deposit * deposit = new Deposit(planner);
 WareHouse * warehouse = new WareHouse();
+Transportadores * trans = new Transportadores(planner, deposit);
+Packer * packer = new Packer(planner, trans);
+Oven * oven = new Oven(packer);
 Assembler * assembler = new Assembler(oven, planner);
 
 MixerMachine * chocolateMixer1 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #1");
@@ -44,4 +48,5 @@ MixerMachine * doughMixer = new MixerMachine(warehouse, assembler, Dough, "Mezcl
 // El string con simbolos raros es el RegEx
 QRegularExpressionValidator * floatVal = new QRegularExpressionValidator(QRegularExpression("\\d+(\\.)?(\\d{1,5})?"), NULL);
 QRegularExpressionValidator * intVal = new QRegularExpressionValidator(QRegularExpression("\\d+"), NULL);
+
 #endif

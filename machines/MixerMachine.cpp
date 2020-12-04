@@ -7,12 +7,13 @@
 
 // Constructor
 MixerMachine::MixerMachine(WareHouse * _warehouse, Assembler * _assembler, MixerType _type, string _name){
-    delay = 0;
     min = 0;
     max = 0;
+    total = 0;
+    delay = 0;
     amount = 0;
-    name = _name;
     capacity = 0;
+    name = _name;
 
     isRunning = false;
     started = clock();
@@ -69,7 +70,10 @@ void MixerMachine::send(int amount){
     if (!wasSended){
         cout << name << " se ha apagado..." << endl;
         isRunning = false;
+        return;
     }
+
+    total += amount;
 }
 
 // Esta funcion recibe la solicitud que le hizo al almacen

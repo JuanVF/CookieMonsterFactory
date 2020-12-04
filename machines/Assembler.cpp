@@ -117,8 +117,7 @@ bool Assembler::receive(MixerType type, int amount){
 // Aqui se envian las galletas al horno
 void Assembler::send(int amount){
     // TODO: Si retorna false apagar la maquina
-    //bool wasAdded = oven->send(amount);
-    bool wasAdded = true;
+    bool wasAdded = oven->addCookiesToTrays(amount);
 
     assembledCookies += amount;
 

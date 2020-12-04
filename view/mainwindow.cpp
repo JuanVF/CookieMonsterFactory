@@ -29,6 +29,7 @@ void initComponents(Ui::MainWindow * ui){
     // Algunos componentes que necesitan los hilos
     LinkedList<QPlainTextEdit *> * textEdits = new LinkedList<QPlainTextEdit *>();
     LinkedList<QLabel *> * labels = new LinkedList<QLabel *>();
+    LinkedList<QPushButton *> * buttons = new LinkedList<QPushButton *>();
 
     textEdits->add(ui->lbCarQueue);
 
@@ -42,13 +43,33 @@ void initComponents(Ui::MainWindow * ui){
     textEdits->add(ui->teDMProcessed);
 
     labels->add(ui->lbAsmAssembled);
+
     textEdits->add(ui->teAsmChocolate);
     textEdits->add(ui->teAsmDough);
 
-    uiThread.init(textEdits, labels, &app_mutex);
+    labels->add(ui->lbCM1Processed);
+    labels->add(ui->lbCM2Processed);
+    labels->add(ui->lbDMProcessed);
+
+    textEdits->add(ui->teOvenTrayInfo);
+    labels->add(ui->lbOvenCooking);
+    labels->add(ui->lbOvenMaxCookies);
+    labels->add(ui->lbOvenWaiting);
+
+    buttons->add(ui->btnWHTurnOn);
+
+    buttons->add(ui->btnCM1TurnON);
+    buttons->add(ui->btnCM2TurnON);
+    buttons->add(ui->btnDMTurnON);
+
+    buttons->add(ui->btnAsmTurnON);
+    buttons->add(ui->btnOvenTurnOn);
+    buttons->add(ui->btnInspTurnOn);
+
+    uiThread.init(textEdits, labels, buttons, &app_mutex);
     machines.init(&app_mutex);
 
-    // Estos son validaciones para evitar que el usuario
+    // Estos son validaciones para evitar que el usuario no
     // Meta letras donde solo van numeros
     // Se usan Regular Expressions para hacer las validaciones
     ui->leAsmDelay->setValidator(floatVal);
@@ -78,6 +99,30 @@ void initComponents(Ui::MainWindow * ui){
     ui->leDMMin->setValidator(intVal);
     ui->leDMProd->setValidator(floatVal);
     ui->lePlannerAmount->setValidator(intVal);
+
+    ui->leOvenBand1->setValidator(intVal);
+    ui->leOvenBand2->setValidator(intVal);
+    ui->leOvenBand3->setValidator(intVal);
+    ui->leOvenBand4->setValidator(intVal);
+    ui->leOvenBand5->setValidator(intVal);
+    ui->leOvenBand6->setValidator(intVal);
+
+    ui->leOvenBand1Delay->setValidator(floatVal);
+    ui->leOvenBand2Delay->setValidator(floatVal);
+    ui->leOvenBand3Delay->setValidator(floatVal);
+    ui->leOvenBand4Delay->setValidator(floatVal);
+    ui->leOvenBand5Delay->setValidator(floatVal);
+    ui->leOvenBand6Delay->setValidator(floatVal);
+
+    ui->leOvenCapacity->setValidator(intVal);
+    ui->leOvenBandCapacity->setValidator(intVal);
+
+    ui->lePackerCapacity->setValidator(intVal);
+    ui->lePackerDelay->setValidator(floatVal);
+    ui->lePackerMaxBand->setValidator(intVal);
+
+    ui->leTransCapacity->setValidator(intVal);
+    ui->leTransDelay->setValidator(floatVal);
 }
 
 // Funcion que se va a encargar de encender todas las maquinas
@@ -453,5 +498,269 @@ void MainWindow::on_btnAsmApply_clicked(){
  * */
 
 void MainWindow::on_btnOvenApply_clicked(){
+    LinkedList<string> * bands = new LinkedList<string>();
+    LinkedList<string> * bandsDelay = new LinkedList<string>();
 
+    bool areBandsEmpty = false;
+    bool areBandsDelayEmpty = false;
+
+    string ovenCapacity = getText(ui->leOvenCapacity);
+    string ovenBandCapacity = getText(ui->leOvenBandCapacity);
+
+    bands->add(getText(ui->leOvenBand1));
+    bandsDelay->add(getText(ui->leOvenBand1Delay));
+
+    bands->add(getText(ui->leOvenBand2));
+    bandsDelay->add(getText(ui->leOvenBand2Delay));
+
+    bands->add(getText(ui->leOvenBand3));
+    bandsDelay->add(getText(ui->leOvenBand3Delay));
+
+    bands->add(getText(ui->leOvenBand4));
+    bandsDelay->add(getText(ui->leOvenBand4Delay));
+
+    bands->add(getText(ui->leOvenBand5));
+    bandsDelay->add(getText(ui->leOvenBand5Delay));
+
+    bands->add(getText(ui->leOvenBand6));
+    bandsDelay->add(getText(ui->leOvenBand6Delay));
+
+    // Verificamos que no haya alguna vacia...
+    for (int i = 0; i < bands->length; i++){
+        areBandsEmpty = bands->get(i) == "";
+        areBandsDelayEmpty = bandsDelay->get(i) == "";
+
+        if (areBandsEmpty && areBandsDelayEmpty) break;
+    }
+
+    QMessageBox msgBox;
+
+    if (ovenCapacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else if (ovenBandCapacity == ""){
+        msgBox.setText("El input de la capacidad de la banda esta vacio...");
+
+    } else if (areBandsEmpty){
+        msgBox.setText("Algun input de la bandeja esta vacio...");
+
+    } else if (areBandsDelayEmpty){
+        msgBox.setText("Algun input del delay de la bandeja esta vacio...");
+
+    } else {
+        LinkedList<int> * bandsInt = new LinkedList<int>();
+        LinkedList<float> * bandsDelayFloat = new LinkedList<float>();
+
+        int capacity = util->toInt(ovenCapacity);
+        int bandCapacity = util->toInt(ovenBandCapacity);
+
+        for (int i = 0; i < bands->length; i++){
+            bandsInt->add(util->toInt(bands->get(i)));
+            bandsDelayFloat->add(util->toDouble(bandsDelay->get(i)));
+        }
+
+        cout << "hi" << endl;
+        oven->init(capacity, bandCapacity, bandsDelayFloat, bandsInt);
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+/*
+ *  MAQUINA: Empacadora
+ * */
+
+void MainWindow::on_btnPackerApply_clicked(){
+    string capacity = getText(ui->lePackerCapacity);
+    string delay = getText(ui->lePackerDelay);
+    string bandMax = getText(ui->lePackerMaxBand);
+
+    QMessageBox msgBox;
+
+    if (capacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else if (delay == ""){
+        msgBox.setText("El input del delay esta vacio...");
+
+    } else if (bandMax == ""){
+        msgBox.setText("El input de la capacidad de la banda esta vacio...");
+
+    } else {
+        int intCapacity = util->toInt(capacity);
+        float intDelay = util->toDouble(delay);
+        int intBandMax = util->toInt(bandMax);
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+// Boton de apply de los transportadores
+void MainWindow::on_btnTranApply_clicked(){
+    string strCapacity = getText(ui->leTransCapacity);
+    string strDelay = getText(ui->leTransDelay);
+
+    QMessageBox msgBox;
+
+    if (strDelay == ""){
+        msgBox.setText("El input del delay esta vacio...");
+
+    } else if (strCapacity == ""){
+        msgBox.setText("El input de la capacidad esta vacio...");
+
+    } else {
+        int capacity = util->toInt(strCapacity);
+        float delay = util->toDouble(strDelay);
+
+        trans->setData(capacity, delay);
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+// Boton de apply de los inspectores
+void MainWindow::on_btnInspApply_clicked(){
+    string strProb1 = getText(ui->leInspProb1);
+    string strProb2 = getText(ui->leInspProb2);
+
+    QMessageBox msgBox;
+
+    if (strProb1 == ""){
+        msgBox.setText("La probabilidad del inspector 1 esta vacia...");
+
+    } else if (strProb2 == ""){
+        msgBox.setText("La probabilidad del inspector 2 esta vacia...");
+
+    } else{
+        float prob1 = util->toDouble(strProb1);
+        float prob2 = util->toDouble(strProb2);
+
+        // Esperar a que Maximo termine la empacadora
+
+        msgBox.setText("Cambios aplicados!");
+    }
+
+    msgBox.exec();
+}
+
+void setTray(QPushButton * btn, int index){
+    oven->setTrayStatus(index);
+
+    setStatusButton(btn, oven->bandejas->get(index)->state);
+}
+
+// Eventos de encender las bandejas
+void MainWindow::on_btnTurnTray1_clicked(){
+    // Esta siempre debe estar encendida
+}
+
+void MainWindow::on_btnTurnTray2_clicked(){
+    // Esta siempre debe estar encendida
+}
+
+void MainWindow::on_btnTurnTray3_clicked(){
+    if (app_mutex.tryLock()){
+        setTray(ui->btnTurnTray3, 2);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnTurnTray4_clicked(){
+    if (app_mutex.tryLock()){
+        setTray(ui->btnTurnTray4, 3);
+        app_mutex.unlock();
+    }
+
+}
+
+void MainWindow::on_btnTurnTray5_clicked(){
+    if (app_mutex.tryLock()){
+        setTray(ui->btnTurnTray5, 4);
+        app_mutex.unlock();
+    }
+
+}
+
+void MainWindow::on_btnTurnTray6_clicked(){
+    if (app_mutex.tryLock()){
+        setTray(ui->btnTurnTray6, 5);
+        app_mutex.unlock();
+    }
+}
+
+// Encender o apagar maquinas
+void MainWindow::on_btnWHTurnOn_clicked(){
+    if(app_mutex.tryLock()){
+        warehouse->isRunning = !warehouse->isRunning;
+        setStatusButton(ui->btnWHTurnOn, warehouse->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnCM1TurnON_clicked(){
+    if(app_mutex.tryLock()){
+        chocolateMixer1->isRunning = !chocolateMixer1->isRunning;
+        setStatusButton(ui->btnCM1TurnON, chocolateMixer1->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnCM2TurnON_clicked(){
+    if(app_mutex.tryLock()){
+        chocolateMixer2->isRunning = !chocolateMixer2->isRunning;
+        setStatusButton(ui->btnCM2TurnON, chocolateMixer2->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnDMTurnON_clicked(){
+    if(app_mutex.tryLock()){
+        doughMixer->isRunning = !doughMixer->isRunning;
+        setStatusButton(ui->btnDMTurnON, doughMixer->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnAsmTurnON_clicked(){
+    if(app_mutex.tryLock()){
+        assembler->isRunning = !assembler->isRunning;
+        setStatusButton(ui->btnAsmTurnON, assembler->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnOvenTurnOn_clicked(){
+    if(app_mutex.tryLock()){
+        oven->isRunning = !oven->isRunning;
+        setStatusButton(ui->btnOvenTurnOn, oven->isRunning);
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnPackerTurnOn_clicked(){
+    if(app_mutex.tryLock()){
+        // Waiting
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnInspTurnOn_clicked(){
+    if(app_mutex.tryLock()){
+        // Esta cual es?
+        app_mutex.unlock();
+    }
+}
+
+void MainWindow::on_btnTransTurnOn_clicked(){
+    if(app_mutex.tryLock()){
+        trans->isRunning = !trans->isRunning;
+        setStatusButton(ui->btnTransTurnOn, trans->isRunning);
+        app_mutex.unlock();
+    }
 }

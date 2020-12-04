@@ -1,9 +1,5 @@
-#ifndef IOSSTREAM
-#define IOSSTREAM
-#include <iostream>
+#include <factory_structs/factoryStructs.h>
 #include <factory_structs/Cronometro.h>
-using namespace std;
-#endif
 
 struct Bandeja{
     int capacity;
@@ -14,8 +10,10 @@ struct Bandeja{
     Bandeja(){
         capacity = 50;
         quantity = 0;
+        cronometro = new Cronometro(10);
         state = false;
     }
+
     Bandeja (int _c, int _q){
         capacity = _c;
         quantity = _q;
@@ -35,7 +33,7 @@ struct Bandeja{
 
     //Agregar galletas a la bandeja
     void agregarGalletas(int num){
-        if ((quantity+num)<=capacity and state){
+        if ((quantity + num)<=capacity and state){
             quantity += num ;
         }
         else if (state){
@@ -56,6 +54,7 @@ struct Bandeja{
     //retorna el int de galletas que superan su capacidad
     int sobrantes(int num){
         int total = num+quantity;
+
         if (total>capacity){
             return total-capacity;
         }
@@ -78,5 +77,14 @@ struct Bandeja{
         quantity = 0;
     }
 
+    // Retorna informacion del estado actual de la bandeja
+    string toString(){
+        string data = "";
+
+        data += "Cantidad: " + to_string(quantity) + "\n";
+        data += "Capacidad: " + to_string(capacity) + "\n";
+
+        return data;
+    }
 };
 

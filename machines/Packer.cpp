@@ -1,24 +1,32 @@
-#include <machines/Oven.h>
+#include <factory_structs/factoryStructs.h>
 #include <machines/machines.h>
 #include <QRandomGenerator>
 #include <factory_structs/CookiePack.h>
 #include <factory_structs/Inspectores.h>
+#include <factory_structs/PlannerPacks.h>
 #include <factory_structs/DepositPacks.h>
-#include <factory_structs/Transportadores.h>
 #include <factory_structs/BandasTransportadoras.h>
-
 
 //Contructor
 Packer::Packer(Planner * _planner, Transportadores * _transportadores){
     recibidas = 0;
+    delay = 0;
     isRunning = false;
-    transportadores = _transportadores;
     planner = _planner;
+    transportadores = _transportadores;
     listaGalletas =  new LinkedList<DepositPacks*>();
 }
 
-void Packer::init(int capacidadBanda){
+void Packer::init(int capacidadBanda, int _capacidad, float _delay){
     bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
+    delay = _delay;
+
+}
+
+void Packer::start(){
+    if (!isRunning) return;
+
+    send();
 }
 
 //Funcion que recibe las galletas
@@ -46,12 +54,11 @@ void Packer:: cambiarDelay(string _name, int newTime){
     }
 }
 
+//
 void Packer::addCookies(string name, int num){
-    for (int i=0; i<listaGalletas->length;i++){
+    for (int i=0; i< listaGalletas->length; i++){
         if (listaGalletas->get(i)->nombre == name){
             listaGalletas->get(i)->agregarGalletas(num);
-            //Preguntar
-
         }
     }
 }
@@ -59,9 +66,12 @@ void Packer::addCookies(string name, int num){
 void Packer::generarRandom(){
     int probs[listaGalletas->length];
     int divisor = 100/listaGalletas->length ;
+
     for (int i =0;i<listaGalletas->length;i++){
         probs[i]= QRandomGenerator::global()->bounded(0,divisor);
+
         listaGalletas->get(i)->probabilidad = probs[i];
+
         if (i == listaGalletas->length-1){
             int j = 0;
             while (j<listaGalletas->length-1){
@@ -74,12 +84,13 @@ void Packer::generarRandom(){
 }
 
 //Enviar al transporte
-/*void Packer::send(){
+void Packer::send(){
+
     for (int i =0; i<planner->packs->length;i++){
         string _name = planner->packs->get(i)->getName();
         int _galletasP = planner->packs->get(i)->amountPacks;
         //int _delay =  tiempo
         //listaGalletas->add();
     }
-}*/
+}
 

@@ -64,6 +64,42 @@ private slots:
 
     void on_btnOvenApply_clicked();
 
+    void on_btnPackerApply_clicked();
+
+    void on_btnTranApply_clicked();
+
+    void on_btnInspApply_clicked();
+
+    void on_btnTurnTray1_clicked();
+
+    void on_btnTurnTray2_clicked();
+
+    void on_btnTurnTray3_clicked();
+
+    void on_btnTurnTray4_clicked();
+
+    void on_btnTurnTray5_clicked();
+
+    void on_btnTurnTray6_clicked();
+
+    void on_btnWHTurnOn_clicked();
+
+    void on_btnCM1TurnON_clicked();
+
+    void on_btnCM2TurnON_clicked();
+
+    void on_btnDMTurnON_clicked();
+
+    void on_btnAsmTurnON_clicked();
+
+    void on_btnOvenTurnOn_clicked();
+
+    void on_btnPackerTurnOn_clicked();
+
+    void on_btnInspTurnOn_clicked();
+
+    void on_btnTransTurnOn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -1,12 +1,23 @@
-#include <factory_structs/CookiePack.h>
-#include <factory_structs/PlannerPacks.h>
 #include <lists/LinkedList.h>
+#include <factory_structs/factoryStructs.h>
+#include <factory_structs/PlannerPacks.h>
+
+#ifndef TIME_H
+#define TIME_H
+#include <time.h>
+#endif
 
 struct Transportador{
-    LinkedList<PlannerPacks*> * packagesType;
+    PlannerPacks * packagesType;
+    int currentPacks; // Es la cantidad que esta transportando
+    clock_t started;
 	
-	Transportador(){
-        packagesType = new  LinkedList<PlannerPacks*>();
+    Transportador(PlannerPacks * package){
+        packagesType = package;
+        currentPacks = 0;
 	}
-	
+
+    void initTime(){
+        started = clock();
+    }
 };

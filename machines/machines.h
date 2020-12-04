@@ -1,14 +1,8 @@
 #include <lists/dataStructures.h>
 #include <factory_structs/factoryStructs.h>
+#include <lists/CircularList.h>
 #include <enums.h>
 #include <Util.h>
-#include <lists/CircularList.h>
-
-#ifndef IOSTREAM_H
-#define IOSTREAM_H
-#include <iostream>
-using namespace std;
-#endif
 
 #ifndef MACHINES_H
 #define MACHINES_H
@@ -20,6 +14,7 @@ struct Packer;
 struct Deposit;
 struct WareHouse;
 struct Assembler;
+struct Transportadores;
 
 // La razon de mover esto aca es por el problema de que la estructura no esta completa
 // Esta es la solucion
@@ -59,6 +54,7 @@ struct MixerMachine{
     int min;
     int max;
     int capacity;
+    float total;
     string name;
     double delay; // Tiempo que duran mezclando
     bool isRunning;
@@ -119,6 +115,8 @@ struct Assembler{
 };
 
 struct Oven{
+    Packer * packer;
+
     BandasTransportadoras<int> *bandaEntrada;
     LinkedList<Bandeja *> *bandejas ;
     BandasTransportadoras<int> *bandaSalida ;
@@ -130,27 +128,30 @@ struct Oven{
 
     Cronometro * cronometro;
 
-    Oven();
+    Oven(Packer * _packer);
 
-    void init(int capacidadHorno, int capacidadBanda, double _delay);
+    void init(int capacidadHorno, int capacidadBanda, LinkedList<float> * traysDelay, LinkedList<int> * traysCap);
     void restartOven();
-    bool addCookiesToTrays(int num);
     void modifyCapacity(int newCap);
     void apagarBandejas(int indiceBandeja);
     void changeTrayTiming(int ind,double num);
+    void start();
+    void setTrayStatus(int);
 
-    int galletasHorneadas();
     int send();
-    int galletasEnEspera();
-    int galletasCocinadas(int ind);
     int totalGalletas();
-
-
+    int galletasEnEspera();
+    int galletasHorneadas();
+    int send(int waitingTime);
+    int galletasCocinadas(int ind);
+    bool addCookiesToTrays(int num);
+    string getTraysInfo();
 };
 
 struct Packer{
     int recibidas;
     bool isRunning;
+    float delay;
     BandasTransportadoras<int> *bandaEntrada;
     Planner * planner;
     Transportadores * transportadores;
@@ -158,7 +159,8 @@ struct Packer{
 
     Packer(Planner * _planner, Transportadores * _transportadores);
 
-    void init(int _c);
+    void init(int capacidadBanda, int capacidad, float delay);
+    void start();
     void addCapacity(int new_capacity);
     void destroyContent();
     void receive(int received);
@@ -170,16 +172,38 @@ struct Packer{
 };
 
 struct Deposit{
-    LinkedList<CookiePack *>* galletas;
+    LinkedList<PlannerPacks *>* galletas;
     int amountProduced;
     bool isRunning;
     Planner * planner;
 
     Deposit(Planner * planner);
 
+    void init();
+    bool receive(string name, int amount);
     void defineAmountProduced(int num);
     void addToDeposit(int num);
     int totalInDeposit();
+    PlannerPacks * findByName(string name);
+};
+
+struct Transportadores{
+    LinkedList<Transportador*> * transps;
+    Planner * planner;
+    Deposit * deposit;
+    int capacity;
+    float delay;
+    bool isRunning;
+
+    Transportadores(Planner *, Deposit *);
+
+    void init();
+    void initClocks();
+    void setData(int _capacity, float _delay);
+    void send();
+    void reset();
+    bool receive(DepositPacks *);
+    Transportador * findByName(string);
 };
 
 #endif
