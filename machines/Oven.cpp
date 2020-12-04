@@ -1,10 +1,9 @@
+#include <lists/LinkedList.h>
+#include <factory_structs/factoryStructs.h>
+#include <machines/machines.h>
 #include <factory_structs/Bandeja.h>
 #include <factory_structs/Cookie.h>
 #include <factory_structs/BandasTransportadoras.h>
-#include <machines/Assembler.h>
-#include <lists/LinkedList.h>
-#include <lists/node.h>
-#include <machines/machines.h>
 
 //Contructor
 Oven::Oven(){
@@ -32,7 +31,7 @@ void Oven::init(int capacidadHorno, int capacidadBanda, LinkedList<float> * tray
     for (int i = 0; i < bandejas->length; i++){
         Bandeja * temp = bandejas->get(i);
         temp->modifyCapacity(traysCap->get(i));
-        temp->modifyTime(traysDelay->get(i));
+        changeTrayTiming(i, traysDelay->get(i));
     }
 }
 

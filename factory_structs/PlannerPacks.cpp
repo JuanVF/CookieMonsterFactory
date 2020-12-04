@@ -1,3 +1,4 @@
+#include <factory_structs/factoryStructs.h>
 #include <factory_structs/CookiePack.h>
 
 struct PlannerPacks{

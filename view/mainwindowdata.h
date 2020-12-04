@@ -2,8 +2,8 @@
 #define MAINWINDOWDATA_H
 
 #include <lists/dataStructures.h>
-#include <machines/machines.h>
 #include <factory_structs/factoryStructs.h>
+#include <machines/machines.h>
 #include <enums.h>
 
 #include <machines/Planner.h>
@@ -11,6 +11,7 @@
 #include <machines/Assembler.h>
 #include <machines/MixerMachine.h>
 #include <machines/Oven.h>
+#include <machines/Transportadores.h>
 #include <machines/Packer.h>
 #include <machines/Deposit.h>
 

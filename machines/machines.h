@@ -1,14 +1,8 @@
 #include <lists/dataStructures.h>
 #include <factory_structs/factoryStructs.h>
+#include <lists/CircularList.h>
 #include <enums.h>
 #include <Util.h>
-#include <lists/CircularList.h>
-
-#ifndef IOSTREAM_H
-#define IOSTREAM_H
-#include <iostream>
-using namespace std;
-#endif
 
 #ifndef MACHINES_H
 #define MACHINES_H
@@ -20,6 +14,7 @@ struct Packer;
 struct Deposit;
 struct WareHouse;
 struct Assembler;
+struct Transportadores;
 
 // La razon de mover esto aca es por el problema de que la estructura no esta completa
 // Esta es la solucion
@@ -155,10 +150,9 @@ struct Packer{
     bool isRunning;
     BandasTransportadoras<int> *bandaEntrada;
     Planner * planner;
-    Transportadores * transportadores;
     LinkedList<DepositPacks* >* listaGalletas;
 
-    Packer(Planner * _planner, Transportadores * _transportadores);
+    Packer(Planner * _planner);
 
     void init(int _c);
     void addCapacity(int new_capacity);
@@ -171,16 +165,35 @@ struct Packer{
 };
 
 struct Deposit{
-    LinkedList<CookiePack *>* galletas;
+    LinkedList<PlannerPacks *>* galletas;
     int amountProduced;
     bool isRunning;
     Planner * planner;
 
     Deposit(Planner * planner);
 
+    void init();
+    bool receive(string name, int amount);
     void defineAmountProduced(int num);
     void addToDeposit(int num);
     int totalInDeposit();
+    PlannerPacks * findByName(string name);
+};
+
+struct Transportadores{
+    LinkedList<Transportador*> * transps;
+    Planner * planner;
+    Deposit * deposit;
+    int capacity;
+    int delay;
+
+    Transportadores(Planner *, Deposit *);
+
+    void init();
+    void send();
+    void reset();
+    bool receive(DepositPacks *);
+    Transportador * findByName(string);
 };
 
 #endif

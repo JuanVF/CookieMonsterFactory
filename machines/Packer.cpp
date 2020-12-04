@@ -1,17 +1,15 @@
-#include <machines/Oven.h>
+#include <factory_structs/factoryStructs.h>
 #include <machines/machines.h>
 #include <factory_structs/CookiePack.h>
 #include <factory_structs/Inspectores.h>
+#include <factory_structs/PlannerPacks.h>
 #include <factory_structs/DepositPacks.h>
-#include <factory_structs/Transportadores.h>
 #include <factory_structs/BandasTransportadoras.h>
 
-
 //Contructor
-Packer::Packer(Planner * _planner, Transportadores * _transportadores){
+Packer::Packer(Planner * _planner){
     recibidas = 0;
     isRunning = false;
-    transportadores = _transportadores;
     planner = _planner;
     listaGalletas =  new LinkedList<DepositPacks*>();
 }
@@ -50,7 +48,6 @@ void Packer::addCookies(string name, int num){
         if (listaGalletas->get(i)->nombre == name){
             listaGalletas->get(i)->agregarGalletas(num);
             //Preguntar
-
         }
     }
 }

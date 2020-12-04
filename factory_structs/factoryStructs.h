@@ -6,9 +6,42 @@ using namespace std;
 
 #ifndef FACTORYSTRUCTS_H
 #define FACTORYSTRUCTS_H
+
 template <typename Data>
 struct BandasTransportadoras;
 struct Bandeja;
+struct CookiePack;
+struct DeliveryCar;
+struct Inspectores;
+struct PlannerPacks;
+struct Request;
+struct Transportador;
+struct DepositPacks;
+struct Cronometro;
+struct Cookie;
+
+struct DepositPacks{
+    string nombre;
+
+    int tiempo;
+    int actual;
+    int galletasPorPaquete;
+
+    int paquetesActuales;
+    int totalPaquetes;
+
+    DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp);
+    void agregarGalletas(int num);
+    bool isFinished();
+};
+struct Cronometro{
+    int segundos = 0;
+    double limite;
+
+    Cronometro(double _limit);
+
+    bool contadorB();
+};
 struct Cookie{
     int amountDough;
     int amountChocolate;
@@ -18,20 +51,4 @@ struct Cookie{
 
     void setData(double _amountDough, double _amountChocolate);
 };
-struct CookiePack;
-struct DeliveryCar;
-struct Inspectores;
-struct PlannerPacks;
-struct Request;
-struct Transportador;
-struct Transportadores;
-struct Cronometro{
-    int segundos = 0;
-    double limite;
-
-    Cronometro(double _limit);
-
-    bool contadorB();
-};
-struct DepositPacks;
 #endif

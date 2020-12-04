@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>9</number>
+      <number>8</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
