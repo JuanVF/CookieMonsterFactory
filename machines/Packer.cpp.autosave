@@ -73,27 +73,35 @@ void Packer::generarRandom(){
     }
 }
 
-void Packer::escogerRandom(){
+int Packer::escogerRandom(){
     int random = QRandomGenerator::global()->bounded(1,100);
     int sumatoria =0;
-    if (random>0 and random<=listaGalletas->get(0)->probabilidad){
-        sumatoria += listaGalletas->get(0)->probabilidad;
-        //return listaGalletas->get(0);
+    sumatoria += listaGalletas->get(0)->probabilidad;
+    if (random>0 and random<=listaGalletas->get(0)->probabilidad){       
+        return 0;
     }
-    for(int i=1; i<listaGalletas->length;i++){
-        if ((random>listaGalletas->get(i-1)->probabilidad) and (random<=(listaGalletas->get(i)->probabilidad+sumatoria))){
-            sumatoria += listaGalletas->get(i)->probabilidad;
-            //return listaGalletas->get(i)
+    else{
+        for(int i=1; i<listaGalletas->length;i++){
+            if ((random>sumatoria+1) and (random<=(listaGalletas->get(i)->probabilidad+sumatoria))){
+                sumatoria += listaGalletas->get(i)->probabilidad;
+                return i;
+            }
         }
     }
 }
 
 //Enviar al transporte
-/*void Packer::send(){
-    for (int i =0; i<planner->packs->length;i++){
-        string _name = planner->packs->get(i)->getName();
-        int _galletasP = planner->packs->get(i)->amountPacks;
-        //int _delay =  tiempo
-        //listaGalletas->add();
+void Packer::send(){
+    generarRandom();
+    for (int i =0;listaGalletas->length;i++){
+        //listaGalletas->get(i)->
     }
-}*/
+}
+
+void Packer::restarPacks(int ind){
+    if (ind>0 and ind<listaGalletas->length){
+        listaGalletas->get(ind)->paquetesActuales -=1;
+        listaGalletas->get(ind)->totalPaquetes -=1;        
+    }
+}
+

@@ -23,9 +23,17 @@ struct DepositPacks{
     }
 
     void agregarGalletas(int num){
-        if (!isFinished() and ((num+actual)/galletasPorPaquete)<=totalPaquetes){
-            actual +=num;
-            paquetesActuales = actual/galletasPorPaquete;
+        while (!isFinished()){
+            if ((actual+num)>=galletasPorPaquete){
+                actual += num;
+                totalPaquetes +=actual/galletasPorPaquete;
+                while(actual>=galletasPorPaquete){
+                    actual-= galletasPorPaquete;
+                }
+            }
+            else{
+                actual +=num;
+            }
         }
     }
 
@@ -35,9 +43,4 @@ struct DepositPacks{
         }
         return false;
     }
-
-    void cambiarProbabilidad(int np){
-        probabilidad = np;
-    }
-
 };
