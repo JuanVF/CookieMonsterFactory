@@ -134,6 +134,7 @@ struct Packer{
     void cambiarDelay(string _name, int newTime);
     void addCookies(string name, int num);
     void send();
+    void generarRandom();
 };
 
 struct Deposit{

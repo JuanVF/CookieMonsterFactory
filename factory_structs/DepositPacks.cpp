@@ -10,6 +10,8 @@ struct DepositPacks{
     int paquetesActuales;
     int totalPaquetes;
 
+    int probabilidad;
+
     DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp){
         nombre = _nombre;
         galletasPorPaquete = _galletasTotal;
@@ -17,6 +19,7 @@ struct DepositPacks{
         tiempo = _tiempo;
         totalPaquetes = tp;
         paquetesActuales = 0;
+        probabilidad = 0;
     }
 
     void agregarGalletas(int num){
@@ -32,4 +35,9 @@ struct DepositPacks{
         }
         return false;
     }
+
+    void cambiarProbabilidad(int np){
+        probabilidad = np;
+    }
+
 };

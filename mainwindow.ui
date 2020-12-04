@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>8</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -886,7 +886,7 @@ color: rgb(0, 0, 0);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);
@@ -918,7 +918,7 @@ selection-color: rgb(40, 49, 73);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);</string>
@@ -1029,7 +1029,7 @@ color: rgb(0, 0, 0);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);</string>
@@ -1127,7 +1127,7 @@ background-color: rgb(255, 255, 255);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);</string>
@@ -1158,7 +1158,7 @@ background-color: rgb(255, 255, 255);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);</string>
@@ -2911,7 +2911,7 @@ selection-color: rgb(40, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>140</x>
-         <y>10</y>
+         <y>0</y>
          <width>71</width>
          <height>41</height>
         </rect>
@@ -2931,7 +2931,7 @@ selection-color: rgb(40, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>220</x>
-         <y>60</y>
+         <y>40</y>
          <width>101</width>
          <height>31</height>
         </rect>
@@ -2951,7 +2951,7 @@ selection-color: rgb(40, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>130</y>
+         <y>100</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -2976,8 +2976,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_69">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>60</y>
+         <x>10</x>
+         <y>40</y>
          <width>151</width>
          <height>31</height>
         </rect>
@@ -2997,7 +2997,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>130</y>
+         <y>100</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3020,7 +3020,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>90</x>
-         <y>380</y>
+         <y>280</y>
          <width>141</width>
          <height>31</height>
         </rect>
@@ -3029,7 +3029,7 @@ color: rgb(0, 0, 0);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(41, 49, 73);
@@ -3052,7 +3052,7 @@ selection-color: rgb(42, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>100</y>
+         <y>70</y>
          <width>161</width>
          <height>21</height>
         </rect>
@@ -3072,7 +3072,7 @@ selection-color: rgb(42, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>180</x>
-         <y>100</y>
+         <y>70</y>
          <width>171</width>
          <height>21</height>
         </rect>
@@ -3092,7 +3092,7 @@ selection-color: rgb(42, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>170</y>
+         <y>130</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3115,7 +3115,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>210</y>
+         <y>160</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3138,7 +3138,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>250</y>
+         <y>190</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3161,7 +3161,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>290</y>
+         <y>220</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3184,7 +3184,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>60</x>
-         <y>330</y>
+         <y>250</y>
          <width>61</width>
          <height>21</height>
         </rect>
@@ -3207,7 +3207,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>170</y>
+         <y>130</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3233,7 +3233,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>210</y>
+         <y>160</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3259,7 +3259,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>250</y>
+         <y>190</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3285,7 +3285,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>290</y>
+         <y>220</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3311,7 +3311,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>330</y>
+         <y>250</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3337,7 +3337,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>130</y>
+         <y>100</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3357,7 +3357,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>170</y>
+         <y>130</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3377,7 +3377,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>210</y>
+         <y>160</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3397,7 +3397,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>250</y>
+         <y>190</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3417,7 +3417,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>290</y>
+         <y>220</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3437,7 +3437,7 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>330</y>
+         <y>250</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3451,6 +3451,108 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>6.</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page">
+      <widget class="QLabel" name="label_70">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>0</y>
+         <width>151</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Inspectores</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_10">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>100</y>
+         <width>211</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_11">
+       <property name="geometry">
+        <rect>
+         <x>60</x>
+         <y>270</y>
+         <width>211</width>
+         <height>101</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_88">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>70</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Galletas Aprobadas</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_89">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>240</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Galletas desechadas</string>
        </property>
       </widget>
      </widget>
@@ -3478,7 +3580,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="lePlannerAmount_4">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>200</x>
          <y>290</y>
          <width>101</width>
          <height>21</height>
@@ -3501,8 +3603,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_72">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>220</y>
+         <x>200</x>
+         <y>230</y>
          <width>101</width>
          <height>31</height>
         </rect>
@@ -3521,8 +3623,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="lePlannerAmount_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>360</y>
+         <x>200</x>
+         <y>350</y>
          <width>101</width>
          <height>21</height>
         </rect>
@@ -3544,7 +3646,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_74">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>180</x>
          <y>60</y>
          <width>161</width>
          <height>31</height>
@@ -3564,9 +3666,9 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_75">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>180</x>
          <y>260</y>
-         <width>171</width>
+         <width>161</width>
          <height>21</height>
         </rect>
        </property>
@@ -3584,8 +3686,8 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_76">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>330</y>
+         <x>190</x>
+         <y>320</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3604,9 +3706,9 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_77">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>170</x>
          <y>100</y>
-         <width>281</width>
+         <width>161</width>
          <height>21</height>
         </rect>
        </property>
@@ -3618,15 +3720,15 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Capacidad de empaque por paquete</string>
+        <string>Galletas por paquete</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lePlannerAmount_6">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>210</x>
          <y>130</y>
-         <width>161</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -3647,9 +3749,9 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="lePlannerAmount_7">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>210</x>
          <y>190</y>
-         <width>161</width>
+         <width>81</width>
          <height>21</height>
         </rect>
        </property>
@@ -3670,9 +3772,9 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_78">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>160</x>
          <y>160</y>
-         <width>291</width>
+         <width>191</width>
          <height>21</height>
         </rect>
        </property>
@@ -3684,7 +3786,7 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Capacidad de paquetes por transporte</string>
+        <string>Paquetes por transporte</string>
        </property>
       </widget>
       <widget class="QPushButton" name="btnCM2Apply_3">
@@ -3700,7 +3802,7 @@ color: rgb(0, 0, 0);</string>
         <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 49, 73);
@@ -3716,6 +3818,271 @@ selection-color: rgb(40, 49, 73);</string>
         <bool>true</bool>
        </property>
        <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_90">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>200</y>
+         <width>91</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Nombre del </string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_91">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>220</y>
+         <width>61</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>paquete</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lePlannerName_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Nombre...</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <widget class="QLabel" name="label_73">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>0</y>
+         <width>131</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Transporte</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_92">
+       <property name="geometry">
+        <rect>
+         <x>240</x>
+         <y>60</y>
+         <width>81</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Contenido</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_12">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>90</y>
+         <width>131</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_93">
+       <property name="geometry">
+        <rect>
+         <x>70</x>
+         <y>60</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Max.</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_13">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>90</y>
+         <width>131</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_79">
+       <property name="geometry">
+        <rect>
+         <x>90</x>
+         <y>200</y>
+         <width>191</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Deposito (Final)</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_94">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>260</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cantidad de paquetes</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_95">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>260</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Total de galletas</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_15">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>300</y>
+         <width>131</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="plainTextEdit_16">
+       <property name="geometry">
+        <rect>
+         <x>210</x>
+         <y>300</y>
+         <width>131</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
         <bool>true</bool>
        </property>
       </widget>

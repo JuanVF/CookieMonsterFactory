@@ -1,5 +1,6 @@
 #include <machines/Oven.h>
 #include <machines/machines.h>
+#include <QRandomGenerator>
 #include <factory_structs/CookiePack.h>
 #include <factory_structs/Inspectores.h>
 #include <factory_structs/DepositPacks.h>
@@ -49,6 +50,23 @@ void Packer::addCookies(string name, int num){
             listaGalletas->get(i)->agregarGalletas(num);
             //Preguntar
 
+        }
+    }
+}
+
+void Packer::generarRandom(){
+    int probs[listaGalletas->length];
+    int divisor = 100/listaGalletas->length ;
+    for (int i =0;i<listaGalletas->length;i++){
+        probs[i]= QRandomGenerator::global()->bounded(0,divisor);
+        listaGalletas->get(i)->probabilidad = probs[i];
+        if (i == listaGalletas->length-1){
+            int j = 0;
+            while (j<listaGalletas->length-1){
+                probs[listaGalletas->length-1] += listaGalletas->get(j)->probabilidad;
+                j++;
+            }
+            listaGalletas->get(i)->probabilidad =100 - probs[i];
         }
     }
 }
