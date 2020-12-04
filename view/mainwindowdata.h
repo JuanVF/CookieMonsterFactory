@@ -33,8 +33,10 @@ Util * util = new Util();
 // Aqui se inicializan las maquinas
 Oven * oven = new Oven();
 Planner * planner = new Planner();
+Deposit * deposit = new Deposit(planner);
 WareHouse * warehouse = new WareHouse();
 Assembler * assembler = new Assembler(oven, planner);
+Transportadores * trans = new Transportadores(planner, deposit);
 
 MixerMachine * chocolateMixer1 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #1");
 MixerMachine * chocolateMixer2 = new MixerMachine(warehouse, assembler, Chocolate, "Mezcladora de chocolate #2");

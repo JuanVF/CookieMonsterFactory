@@ -67,7 +67,8 @@ void Transportadores::send(){
         tran = transps->get(i);
         bool canSend = tran->started + delay * 1000 - clock() <= 0;
 
-        if (canSend){
+        // Esto verifica que ya paso el tiempo y que no vaya a enviar 0
+        if (canSend && tran->currentPacks > 0){
             tran->started = clock();
             deposit->receive(tran->packagesType->getName(), tran->currentPacks);
             tran->currentPacks = 0;

@@ -150,9 +150,10 @@ struct Packer{
     bool isRunning;
     BandasTransportadoras<int> *bandaEntrada;
     Planner * planner;
+    Transportadores * transportadores;
     LinkedList<DepositPacks* >* listaGalletas;
 
-    Packer(Planner * _planner);
+    Packer(Planner * _planner, Transportadores * _transportadores);
 
     void init(int _c);
     void addCapacity(int new_capacity);

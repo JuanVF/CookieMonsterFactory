@@ -7,10 +7,11 @@
 #include <factory_structs/BandasTransportadoras.h>
 
 //Contructor
-Packer::Packer(Planner * _planner){
+Packer::Packer(Planner * _planner, Transportadores * _transportadores){
     recibidas = 0;
     isRunning = false;
     planner = _planner;
+    transportadores = _transportadores;
     listaGalletas =  new LinkedList<DepositPacks*>();
 }
 
