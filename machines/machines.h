@@ -128,13 +128,9 @@ struct Oven{
     int cookiesCooked;
     bool isRunning;
 
-<<<<<<< HEAD
     Cronometro * cronometro;
 
     Oven();
-=======
-    Oven(int capacidadHorno, int capacidadBanda);
->>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
 
     void init(int capacidadHorno, int capacidadBanda, double _delay);
     void restartOven();
@@ -170,6 +166,7 @@ struct Packer{
     void cambiarDelay(string _name, int newTime);
     void addCookies(string name, int num);
     void send();
+    void generarRandom();
 };
 
 struct Deposit{

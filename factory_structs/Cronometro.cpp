@@ -22,8 +22,4 @@ struct Cronometro{
         }
         segundos = 0 ;
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> 48c4ef29b14de8aa9c1496751608a686cc57d134
 };
