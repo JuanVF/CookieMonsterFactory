@@ -186,11 +186,12 @@ struct Transportadores{
     Planner * planner;
     Deposit * deposit;
     int capacity;
-    int delay;
+    float delay;
 
     Transportadores(Planner *, Deposit *);
 
     void init();
+    void setData(int _capacity, float _delay);
     void send();
     void reset();
     bool receive(DepositPacks *);

@@ -20,6 +20,12 @@ void Transportadores::init(){
     }
 }
 
+void Transportadores::setData(int _capacity, float _delay){
+    capacity = capacity;
+    delay = _delay;
+}
+
+// Esta funcion recibe los datos de la maquina
 bool Transportadores::receive(DepositPacks * received){
     Transportador * trans = findByName(received->nombre);
 

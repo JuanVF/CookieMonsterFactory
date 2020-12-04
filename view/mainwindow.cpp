@@ -601,7 +601,7 @@ void MainWindow::on_btnTranApply_clicked(){
         int capacity = util->toInt(strCapacity);
         float delay = util->toDouble(strDelay);
 
-        // Esperar a que Maximo termine la empacadora
+        trans->setData(capacity, delay);
 
         msgBox.setText("Cambios aplicados!");
     }
