@@ -73,7 +73,9 @@ void initComponents(Ui::MainWindow * ui){
 
     buttons->add(ui->btnAsmTurnON);
     buttons->add(ui->btnOvenTurnOn);
-    buttons->add(ui->btnInspTurnOn);
+
+    buttons->add(ui->btnTransTurnOn);
+    buttons->add(ui->btnPackerTurnOn);
 
     uiThread.init(textEdits, labels, buttons, &app_mutex);
     machines.init(&app_mutex);

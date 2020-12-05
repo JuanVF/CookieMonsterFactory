@@ -28,6 +28,8 @@ int Inspectores::evaluate(int cookiesReceived){
 
         if (random > prob){
             total++;
+        }else{
+            rechazadas++;
         }
     }
 

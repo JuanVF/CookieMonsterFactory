@@ -168,7 +168,6 @@ void Packer::prepare(){
 string Packer::getInfo(){
     string data = "";
 
-    cout << "Lista de galletas: " << listaGalletas->length << endl;
     for (int i = 0; i < listaGalletas->length; i++){
         DepositPacks * temp = listaGalletas->get(i);
 

@@ -163,7 +163,9 @@ private:
 
     QPushButton * btnStateAsm;
     QPushButton * btnStateOven;
-    QPushButton * btnStateInsp;
+
+    QPushButton * btnTransTurnOn;
+    QPushButton * btnPackerTurnOn;
 
     // Setea el estado de los botones
     void checkButtonsState(){
@@ -175,7 +177,9 @@ private:
 
         setStatusButton(btnStateAsm, assembler->isRunning);
         setStatusButton(btnStateOven, oven->isRunning);
-        setStatusButton(btnStateInsp, trans->isRunning);
+
+        setStatusButton(btnTransTurnOn, trans->isRunning);
+        setStatusButton(btnPackerTurnOn, packer->isRunning);
     }
 
     // Se limpian todos los textEdit
@@ -301,7 +305,9 @@ public:
 
         btnStateAsm = buttons->get(4);
         btnStateOven = buttons->get(5);
-        btnStateInsp = buttons->get(6);
+
+        btnTransTurnOn = buttons->get(6);
+        btnPackerTurnOn = buttons->get(7);
 
         mutex = _mutex;
     }

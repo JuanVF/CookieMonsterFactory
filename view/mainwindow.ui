@@ -681,7 +681,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
       <string notr="true">background-color: rgb(53, 62, 86);</string>
      </property>
      <property name="currentIndex">
-      <number>10</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="planner_page">
       <widget class="QLabel" name="label_4">
@@ -4652,8 +4652,8 @@ border-radius: 10px;
     <widget class="QFrame" name="frBaler_2">
      <property name="geometry">
       <rect>
-       <x>570</x>
-       <y>460</y>
+       <x>550</x>
+       <y>180</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -4883,31 +4883,6 @@ border-radius: 10px;
       <bool>true</bool>
      </property>
     </widget>
-    <widget class="QPushButton" name="btnInspTurnOn">
-     <property name="geometry">
-      <rect>
-       <x>610</x>
-       <y>450</y>
-       <width>21</width>
-       <height>21</height>
-      </rect>
-     </property>
-     <property name="cursor">
-      <cursorShape>PointingHandCursor</cursorShape>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(194, 69, 31);
-border-radius: 10px;
-</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
     <widget class="QPushButton" name="btnTransTurnOn">
      <property name="geometry">
       <rect>
@@ -4964,7 +4939,6 @@ border-radius: 10px;
     <zorder>btnWHTurnOn</zorder>
     <zorder>btnOvenTurnOn</zorder>
     <zorder>btnPackerTurnOn</zorder>
-    <zorder>btnInspTurnOn</zorder>
     <zorder>btnTransTurnOn</zorder>
    </widget>
   </widget>
