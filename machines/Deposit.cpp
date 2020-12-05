@@ -70,7 +70,7 @@ int Deposit::totalInDeposit(){
     int amount = 0;
 
     for (int i = 0; i < galletas->length; i++){
-        amount += galletas->get(i)->amountPacks;
+        amount += galletas->get(i)->amountPacks * galletas->get(i)->pack->amountCookies;
     }
 
     return amount;
