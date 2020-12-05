@@ -1,22 +1,24 @@
-#include <machines/Oven.h>
+#include <factory_structs/factoryStructs.h>
 #include <machines/machines.h>
 #include <QRandomGenerator>
 #include <factory_structs/CookiePack.h>
+#include <factory_structs/Cronometro.h>
 #include <factory_structs/Inspectores.h>
+#include <factory_structs/PlannerPacks.h>
 #include <factory_structs/DepositPacks.h>
-#include <factory_structs/Transportadores.h>
 #include <factory_structs/BandasTransportadoras.h>
 
-
 //Contructor
-Packer::Packer(Planner * _planner, int capacidadBanda, Transportadores * _transportadores){
+Packer::Packer(Planner * _planner, Transportadores * _transportadores){
     recibidas = 0;
     isRunning = false;
-    transportadores = _transportadores;
     planner = _planner;
-
-    bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
+    transportadores = _transportadores;
     listaGalletas =  new LinkedList<DepositPacks*>();
+}
+
+void Packer::init(int capacidadBanda){
+    bandaEntrada = new BandasTransportadoras<int>(capacidadBanda);
 }
 
 //Funcion que recibe las galletas
@@ -56,44 +58,92 @@ void Packer::addCookies(string name, int num){
     }
 }
 
+void Packer::empacar(){
+    for (int i=0; i<listaGalletas->length;i++){
+        string nombrePaquete = listaGalletas->get(i)->nombre;
+        addCookies(nombrePaquete,recibidas);
+    }
+}
+
 void Packer::generarRandom(){
-    int probs[listaGalletas->length];
-    int divisor = 100/listaGalletas->length ;
-    for (int i =0;i<listaGalletas->length;i++){
-        probs[i]= QRandomGenerator::global()->bounded(0,divisor);
-        listaGalletas->get(i)->probabilidad = probs[i];
-        if (i == listaGalletas->length-1){
-            int j = 0;
-            while (j<listaGalletas->length-1){
-                probs[listaGalletas->length-1] += listaGalletas->get(j)->probabilidad;
-                j++;
+    if(listaGalletas->length>0){
+        int probs[listaGalletas->length];
+        int divisor = 100/listaGalletas->length ;
+        for (int i =0;i<listaGalletas->length;i++){
+            probs[i]= QRandomGenerator::global()->bounded(0,divisor);
+            listaGalletas->get(i)->probabilidad = probs[i];
+            if (i == listaGalletas->length-1){
+                int j = 0;
+                while (j<listaGalletas->length-1){
+                    probs[listaGalletas->length-1] += listaGalletas->get(j)->probabilidad;
+                    j++;
+                }
+                listaGalletas->get(i)->probabilidad =100 - probs[i];
             }
-            listaGalletas->get(i)->probabilidad =100 - probs[i];
         }
     }
 }
 
-void Packer::escogerRandom(){
+/*
+void Packer::generarRandom(){
+    int probs[listaGalletas->length];
+    int divisor = 100/listaGalletas->length;
+    if (listaGalletas->length>0)
+*/
+
+int Packer::escogerRandom(){
     int random = QRandomGenerator::global()->bounded(1,100);
     int sumatoria =0;
+    sumatoria += listaGalletas->get(0)->probabilidad;
     if (random>0 and random<=listaGalletas->get(0)->probabilidad){
-        sumatoria += listaGalletas->get(0)->probabilidad;
-        //return listaGalletas->get(0);
+        return 0;
     }
     for(int i=1; i<listaGalletas->length;i++){
-        if ((random>listaGalletas->get(i-1)->probabilidad) and (random<=(listaGalletas->get(i)->probabilidad+sumatoria))){
+        if ((random>sumatoria) and (random<=(listaGalletas->get(i)->probabilidad+sumatoria))){
             sumatoria += listaGalletas->get(i)->probabilidad;
-            //return listaGalletas->get(i)
+            return (i);
         }
     }
 }
 
 //Enviar al transporte
-/*void Packer::send(){
-    for (int i =0; i<planner->packs->length;i++){
-        string _name = planner->packs->get(i)->getName();
-        int _galletasP = planner->packs->get(i)->amountPacks;
-        //int _delay =  tiempo
-        //listaGalletas->add();
+DepositPacks Packer::send(){
+    generarRandom();
+    int indiceRandom = escogerRandom();
+    if (listaGalletas->get(indiceRandom)->cronometro->contadorB() == true){
+        if (!listaGalletas->get(indiceRandom)->entregaTerminada()){
+            while (isRunning){
+                listaGalletas->get(indiceRandom)->entregarPacks();
+                string _name = listaGalletas->get(indiceRandom)->nombre;
+                int totalCookies = listaGalletas->get(indiceRandom)->galletasPorPaquete;
+                int _tiempo =0;
+                int tp=1;
+                return DepositPacks(_name,totalCookies,_tiempo, tp);
+            }
+        }
     }
-}*/
+}
+
+void Packer::removerPacks(){
+    for (int i =0; i<listaGalletas->length;i++){
+        if (listaGalletas->get(i)->entregaTerminada()==true){
+            listaGalletas->remove(i);
+        }
+        if (listaGalletas->length == 0){
+            isRunning = false;
+        }
+    }
+}
+
+//Mandarle los datos del planner al packer para crear los depositPacks
+void Packer::working(int galletasEntrantes){
+    while (isRunning and listaGalletas->length>0){
+        agregarPaquete();
+        receive(galletasEntrantes);
+        empacar();
+        send();
+        removerPacks();
+    }
+}
+
+

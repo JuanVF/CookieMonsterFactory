@@ -1,5 +1,4 @@
 #include <lists/CircularList.h>
-#include <factory_structs/Cookie.h>
 
 // Esto son los diferentes tipos de paquetes que trabaja el proceso de produccion
 struct CookiePack{

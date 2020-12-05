@@ -9,4 +9,12 @@ struct Request{
         mixer = _mixer;
         amount = _amount;
     }
+
+    // Info del request
+    string toString(){
+        string data = "Pedido hacia: " + mixer->name + "\n";
+        data += "Cantidad: " + to_string(amount) + "\n";
+
+        return data;
+    }
 };

@@ -32,7 +32,7 @@ struct BandasTransportadoras{
     // Obtiene el primer elemento de la cola
     // Retorna nulo si no tiene ninguno o esta apagada
     Data get(){
-        if (!isTurnedOn) return NULL;
+        if (!isTurnedOn) return (Data) NULL;
 
         return queue->dequeue();
     }
@@ -47,7 +47,7 @@ struct BandasTransportadoras{
         while (numero>0){
             add(1);
             numero--;
-            if (isOverCapacity(1)){
+            if (isOverCapacity()){
                 return 1;
             }
         }

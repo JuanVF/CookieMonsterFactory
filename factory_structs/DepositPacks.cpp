@@ -1,46 +1,56 @@
-#include <factory_structs/CookiePack.h>
+#include <factory_structs/factoryStructs.h>
 
-struct DepositPacks{
-    string nombre;
+#ifndef IOSSTREAM
+#define IOSSTREAM
+#include <iostream>
+using namespace std;
+#endif
 
-    int tiempo;
-    int actual;
-    int galletasPorPaquete;
 
-    int paquetesActuales;
-    int totalPaquetes;
+DepositPacks::DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp){
+    nombre = _nombre;
+    tiempo = _tiempo;
 
-    int probabilidad;
+    galletasPorPaquete = _galletasTotal;
+    actual = 0;
 
-    DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp){
-        nombre = _nombre;
-        galletasPorPaquete = _galletasTotal;
-        actual = 0;
-        tiempo = _tiempo;
-        totalPaquetes = tp;
-        paquetesActuales = 0;
-        probabilidad = 0;
-    }
+    totalPaquetes = tp;
+    paquetesActuales = 0;
 
-    void agregarGalletas(int num){
-        while (!isFinished()){
-            if ((actual+num)>=galletasPorPaquete){
-                actual += num;
-                totalPaquetes +=actual/galletasPorPaquete;
-                while(actual>=galletasPorPaquete){
-                    actual-= galletasPorPaquete;
-                }
-            }
-            else{
-                actual +=num;
+    probabilidad =0;
+    paquetesEntregados =0;
+    cronometro = new Cronometro(_tiempo);
+}
+
+void DepositPacks::agregarGalletas(int num){
+    while (!isFinished()){
+        if ((actual+num)>=galletasPorPaquete){
+            actual += num;
+            totalPaquetes +=actual/galletasPorPaquete;
+            while(actual>=galletasPorPaquete){
+                actual-= galletasPorPaquete;
             }
         }
-    }
-
-    bool isFinished(){
-        if (paquetesActuales == totalPaquetes){
-            return true;
+        else{
+            actual +=num;
         }
-        return false;
     }
-};
+}
+
+void DepositPacks::entregarPacks(){
+    paquetesEntregados +=1;
+}
+
+bool DepositPacks::entregaTerminada(){
+    if (totalPaquetes == paquetesEntregados){
+        return true;
+    }
+    return false;
+}
+
+bool DepositPacks::isFinished(){
+    if (paquetesActuales == totalPaquetes){
+        return true;
+    }
+    return false;
+}

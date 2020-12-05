@@ -17,11 +17,11 @@ struct Queue{
 		length = 1;
 	}
 	
-	// Funciones
-	
+    // Funciones
+
 	// Retorna true si la lista esta vacia
 	bool isEmpty(){
-		return length == 0;
+        return length == 0 || tail == NULL;
 	}
 	
 	// Encola un elemento
@@ -38,8 +38,8 @@ struct Queue{
 	}
 	
 	// Desencola un elemento
-	Data dequeue(){
-		if (isEmpty()) return NULL;
+    Data dequeue(){
+        if (isEmpty()) return (Data) NULL;
 		
 		if (length == 1){
 			Data data = tail->data;
@@ -67,7 +67,7 @@ struct Queue{
 	
 	// Retorna el primer elemento de la cola sin borrarlo
 	Data peek(){
-		if (isEmpty()) return NULL;
+        if (isEmpty()) return (Data) NULL;
 		
 		Node<Data> * temp = tail;
 		
@@ -79,6 +79,7 @@ struct Queue{
 	}
 	
 	// Imprime la cola
+    // debug only
 	void print(){
 		cout << "[ ";
 		

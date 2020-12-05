@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1000</width>
-    <height>526</height>
+    <height>727</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -36,7 +36,7 @@
       <x>0</x>
       <y>0</y>
       <width>1000</width>
-      <height>526</height>
+      <height>721</height>
      </rect>
     </property>
     <property name="cursor">
@@ -112,8 +112,8 @@ color: rgb(255, 255, 255);
     <widget class="QFrame" name="frWareHouse">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>130</y>
+       <x>50</x>
+       <y>220</y>
        <width>101</width>
        <height>101</height>
       </rect>
@@ -151,8 +151,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frPlanner">
      <property name="geometry">
       <rect>
-       <x>60</x>
-       <y>260</y>
+       <x>50</x>
+       <y>350</y>
        <width>71</width>
        <height>71</height>
       </rect>
@@ -190,8 +190,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frMixer1">
      <property name="geometry">
       <rect>
-       <x>270</x>
-       <y>50</y>
+       <x>260</x>
+       <y>140</y>
        <width>81</width>
        <height>81</height>
       </rect>
@@ -229,8 +229,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frMixer2">
      <property name="geometry">
       <rect>
-       <x>270</x>
-       <y>160</y>
+       <x>260</x>
+       <y>250</y>
        <width>81</width>
        <height>81</height>
       </rect>
@@ -268,8 +268,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frChocolateMixer">
      <property name="geometry">
       <rect>
-       <x>270</x>
-       <y>260</y>
+       <x>260</x>
+       <y>350</y>
        <width>71</width>
        <height>71</height>
       </rect>
@@ -307,8 +307,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frChocolateMixer_2">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>410</y>
+       <x>230</x>
+       <y>620</y>
        <width>181</width>
        <height>51</height>
       </rect>
@@ -365,8 +365,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frChocolateMixer_3">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>370</y>
+       <x>230</x>
+       <y>580</y>
        <width>181</width>
        <height>31</height>
       </rect>
@@ -413,8 +413,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frAssembly">
      <property name="geometry">
       <rect>
-       <x>430</x>
-       <y>160</y>
+       <x>420</x>
+       <y>240</y>
        <width>91</width>
        <height>91</height>
       </rect>
@@ -452,8 +452,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frOven">
      <property name="geometry">
       <rect>
-       <x>540</x>
-       <y>150</y>
+       <x>530</x>
+       <y>240</y>
        <width>91</width>
        <height>91</height>
       </rect>
@@ -492,7 +492,7 @@ background-color: rgb(64, 75, 105);</string>
      <property name="geometry">
       <rect>
        <x>530</x>
-       <y>270</y>
+       <y>360</y>
        <width>91</width>
        <height>91</height>
       </rect>
@@ -507,7 +507,7 @@ background-color: rgb(64, 75, 105);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="btnPacker">
       <property name="geometry">
        <rect>
         <x>20</x>
@@ -530,8 +530,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QFrame" name="frDelivery">
      <property name="geometry">
       <rect>
-       <x>400</x>
-       <y>380</y>
+       <x>390</x>
+       <y>470</y>
        <width>81</width>
        <height>81</height>
       </rect>
@@ -546,7 +546,7 @@ background-color: rgb(64, 75, 105);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="btnDeposit">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -569,8 +569,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>130</x>
-       <y>70</y>
+       <x>120</x>
+       <y>160</y>
        <width>151</width>
        <height>241</height>
       </rect>
@@ -585,8 +585,8 @@ background-color: rgb(64, 75, 105);</string>
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>140</y>
+       <x>170</x>
+       <y>230</y>
        <width>51</width>
        <height>51</height>
       </rect>
@@ -605,8 +605,8 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
     <widget class="QLabel" name="lbChocolateQueue">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>80</y>
+       <x>320</x>
+       <y>160</y>
        <width>161</width>
        <height>141</height>
       </rect>
@@ -623,8 +623,8 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
     <widget class="QLabel" name="label_5">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>190</y>
+       <x>330</x>
+       <y>280</y>
        <width>141</width>
        <height>121</height>
       </rect>
@@ -639,8 +639,8 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
     <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>490</x>
-       <y>190</y>
+       <x>480</x>
+       <y>280</y>
        <width>141</width>
        <height>31</height>
       </rect>
@@ -656,7 +656,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
      <property name="geometry">
       <rect>
        <x>560</x>
-       <y>220</y>
+       <y>310</y>
        <width>31</width>
        <height>91</height>
       </rect>
@@ -674,7 +674,7 @@ border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
        <x>650</x>
        <y>30</y>
        <width>351</width>
-       <height>481</height>
+       <height>701</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -939,7 +939,7 @@ selection-color: rgb(40, 49, 73);</string>
       <widget class="QLabel" name="label_15">
        <property name="geometry">
         <rect>
-         <x>200</x>
+         <x>180</x>
          <y>270</y>
          <width>161</width>
          <height>21</height>
@@ -959,7 +959,7 @@ selection-color: rgb(40, 49, 73);</string>
       <widget class="QComboBox" name="cbPlannerPacks">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>300</y>
          <width>161</width>
          <height>22</height>
@@ -976,7 +976,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_16">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>330</y>
          <width>161</width>
          <height>21</height>
@@ -996,7 +996,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLineEdit" name="lePlannerDel">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>370</y>
          <width>161</width>
          <height>21</height>
@@ -1067,7 +1067,7 @@ color: rgb(0, 0, 0);</string>
         <string>Total de galletas:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_18">
+      <widget class="QLabel" name="lbPlannerCookies">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1176,7 +1176,7 @@ background-color: rgb(255, 255, 255);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_20">
+      <widget class="QLabel" name="lbPlannerPackAmount">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1244,6 +1244,46 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>Cantidad galletas</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="lbCarQueue_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>490</y>
+         <width>311</width>
+         <height>151</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_18">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>460</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cantidad por paquete:</string>
        </property>
       </widget>
      </widget>
@@ -1406,13 +1446,13 @@ selection-color: rgb(40, 49, 73);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit">
+      <widget class="QPlainTextEdit" name="lbCarQueue">
        <property name="geometry">
         <rect>
          <x>20</x>
          <y>270</y>
          <width>311</width>
-         <height>171</height>
+         <height>371</height>
         </rect>
        </property>
        <property name="autoFillBackground">
@@ -1469,25 +1509,6 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="placeholderText">
         <string>Tiempo produccion...</string>
-       </property>
-      </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_7">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>310</y>
-         <width>151</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label_55">
@@ -1576,7 +1597,7 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad maxima...</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_47">
+      <widget class="QLabel" name="lbCM1Processed">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1593,13 +1614,13 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Chocolate procesado:</string>
+        <string>Chocolate procesado: 0gr</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_56">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>270</y>
          <width>141</width>
          <height>21</height>
@@ -1619,7 +1640,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_48">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>270</y>
          <width>131</width>
          <height>21</height>
@@ -1676,20 +1697,21 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad Max:</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_6">
+      <widget class="QPlainTextEdit" name="teCM1Pending">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>310</y>
-         <width>151</width>
-         <height>141</height>
+         <x>10</x>
+         <y>300</y>
+         <width>161</width>
+         <height>341</height>
         </rect>
        </property>
        <property name="autoFillBackground">
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -1778,6 +1800,26 @@ color: rgb(0, 0, 0);</string>
         <string>Produccion</string>
        </property>
       </widget>
+      <widget class="QPlainTextEdit" name="teCM1Processed">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>300</y>
+         <width>161</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="text" stdset="0">
+        <string>Capacidades</string>
+       </property>
+      </widget>
       <widget class="QPushButton" name="btnCM1Apply">
        <property name="geometry">
         <rect>
@@ -1786,9 +1828,6 @@ color: rgb(0, 0, 0);</string>
          <width>141</width>
          <height>31</height>
         </rect>
-       </property>
-       <property name="cursor">
-        <cursorShape>PointingHandCursor</cursorShape>
        </property>
        <property name="autoFillBackground">
         <bool>false</bool>
@@ -1803,10 +1842,10 @@ selection-color: rgb(40, 49, 73);</string>
        <property name="autoDefault">
         <bool>false</bool>
        </property>
-       <property name="default">
+       <property name="flat">
         <bool>true</bool>
        </property>
-       <property name="flat">
+       <property name="readOnly" stdset="0">
         <bool>true</bool>
        </property>
       </widget>
@@ -1878,26 +1917,27 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidad minima...</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_4">
+      <widget class="QPlainTextEdit" name="teDMPending">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>300</y>
-         <width>151</width>
-         <height>141</height>
+         <width>161</width>
+         <height>341</height>
         </rect>
        </property>
        <property name="autoFillBackground">
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QLabel" name="label_41">
+      <widget class="QLabel" name="lbDMProcessed">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -1914,13 +1954,13 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Masa procesada:</string>
+        <string>Masa procesada: 0gr</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_39">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>270</y>
          <width>131</width>
          <height>21</height>
@@ -1957,20 +1997,21 @@ color: rgb(0, 0, 0);</string>
         <string>Detalles</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_5">
+      <widget class="QPlainTextEdit" name="teDMProcessed">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>300</y>
-         <width>151</width>
-         <height>141</height>
+         <width>161</width>
+         <height>341</height>
         </rect>
        </property>
        <property name="autoFillBackground">
         <bool>true</bool>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
        </property>
        <property name="readOnly">
         <bool>true</bool>
@@ -2102,7 +2143,7 @@ color: rgb(0, 0, 0);</string>
       <widget class="QLabel" name="label_42">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>270</y>
          <width>141</width>
          <height>21</height>
@@ -2194,26 +2235,6 @@ selection-color: rgb(40, 49, 73);</string>
        </property>
        <property name="text">
         <string>Mezcladora Chocolate #2</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_26">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>50</y>
-         <width>111</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>12</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Capacidades</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_27">
@@ -2408,7 +2429,7 @@ color: rgb(0, 0, 0);</string>
         <string>Detalles</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_32">
+      <widget class="QLabel" name="lbCM2Processed">
        <property name="geometry">
         <rect>
          <x>20</x>
@@ -2425,13 +2446,13 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Chocolate procesado:</string>
+        <string>Chocolate procesado: 0gr</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_33">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>260</y>
          <width>131</width>
          <height>21</height>
@@ -2448,29 +2469,10 @@ color: rgb(0, 0, 0);</string>
         <string>Peticiones pendientes:</string>
        </property>
       </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>300</y>
-         <width>151</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_34">
        <property name="geometry">
         <rect>
-         <x>190</x>
+         <x>180</x>
          <y>260</y>
          <width>141</width>
          <height>21</height>
@@ -2485,25 +2487,6 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>Peticiones procesadas:</string>
-       </property>
-      </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_3">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>300</y>
-         <width>151</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
        </property>
       </widget>
       <widget class="QPushButton" name="btnCM2Apply">
@@ -2536,6 +2519,72 @@ selection-color: rgb(40, 49, 73);</string>
        </property>
        <property name="flat">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="teCM2Pending">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>290</y>
+         <width>161</width>
+         <height>361</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="teCM2Processed">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>290</y>
+         <width>161</width>
+         <height>361</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_61">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidades</string>
        </property>
       </widget>
      </widget>
@@ -2669,26 +2718,6 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad por tiempo...</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_61">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>270</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Banda chocolate:</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_62">
        <property name="geometry">
         <rect>
@@ -2727,64 +2756,6 @@ color: rgb(0, 0, 0);</string>
        </property>
        <property name="text">
         <string>Galletas ensambladas:</string>
-       </property>
-      </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_8">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>300</y>
-         <width>151</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_64">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>270</y>
-         <width>131</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Banda masa:</string>
-       </property>
-      </widget>
-      <widget class="QPlainTextEdit" name="plainTextEdit_9">
-       <property name="geometry">
-        <rect>
-         <x>190</x>
-         <y>300</y>
-         <width>151</width>
-         <height>141</height>
-        </rect>
-       </property>
-       <property name="autoFillBackground">
-        <bool>true</bool>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);</string>
-       </property>
-       <property name="readOnly">
-        <bool>true</bool>
        </property>
       </widget>
       <widget class="QLabel" name="label_65">
@@ -2905,15 +2876,114 @@ selection-color: rgb(40, 49, 73);</string>
         <bool>true</bool>
        </property>
       </widget>
+      <widget class="QPlainTextEdit" name="teAsmChocolate">
+       <property name="geometry">
+        <rect>
+
+         <x>140</x>
+         <y>0</y>
+         <width>71</width>
+         <height>41</height>
+
+         <x>20</x>
+         <y>300</y>
+         <width>151</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="teAsmDough">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>300</y>
+         <width>151</width>
+         <height>341</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbAsmAssembled_2">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>270</y>
+         <width>141</width>
+         <height>21</height>
+
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Banda Chocolate:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbAsmAssembled_3">
+       <property name="geometry">
+        <rect>
+
+         <x>220</x>
+         <y>40</y>
+         <width>101</width>
+
+         <x>190</x>
+         <y>270</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Banda Masa:</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="oven_page">
       <widget class="QLabel" name="label_67">
        <property name="geometry">
         <rect>
-         <x>140</x>
+         <x>10</x>
          <y>0</y>
          <width>71</width>
-         <height>41</height>
+
+         <height>31</height>
         </rect>
        </property>
        <property name="font">
@@ -2927,32 +2997,18 @@ selection-color: rgb(40, 49, 73);</string>
         <string>Horno</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_68">
+      <widget class="QLineEdit" name="leOvenBand1Delay">
        <property name="geometry">
         <rect>
-         <x>220</x>
-         <y>40</y>
-         <width>101</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Tiempo</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="leWHDelay_2">
-       <property name="geometry">
-        <rect>
+
          <x>190</x>
          <y>100</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>190</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -2977,8 +3033,13 @@ color: rgb(0, 0, 0);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
+
          <y>40</y>
          <width>151</width>
+
+         <y>30</y>
+         <width>241</width>
+
          <height>31</height>
         </rect>
        </property>
@@ -2993,12 +3054,18 @@ color: rgb(0, 0, 0);</string>
         <string>Capacidades</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_3">
+      <widget class="QLineEdit" name="leOvenBand1">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>100</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>190</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3016,12 +3083,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="btnCM2Apply_2">
+      <widget class="QPushButton" name="btnOvenApply">
        <property name="geometry">
         <rect>
+
          <x>90</x>
          <y>280</y>
          <width>141</width>
+
+         <x>20</x>
+         <y>390</y>
+         <width>311</width>
+
          <height>31</height>
         </rect>
        </property>
@@ -3052,7 +3125,11 @@ selection-color: rgb(42, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>10</x>
+
          <y>70</y>
+
+         <y>160</y>
+
          <width>161</width>
          <height>21</height>
         </rect>
@@ -3072,7 +3149,11 @@ selection-color: rgb(42, 49, 73);</string>
        <property name="geometry">
         <rect>
          <x>180</x>
+
          <y>70</y>
+
+         <y>160</y>
+
          <width>171</width>
          <height>21</height>
         </rect>
@@ -3088,12 +3169,18 @@ selection-color: rgb(42, 49, 73);</string>
         <string>Duracion del horneado</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_8">
+      <widget class="QLineEdit" name="leOvenBand2">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>130</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>220</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3111,12 +3198,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_9">
+      <widget class="QLineEdit" name="leOvenBand3">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>160</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>250</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3134,12 +3227,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_10">
+      <widget class="QLineEdit" name="leOvenBand4">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>190</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>280</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3157,12 +3256,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_11">
+      <widget class="QLineEdit" name="leOvenBand5">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>220</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>310</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3180,12 +3285,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_12">
+      <widget class="QLineEdit" name="leOvenBand6">
        <property name="geometry">
         <rect>
+
          <x>60</x>
          <y>250</y>
          <width>61</width>
+
+         <x>40</x>
+         <y>340</y>
+         <width>131</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3203,12 +3314,18 @@ color: rgb(0, 0, 0);</string>
         <string>Cantidad</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="leWHDelay_3">
+      <widget class="QLineEdit" name="leOvenBand2Delay">
        <property name="geometry">
         <rect>
+
          <x>190</x>
          <y>130</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>220</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3229,12 +3346,18 @@ color: rgb(0, 0, 0);</string>
         <string>segundos...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="leWHDelay_4">
+      <widget class="QLineEdit" name="leOvenBand3Delay">
        <property name="geometry">
         <rect>
+
          <x>190</x>
          <y>160</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>250</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3255,12 +3378,18 @@ color: rgb(0, 0, 0);</string>
         <string>segundos...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="leWHDelay_5">
+      <widget class="QLineEdit" name="leOvenBand4Delay">
        <property name="geometry">
         <rect>
+
          <x>190</x>
          <y>190</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>280</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3281,12 +3410,18 @@ color: rgb(0, 0, 0);</string>
         <string>segundos...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="leWHDelay_6">
+      <widget class="QLineEdit" name="leOvenBand5Delay">
        <property name="geometry">
         <rect>
+
          <x>190</x>
          <y>220</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>310</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3307,12 +3442,18 @@ color: rgb(0, 0, 0);</string>
         <string>segundos...</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="leWHDelay_7">
+      <widget class="QLineEdit" name="leOvenBand6Delay">
        <property name="geometry">
         <rect>
+
          <x>190</x>
          <y>250</y>
          <width>131</width>
+
+         <x>180</x>
+         <y>340</y>
+         <width>161</width>
+
          <height>21</height>
         </rect>
        </property>
@@ -3333,11 +3474,119 @@ color: rgb(0, 0, 0);</string>
         <string>segundos...</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_82">
+      <widget class="QLabel" name="lbOvenMaxCookies">
        <property name="geometry">
         <rect>
          <x>30</x>
+
          <y>100</y>
+         <width>16</width>
+
+         <y>620</y>
+         <width>141</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Max Galletas:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenCooking">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+
+         <y>130</y>
+         <width>16</width>
+
+         <y>590</y>
+         <width>141</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>En el horno:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_70">
+       <property name="geometry">
+        <rect>
+
+         <x>30</x>
+         <y>160</y>
+         <width>16</width>
+         <height>21</height>
+
+         <x>10</x>
+         <y>430</y>
+         <width>151</width>
+         <height>31</height>
+
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Ejecución:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenWaiting">
+       <property name="geometry">
+        <rect>
+
+         <x>30</x>
+         <y>190</y>
+         <width>16</width>
+
+         <x>190</x>
+         <y>590</y>
+         <width>151</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>En espera:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_91">
+       <property name="geometry">
+        <rect>
+
+         <x>30</x>
+         <y>220</y>
+
+         <x>10</x>
+         <y>500</y>
+
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3353,11 +3602,178 @@ color: rgb(0, 0, 0);</string>
         <string>1.</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_83">
+      <widget class="QLabel" name="lbOvenEBand1">
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>130</y>
+
+         <y>250</y>
+         <width>16</width>
+
+         <y>500</y>
+         <width>121</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenEBand4">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>500</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenEBand2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>530</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenEBand5">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>530</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenEBand3">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>560</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbOvenEBand6">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>560</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_92">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>530</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3373,11 +3789,11 @@ color: rgb(0, 0, 0);</string>
         <string>2.</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_84">
+      <widget class="QLabel" name="label_93">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>160</y>
+         <x>10</x>
+         <y>560</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3393,11 +3809,11 @@ color: rgb(0, 0, 0);</string>
         <string>3.</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_85">
+      <widget class="QLabel" name="label_94">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>190</y>
+         <x>170</x>
+         <y>500</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3413,11 +3829,11 @@ color: rgb(0, 0, 0);</string>
         <string>4.</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_86">
+      <widget class="QLabel" name="label_95">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>220</y>
+         <x>170</x>
+         <y>530</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3433,11 +3849,11 @@ color: rgb(0, 0, 0);</string>
         <string>5.</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_87">
+      <widget class="QLabel" name="label_96">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>250</y>
+         <x>170</x>
+         <y>560</y>
          <width>16</width>
          <height>21</height>
         </rect>
@@ -3453,7 +3869,550 @@ color: rgb(0, 0, 0);</string>
         <string>6.</string>
        </property>
       </widget>
+      <widget class="QLineEdit" name="leOvenCapacity">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Capacidad...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_106">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>70</y>
+         <width>131</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidad del horno:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_107">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>470</y>
+         <width>121</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Estado de bandejas</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray1">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>190</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>220</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>2</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>250</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>3</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>280</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>5</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnTurnTray6">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>340</y>
+         <width>21</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(194, 69, 31);
+border-radius: 10px;
+</string>
+       </property>
+       <property name="text">
+        <string>6</string>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leOvenBandCapacity">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>100</y>
+         <width>161</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Capacidad...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_82">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>120</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Bandejas</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_108">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>70</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidad de la banda:</string>
+       </property>
+      </widget>
      </widget>
+     <widget class="QWidget" name="packer_page">
+      <widget class="QLabel" name="label_71">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>311</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string> Empacadora</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lePackerDelay">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>210</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Segundos..</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_72">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>150</y>
+         <width>101</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Tiempos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_74">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>50</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidades</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_75">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Tiempo de empaque:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_77">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Capacidad de empaque:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lePackerCapacity">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>120</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Capacidad...</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnPackerApply">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>250</y>
+         <width>321</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(40, 49, 73);
+selection-color: rgb(40, 49, 73);</string>
+       </property>
+       <property name="text">
+        <string>Aplicar cambios</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_88">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>90</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Maximo banda:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lePackerMaxBand">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>120</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Capacidad maxima...</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="tePackerPacked">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>320</y>
+         <width>321</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_90">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>290</y>
+         <width>201</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Cantidad empacada por paquete:</string>
+       </property>
+      </widget>
+     </widget>
+
      <widget class="QWidget" name="page">
       <widget class="QLabel" name="label_70">
        <property name="geometry">
@@ -3558,54 +4517,15 @@ color: rgb(0, 0, 0);</string>
      </widget>
      <widget class="QWidget" name="packer_page">
       <widget class="QLabel" name="label_71">
+
+     <widget class="QWidget" name="page_2">
+      <widget class="QLabel" name="label_73">
+
        <property name="geometry">
         <rect>
-         <x>10</x>
+         <x>20</x>
          <y>10</y>
-         <width>311</width>
-         <height>41</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string> Empacadora y Transporte</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_4">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>290</y>
-         <width>101</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>10</number>
-       </property>
-       <property name="placeholderText">
-        <string>Segundos..</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_72">
-       <property name="geometry">
-        <rect>
-         <x>200</x>
-         <y>230</y>
-         <width>101</width>
+         <width>171</width>
          <height>31</height>
         </rect>
        </property>
@@ -3617,15 +4537,15 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Tiempos</string>
+        <string>Transportadores</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_5">
+      <widget class="QLineEdit" name="leTransDelay">
        <property name="geometry">
         <rect>
-         <x>200</x>
-         <y>350</y>
-         <width>101</width>
+         <x>190</x>
+         <y>90</y>
+         <width>151</width>
          <height>21</height>
         </rect>
        </property>
@@ -3643,32 +4563,12 @@ color: rgb(0, 0, 0);</string>
         <string>Segundos..</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_74">
+      <widget class="QLabel" name="label_89">
        <property name="geometry">
         <rect>
-         <x>180</x>
+         <x>20</x>
          <y>60</y>
-         <width>161</width>
-         <height>31</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>14</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Capacidades</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_75">
-       <property name="geometry">
-        <rect>
-         <x>180</x>
-         <y>260</y>
-         <width>161</width>
+         <width>141</width>
          <height>21</height>
         </rect>
        </property>
@@ -3680,14 +4580,42 @@ color: rgb(0, 0, 0);</string>
         </font>
        </property>
        <property name="text">
-        <string>Tiempo de empaque:</string>
+        <string>Capacidad de envio:</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leTransCapacity">
+       <property name="geometry">
+        <rect>
+
+         <x>200</x>
+         <y>290</y>
+         <width>101</width>
+
+         <x>20</x>
+         <y>90</y>
+         <width>141</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Cantidad...</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_76">
        <property name="geometry">
         <rect>
          <x>190</x>
-         <y>320</y>
+         <y>60</y>
          <width>131</width>
          <height>21</height>
         </rect>
@@ -3703,98 +4631,12 @@ color: rgb(0, 0, 0);</string>
         <string>Tiempo del envio:</string>
        </property>
       </widget>
-      <widget class="QLabel" name="label_77">
+      <widget class="QPushButton" name="btnTranApply">
        <property name="geometry">
         <rect>
-         <x>170</x>
-         <y>100</y>
-         <width>161</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Galletas por paquete</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_6">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
+         <x>20</x>
          <y>130</y>
-         <width>81</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>10</number>
-       </property>
-       <property name="placeholderText">
-        <string>Cantidad..</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lePlannerAmount_7">
-       <property name="geometry">
-        <rect>
-         <x>210</x>
-         <y>190</y>
-         <width>81</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(255, 255, 255);
-color: rgb(0, 0, 0);</string>
-       </property>
-       <property name="inputMask">
-        <string/>
-       </property>
-       <property name="maxLength">
-        <number>10</number>
-       </property>
-       <property name="placeholderText">
-        <string>Cantidad..</string>
-       </property>
-      </widget>
-      <widget class="QLabel" name="label_78">
-       <property name="geometry">
-        <rect>
-         <x>160</x>
-         <y>160</y>
-         <width>191</width>
-         <height>21</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>10</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>Paquetes por transporte</string>
-       </property>
-      </widget>
-      <widget class="QPushButton" name="btnCM2Apply_3">
-       <property name="geometry">
-        <rect>
-         <x>80</x>
-         <y>400</y>
-         <width>141</width>
+         <width>321</width>
          <height>31</height>
         </rect>
        </property>
@@ -3819,6 +4661,501 @@ selection-color: rgb(40, 49, 73);</string>
        </property>
        <property name="flat">
         <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_98">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>180</y>
+         <width>171</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Datos de transportadores:</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="teTrans">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>210</y>
+         <width>321</width>
+         <height>431</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page">
+      <widget class="QLabel" name="label_78">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Probabilidad de desecho:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_79">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>20</y>
+         <width>141</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Inspector #1</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leInspProb1">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>110</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Probabilidad...</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="leInspProb2">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>110</y>
+         <width>151</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="inputMask">
+        <string/>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="maxLength">
+        <number>10</number>
+       </property>
+       <property name="placeholderText">
+        <string>Probabilidad...</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_97">
+       <property name="geometry">
+        <rect>
+
+         <x>200</x>
+         <y>230</y>
+         <width>101</width>
+
+         <x>180</x>
+         <y>80</y>
+         <width>151</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Probabilidad de desecho:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_99">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>20</y>
+         <width>141</width>
+
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Inspector #2</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnInspApply">
+       <property name="geometry">
+        <rect>
+
+         <x>200</x>
+         <y>350</y>
+         <width>101</width>
+         <height>21</height>
+
+         <x>20</x>
+         <y>150</y>
+         <width>321</width>
+         <height>31</height>
+
+        </rect>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(40, 49, 73);
+selection-color: rgb(40, 49, 73);</string>
+       </property>
+       <property name="text">
+        <string>Aplicar cambios</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
+       <property name="default">
+        <bool>true</bool>
+       </property>
+       <property name="flat">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_100">
+       <property name="geometry">
+        <rect>
+
+         <x>180</x>
+         <y>60</y>
+         <width>161</width>
+
+         <x>20</x>
+         <y>190</y>
+         <width>141</width>
+
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Rechazos</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_101">
+       <property name="geometry">
+        <rect>
+
+         <x>180</x>
+         <y>260</y>
+         <width>161</width>
+
+         <x>20</x>
+         <y>230</y>
+         <width>221</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Galletas rechazadas por inspector #1</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbInspDel1">
+       <property name="geometry">
+        <rect>
+
+         <x>190</x>
+         <y>320</y>
+         <width>131</width>
+
+         <x>20</x>
+         <y>260</y>
+         <width>211</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbInspDel2">
+       <property name="geometry">
+        <rect>
+
+         <x>170</x>
+         <y>100</y>
+         <width>161</width>
+
+         <x>20</x>
+         <y>330</y>
+         <width>211</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+
+        <string>Galletas por paquete</string>
+
+        <string>0</string>
+
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_102">
+       <property name="geometry">
+        <rect>
+
+         <x>210</x>
+         <y>130</y>
+         <width>81</width>
+
+         <x>20</x>
+         <y>300</y>
+         <width>221</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Galletas rechazadas por inspector #2</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <widget class="QLabel" name="label_103">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>10</y>
+         <width>321</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Almacen de producto terminado</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_104">
+       <property name="geometry">
+        <rect>
+
+         <x>210</x>
+         <y>190</y>
+         <width>81</width>
+
+         <x>20</x>
+         <y>130</y>
+         <width>171</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Galletas por paquete:</string>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="lbDepositPacks">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>160</y>
+         <width>321</width>
+         <height>481</height>
+        </rect>
+       </property>
+       <property name="cursor" stdset="0">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 255, 255);
+color: rgb(0, 0, 0);</string>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_105">
+       <property name="geometry">
+        <rect>
+
+         <x>160</x>
+         <y>160</y>
+         <width>191</width>
+
+         <x>20</x>
+         <y>60</y>
+         <width>171</width>
+
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Paquetes por transporte</string>
+
+        <string>Cantidad total de galletas:</string>
+
+       </property>
+      </widget>
+      <widget class="QLabel" name="lbDepositTotal">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>211</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+         <weight>50</weight>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="autoFillBackground">
+        <bool>false</bool>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(0, 0, 0);
+background-color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="text">
+        <string>0</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_90">
@@ -4092,7 +5429,7 @@ color: rgb(0, 0, 0);</string>
      <property name="geometry">
       <rect>
        <x>470</x>
-       <y>310</y>
+       <y>400</y>
        <width>141</width>
        <height>121</height>
       </rect>
@@ -4107,8 +5444,8 @@ color: rgb(0, 0, 0);</string>
     <widget class="QLabel" name="label_35">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>40</y>
+       <x>330</x>
+       <y>130</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -4129,8 +5466,8 @@ border-radius: 10px;
     <widget class="QLabel" name="label_36">
      <property name="geometry">
       <rect>
-       <x>340</x>
-       <y>150</y>
+       <x>330</x>
+       <y>240</y>
        <width>21</width>
        <height>21</height>
       </rect>
@@ -4146,6 +5483,65 @@ border-radius: 10px;
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frBaler_2">
+     <property name="geometry">
+      <rect>
+       <x>570</x>
+       <y>460</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-radius: 10px;
+background-color: rgb(64, 75, 105);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::StyledPanel</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="btnInspector">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="cursor">
+       <cursorShape>PointingHandCursor</cursorShape>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/imgs/images/construction-and-tools.svg) 0 0 0 0 stretch;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QPushButton" name="btnTrans">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>470</y>
+       <width>51</width>
+       <height>51</height>
+      </rect>
+     </property>
+     <property name="cursor">
+      <cursorShape>PointingHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+border-image: url(:/imgs/images/trolley.svg) 0 0 0 0 stretch stretch;</string>
+     </property>
+     <property name="text">
+     <string/>
      </property>
     </widget>
     <zorder>swProperties</zorder>
@@ -4170,6 +5566,8 @@ border-radius: 10px;
     <zorder>label_3</zorder>
     <zorder>label_35</zorder>
     <zorder>label_36</zorder>
+    <zorder>frBaler_2</zorder>
+    <zorder>btnTrans</zorder>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -4178,12 +5576,12 @@ border-radius: 10px;
      <x>0</x>
      <y>0</y>
      <width>1000</width>
-     <height>25</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
- <connections/>
+
 </ui>

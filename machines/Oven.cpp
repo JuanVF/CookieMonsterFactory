@@ -1,28 +1,38 @@
+#include <lists/LinkedList.h>
+#include <factory_structs/factoryStructs.h>
+#include <machines/machines.h>
 #include <factory_structs/Bandeja.h>
 #include <factory_structs/Cookie.h>
 #include <factory_structs/BandasTransportadoras.h>
-#include <machines/Assembler.h>
-#include <lists/LinkedList.h>
-#include <lists/node.h>
-#include <machines/machines.h>
-
 
 //Contructor
-Oven::Oven(int capacidadHorno, int capacidadBanda){
-        bandaSalida = new BandasTransportadoras<int >(capacidadBanda);
-        //bandaSalida = new BandasTransportadoras<Cookie *>(capacidadBanda);
-        bandaEntrada = new BandasTransportadoras<int >(capacidadBanda);
+Oven::Oven(){
+    bandejas = new LinkedList<Bandeja *>();
+    for (int i=0; i<6; i++){
+        bandejas->add(new Bandeja());
+    }
 
-        bandejas = new LinkedList<Bandeja *>();
-        for (int i=0; i<6; i++){
-            bandejas->add(new Bandeja());
-        }
+    //inspectores = new LinkedList<Inspectores *>();
+    isRunning = false;
+    cookiesCooked = 0;
 
-        //inspectores = new LinkedList<Inspectores *>();
-        isRunning = false;
-        capacity = capacidadHorno;
-        cookiesCooked = 0;
+}
 
+
+// Esto es para settear los datos desde la
+// La razon es porque el horno se crea apenas se crea la UI entonces no se pueden settear los datos ahi
+void Oven::init(int capacidadHorno, int capacidadBanda, LinkedList<float> * traysDelay, LinkedList<int> * traysCap){
+    bandaSalida = new BandasTransportadoras<int >(capacidadBanda);
+    bandaEntrada = new BandasTransportadoras<int >(capacidadBanda);
+
+    capacity = capacidadHorno;
+
+    // Se modifica la capacidad de cada bandeja
+    for (int i = 0; i < bandejas->length; i++){
+        Bandeja * temp = bandejas->get(i);
+        temp->modifyCapacity(traysCap->get(i));
+        changeTrayTiming(i, traysDelay->get(i));
+    }
 }
 
 //Su proposito es que cada vez que se manden galletas al empacador, se reinicie el total (empiece desde 0)
@@ -31,25 +41,28 @@ void Oven::restartOven(){
 }
 
 //Esta funcion esta hecha para agregar galletas en el horno
-void Oven::addCookiesToTrays(int num){
+bool Oven::addCookiesToTrays(int num){
     for (int i = 0; i < bandejas->length; i++){
         if (bandejas->get(i)->sobrantes(num)== 0 and bandejas->get(i)->state){
             bandejas->get(i)->agregarGalletas(num);
+            return true;
         }
         else if (((num)+bandejas->get(i)->quantity)>bandejas->get(i)->capacity and bandejas->get(i)->state){
             bandejas->get(i)->quantity = bandejas->get(i)->capacity;
             for (int j = i+1; j<bandejas->length; j++){
                 if (bandejas->get(j)->state){
                     bandejas->get(j)->agregarGalletas(bandejas->get(i)->sobrantes(num));
+                    return true;
                 }
                 else{
-                    //apagar la maquina ensambladora
-                    //Assembler().isRunning = false;
                     bandaEntrada->agregarIndividual(num);
+                    return false;
                 }
             }
         }
     }
+
+    return false;
 }
 
 
@@ -111,4 +124,3 @@ int Oven::totalGalletas(){
     }
     return total;
 }
-

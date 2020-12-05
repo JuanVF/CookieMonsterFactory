@@ -26,5 +26,4 @@ struct Inspectores{
         return bc;
     }
 
-
 };
