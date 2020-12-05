@@ -200,6 +200,7 @@ struct Deposit{
     void defineAmountProduced(int num);
     void addToDeposit(int num);
     int totalInDeposit();
+    string getInfo();
     PlannerPacks * findByName(string name);
 };
 
@@ -220,6 +221,7 @@ struct Transportadores{
     void reset();
     bool receive(DepositPacks *);
     bool canStart();
+    string getInfo();
     Transportador * findByName(string);
 };
 

@@ -104,7 +104,6 @@ int Packer::escogerRandom(){
     for(int i=1; i < listaGalletas->length; i++){
         if ( (random>sumatoria) && (random <= (listaGalletas->get(i)->probabilidad + sumatoria))){
             sumatoria += listaGalletas->get(i)->probabilidad;
-            cout << "?" << endl;
             return (i);
         }
     }
@@ -169,6 +168,7 @@ void Packer::prepare(){
 string Packer::getInfo(){
     string data = "";
 
+    cout << "Lista de galletas: " << listaGalletas->length << endl;
     for (int i = 0; i < listaGalletas->length; i++){
         DepositPacks * temp = listaGalletas->get(i);
 

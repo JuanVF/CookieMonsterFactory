@@ -95,6 +95,9 @@ public:
 
         initTimes();
         packer->prepare();
+        trans->init();
+        trans->initClocks();
+        deposit->init();
 
         while(isTurnedOn) if (!isInPause & mutex->tryLock()){
             warehouse->checking();
@@ -143,7 +146,14 @@ private:
     QLabel * lbOvenMaxCookies;
     QLabel * lbOvenWaiting;
 
+    QLabel * lbInspDel1;
+    QLabel * lbInspDel2;
+
+    QPlainTextEdit * lbDepositPacks;
+    QLabel * lbDepositTotal;
+
     QPlainTextEdit * tePackerPacked;
+    QPlainTextEdit * teTrans;
 
     QPushButton * btnStateWH;
 
@@ -209,7 +219,14 @@ private:
         string max = "Max Galletas: " + to_string(oven->capacity);
         string cooked = "Horneadas: " + to_string(oven->galletasHorneadas());
 
+        string rechazadas1 = to_string(oven->inspectores->get(0)->rechazadas);
+        string rechazadas2 = to_string(oven->inspectores->get(1)->rechazadas);
+
         string packerInfo = packer->getInfo();
+        string transInfo = trans->getInfo();
+
+        string depositInfo = deposit->getInfo();
+        string depositTotal = to_string(deposit->totalInDeposit());
 
         QMetaObject::invokeMethod(lbCarQueue, "setPlainText", Q_ARG(QString, warehouseInfo.c_str()));
 
@@ -234,7 +251,12 @@ private:
         QMetaObject::invokeMethod(lbOvenMaxCookies, "setText", Q_ARG(QString, max.c_str()));
         QMetaObject::invokeMethod(lbOvenWaiting, "setText", Q_ARG(QString, ovenWaiting.c_str()));
 
-        QMetaObject::invokeMethod(tePackerPacked, "setPlainText", Q_ARG(QString, packerInfo.c_str()));
+        QMetaObject::invokeMethod(teTrans, "setPlainText", Q_ARG(QString, transInfo.c_str()));
+        QMetaObject::invokeMethod(lbInspDel1, "setText", Q_ARG(QString, rechazadas1.c_str()));
+        QMetaObject::invokeMethod(lbInspDel2, "setText", Q_ARG(QString, rechazadas2.c_str()));
+
+        QMetaObject::invokeMethod(lbDepositPacks, "setPlainText", Q_ARG(QString, depositInfo.c_str()));
+        QMetaObject::invokeMethod(lbDepositTotal, "setText", Q_ARG(QString, depositTotal.c_str()));
     }
 
 public:
@@ -264,6 +286,12 @@ public:
         lbOvenWaiting = labels->get(6);
 
         tePackerPacked = textEdits->get(10);
+        teTrans = textEdits->get(11);
+
+        lbInspDel1 = labels->get(7);
+        lbInspDel2 = labels->get(8);
+        lbDepositPacks = textEdits->get(12);
+        lbDepositTotal = labels->get(9);
 
         btnStateWH = buttons->get(0);
 

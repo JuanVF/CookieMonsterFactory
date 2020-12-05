@@ -48,6 +48,8 @@ bool Transportadores::receive(DepositPacks * received){
 
     trans->currentPacks += amount;
 
+    cout << "El transportador ha recibido " << amount << endl;
+
     received->totalPaquetes = (received->totalPaquetes - amount < 0) ? 0 : received->totalPaquetes - amount;
 
     return true;
@@ -82,6 +84,19 @@ void Transportadores::initClocks(){
     }
 }
 
+string Transportadores::getInfo(){
+    string data = "";
+
+    for (int i = 0; i < transps->length; i++){
+        Transportador * current = transps->get(i);
+        data += "Transporte #" + to_string(i+1) + "\n";
+        data += "Paquete: " + current->packagesType->getName() + "\n";
+        data += "Cantidad: " + to_string(current->currentPacks) + "\n";
+    }
+
+    return data;
+}
+
 // Esta es la funcion del bucle
 void Transportadores::send(){
     if (!isRunning) return;
@@ -95,6 +110,7 @@ void Transportadores::send(){
         // Esto verifica que ya paso el tiempo y que no vaya a enviar 0
         if (canSend && tran->currentPacks > 0){
             tran->started = clock();
+            cout << "El transportador ha enviado" << tran->currentPacks << endl;
             deposit->receive(tran->packagesType->getName(), tran->currentPacks);
             tran->currentPacks = 0;
         }

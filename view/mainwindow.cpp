@@ -57,6 +57,13 @@ void initComponents(Ui::MainWindow * ui){
     labels->add(ui->lbOvenWaiting);
 
     textEdits->add(ui->tePackerPacked);
+    textEdits->add(ui->teTrans);
+
+    labels->add(ui->lbInspDel1);
+    labels->add(ui->lbInspDel2);
+
+    textEdits->add(ui->lbDepositPacks);
+    labels->add(ui->lbDepositTotal);
 
     buttons->add(ui->btnWHTurnOn);
 

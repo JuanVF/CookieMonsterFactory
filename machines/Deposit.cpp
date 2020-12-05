@@ -30,6 +30,19 @@ bool Deposit::receive(string name, int amount){
     temp->addPacks(amount);
 }
 
+string Deposit::getInfo(){
+    string data = "";
+
+    for (int i = 0; i < galletas->length; i++){
+        PlannerPacks * current = galletas->get(i);
+
+        data += "Paquete: " + current->getName() + "\n";
+        data += "Recibidos: " + to_string(current->amountPacks) + "\n";
+    }
+
+    return data;
+}
+
 // Busca un paquete por su nombre
 PlannerPacks * Deposit::findByName(string name){
     for (int i = 0; i < galletas->length; i++){

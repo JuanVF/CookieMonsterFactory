@@ -22,10 +22,14 @@ DepositPacks::DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int 
 }
 
 void DepositPacks::agregarGalletas(int num){
-    if (num > galletasPorPaquete)
-        num = galletasPorPaquete;
+    if(!isFinished()){
+        actual +=num;
 
-    actual += num;
+         if (actual >= galletasPorPaquete){
+            actual -= galletasPorPaquete;
+            totalPaquetes ++;
+        }
+    }
 
     /*while (!isFinished()){
         if ((actual + num) >= galletasPorPaquete){
