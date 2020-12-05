@@ -26,6 +26,12 @@ void Planner::plan(){
     }
 }
 
+bool Planner::canStart(){
+    if (totalCookies == 0 && packs->length == 0) return false;
+
+    return recipe->amountChocolate != 0 && recipe->amountDough != 0;
+}
+
 // Reinicia algunos datos del planner
 void Planner::reset(){
     // Eliminamos los paquetes

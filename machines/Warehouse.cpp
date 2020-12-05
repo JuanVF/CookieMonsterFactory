@@ -17,6 +17,12 @@ void WareHouse::setData(double _delay, int _capacity){
     car->capacity = _capacity;
 }
 
+bool WareHouse::canStart(){
+    bool can = car->capacity != 0 && car->delay != 0;
+
+    return can;
+}
+
 // Resetea los datos de las maquinas
 void WareHouse::reset(){
     // Se vacia la lista

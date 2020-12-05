@@ -56,6 +56,8 @@ void initComponents(Ui::MainWindow * ui){
     labels->add(ui->lbOvenMaxCookies);
     labels->add(ui->lbOvenWaiting);
 
+    textEdits->add(ui->tePackerPacked);
+
     buttons->add(ui->btnWHTurnOn);
 
     buttons->add(ui->btnCM1TurnON);
@@ -132,15 +134,17 @@ void setup(){
 }
 
 void MainWindow::on_btnTurnOn_clicked(){
-    if (isTurnedOn){
-        turnOffAnimation(ui->btnTurnOn, ui->btnPause, ui->lbStatus);
-        isInPause = false;
-    }else if (!isInPause){
-        turnOnAnimation(ui->btnTurnOn, ui->lbStatus);
-        setup();
-    }
+    if (machines.canMachinesStart()){
+        if (isTurnedOn){
+            turnOffAnimation(ui->btnTurnOn, ui->btnPause, ui->lbStatus);
+            isInPause = false;
+        }else if (!isInPause){
+            turnOnAnimation(ui->btnTurnOn, ui->lbStatus);
+            setup();
+        }
 
-    isTurnedOn = !isTurnedOn;
+        isTurnedOn = !isTurnedOn;
+    }
 }
 
 void MainWindow::on_btnPause_clicked(){
@@ -593,6 +597,8 @@ void MainWindow::on_btnPackerApply_clicked(){
         float intDelay = util->toDouble(delay);
         int intBandMax = util->toInt(bandMax);
 
+        packer->init(intBandMax, intCapacity, intDelay);
+
         msgBox.setText("Cambios aplicados!");
     }
 
@@ -641,7 +647,7 @@ void MainWindow::on_btnInspApply_clicked(){
         float prob1 = util->toDouble(strProb1);
         float prob2 = util->toDouble(strProb2);
 
-        // Esperar a que Maximo termine la empacadora
+        oven->initInspectores(prob1, prob2);
 
         msgBox.setText("Cambios aplicados!");
     }
@@ -745,14 +751,7 @@ void MainWindow::on_btnOvenTurnOn_clicked(){
 
 void MainWindow::on_btnPackerTurnOn_clicked(){
     if(app_mutex.tryLock()){
-        // Waiting
-        app_mutex.unlock();
-    }
-}
-
-void MainWindow::on_btnInspTurnOn_clicked(){
-    if(app_mutex.tryLock()){
-        // Esta cual es?
+        packer->isRunning = !packer->isRunning;
         app_mutex.unlock();
     }
 }

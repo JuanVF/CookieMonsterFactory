@@ -8,25 +8,57 @@ using namespace std;
 
 DepositPacks::DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp){
     nombre = _nombre;
+    tiempo = _tiempo;
+
     galletasPorPaquete = _galletasTotal;
     actual = 0;
-    tiempo = _tiempo;
+
     totalPaquetes = tp;
     paquetesActuales = 0;
+
+    probabilidad =0;
+    paquetesEntregados =0;
+    cronometro = new Cronometro(_tiempo);
 }
+
 void DepositPacks::agregarGalletas(int num){
-    if (!isFinished() and ((num+actual)/galletasPorPaquete)<=totalPaquetes){
-        actual +=num;
-        paquetesActuales = actual/galletasPorPaquete;
+    if (num > galletasPorPaquete)
+        num = galletasPorPaquete;
+
+    actual += num;
+
+    /*while (!isFinished()){
+        if ((actual + num) >= galletasPorPaquete){
+            actual += num;
+            totalPaquetes += actual/galletasPorPaquete;
+
+            while(actual > galletasPorPaquete){
+                actual -= galletasPorPaquete;
+            }
+        }
+        else{
+            actual += num;
+        }
+    }*/
+}
+
+void DepositPacks::entregarPacks(){
+    paquetesEntregados +=1;
+}
+
+bool DepositPacks::entregaTerminada(){
+    if (totalPaquetes == paquetesEntregados){
+        return true;
     }
+    return false;
 }
 
 bool DepositPacks::isFinished(){
-    if (paquetesActuales == totalPaquetes){
+    if (paquetesActuales >= totalPaquetes){
+        if (paquetesActuales > totalPaquetes) paquetesActuales = totalPaquetes;
+
         return true;
     }
-}
 
-void DepositPacks::cambiarProbabilidad(int np){
-    probabilidad = np;
+    return false;
 }

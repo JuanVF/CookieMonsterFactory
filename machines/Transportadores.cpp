@@ -22,8 +22,12 @@ void Transportadores::init(){
 }
 
 void Transportadores::setData(int _capacity, float _delay){
-    capacity = capacity;
+    capacity = _capacity;
     delay = _delay;
+}
+
+bool Transportadores::canStart(){
+    return delay != 0 && capacity != 0;
 }
 
 // Esta funcion recibe los datos de la maquina
@@ -83,6 +87,7 @@ void Transportadores::send(){
     if (!isRunning) return;
 
     Transportador * tran = NULL;
+
     for (int i = 0; i < transps->length; i++){
         tran = transps->get(i);
         bool canSend = tran->started + delay * 1000 - clock() <= 0;

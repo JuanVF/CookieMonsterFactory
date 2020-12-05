@@ -105,6 +105,10 @@ bool MixerMachine::needsIngredient(){
     return amount - min <= 0 || amount - capacity <= 0;
 }
 
+bool MixerMachine::canStart(){
+    return min != 0 && max != 0 && capacity != 0 && delay != 0;
+}
+
 // Retorna info necesaria para la UI
 string MixerMachine::requestsPendingInfo(){
     string data = "";

@@ -96,8 +96,6 @@ private slots:
 
     void on_btnPackerTurnOn_clicked();
 
-    void on_btnInspTurnOn_clicked();
-
     void on_btnTransTurnOn_clicked();
 
 private:

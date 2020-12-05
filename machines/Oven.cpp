@@ -15,6 +15,10 @@ Oven::Oven(Packer * _packer){
     }
 
     inspectores = new LinkedList<Inspectores *>();
+
+    inspectores->add(new Inspectores());
+    inspectores->add(new Inspectores());
+
     isRunning = false;
     cookiesCooked = 0;
 
@@ -40,14 +44,29 @@ void Oven::init(int capacidadHorno, int capacidadBanda, LinkedList<float> * tray
     bandejas->get(1)->state = true;
 }
 
+bool Oven::canStart(){
+    if (bandaSalida == NULL) return false;
+
+    if (!inspectores->get(0)->canStart() && !inspectores->get(1)->canStart()) return false;
+
+    if (capacity == 0) return false;
+
+    return true;
+}
+
+void Oven::initInspectores(float prob1, float prob2){
+    inspectores->get(0)->init(prob1);
+    inspectores->get(1)->init(prob2);
+}
+
 void Oven::start(){
     if (!isRunning) return;
 
-    int toSend = send();
+    send();
 
-    if (toSend != 0){
-        cout << "El Horno ha enviado : " << toSend << endl;
-        packer->receive(toSend);
+    if (!bandaSalida->queue->isEmpty()){
+        cout << "El Horno ha enviado : " << bandaSalida->queue->peek() << endl;
+        packer->receive(bandaSalida->get());
     }
 }
 
@@ -62,6 +81,10 @@ int Oven::send(){
                 total += bandejas->get(i)->quantity;
                 cookiesCooked += total;
                 bandejas->get(i)->vaciarBandeja();
+
+                // La evaluan los inspectores
+                total = inspectores->get(0)->evaluate(total);
+                total = inspectores->get(1)->evaluate(total);
             }
         }
     }

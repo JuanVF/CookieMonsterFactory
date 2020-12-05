@@ -29,6 +29,7 @@ struct Planner{
     void reset();
     bool addPack(int amountCookies, string name);
     bool removePack(string name);
+    bool canStart();
     void setPackAmount(int amount, string name);
     int getTotalCookies();
     PlannerPacks * findPack(string name);
@@ -43,6 +44,7 @@ struct WareHouse{
     WareHouse();
     void setData(double delay, int capacity);
     void reset();
+    bool canStart();
     Request * makeRequest(MixerMachine * mixer, int amount);
     string requestsInfo();
     void sendRequest();
@@ -78,6 +80,7 @@ struct MixerMachine{
     void send(int amount);
     void makeRequest();
     bool needsIngredient();
+    bool canStart();
     string requestsProcessedInfo();
     string requestsPendingInfo();
 };
@@ -108,6 +111,7 @@ struct Assembler{
     void assembly();
     bool receive(MixerType type, int amount);
     bool couldAssembly();
+    bool canStart();
     int amountChocolate();
     int amountDough();
     string chocolateInfo();
@@ -131,6 +135,8 @@ struct Oven{
     Oven(Packer * _packer);
 
     void init(int capacidadHorno, int capacidadBanda, LinkedList<float> * traysDelay, LinkedList<int> * traysCap);
+    void initInspectores(float prob1, float prob2);
+    bool canStart();
     void restartOven();
     void modifyCapacity(int newCap);
     void apagarBandejas(int indiceBandeja);
@@ -167,8 +173,17 @@ struct Packer{
     void agregarPaquete();
     void cambiarDelay(string _name, int newTime);
     void addCookies(string name, int num);
-    void send();
+    void prepare();
+
+    DepositPacks * send();
+
     void generarRandom();
+    void empacar();
+    int escogerRandom();
+    void removerPacks();
+    void working();
+    bool canStart();
+    string getInfo();
 };
 
 struct Deposit{
@@ -181,6 +196,7 @@ struct Deposit{
 
     void init();
     bool receive(string name, int amount);
+    bool canStart();
     void defineAmountProduced(int num);
     void addToDeposit(int num);
     int totalInDeposit();
@@ -203,6 +219,7 @@ struct Transportadores{
     void send();
     void reset();
     bool receive(DepositPacks *);
+    bool canStart();
     Transportador * findByName(string);
 };
 

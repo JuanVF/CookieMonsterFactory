@@ -1,3 +1,5 @@
+#include <lists/dataStructures.h>
+
 #ifndef IOSTREAM_H
 #define IOSTREAM_H
 #include <iostream>
@@ -25,6 +27,21 @@ struct DepositPacks;
 struct Cronometro;
 struct Cookie;
 
+struct Inspectores{
+    LinkedList<int> * registro;
+    float prob;
+    int aprobadas;
+    int rechazadas;
+
+    // El prob debe estar entre 0-100
+    Inspectores();
+    void init(float _prob);
+    bool canStart();
+
+    // Devuelve la cantidad de galletas que va a evaluar
+    int evaluate(int cookiesReceived);
+};
+
 struct DepositPacks{
     string nombre;
 
@@ -37,11 +54,17 @@ struct DepositPacks{
 
     int probabilidad;
 
+    int paquetesEntregados =0;
+    Cronometro * cronometro;
+
     DepositPacks(string _nombre, int _galletasTotal, int _tiempo, int tp);
     void agregarGalletas(int num);
-    void cambiarProbabilidad(int np);
+    void entregarPacks();
+
     bool isFinished();
+    bool entregaTerminada();
 };
+
 struct Cronometro{
     int segundos = 0;
     double limite;

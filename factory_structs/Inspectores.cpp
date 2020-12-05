@@ -1,30 +1,35 @@
 #include <QRandomGenerator>
 #include <lists/LinkedList.h>
-using namespace std;
+#include <factory_structs/factoryStructs.h>
 
 
-struct Inspectores{
-    LinkedList<int> * registro;
-    int random = QRandomGenerator::global()->bounded(15);
+// El prob debe estar entre 0-100
+Inspectores::Inspectores(){
+    prob = 0;
+    rechazadas = 0;
+    aprobadas = 0;
+}
 
-    Inspectores(){
-        registro = new LinkedList<int>();
+void Inspectores::init(float _prob){
+    prob = _prob;
+}
+
+bool Inspectores::canStart(){
+    return prob != 0;
+}
+
+// Retorna la cantidad de galletas que se deben enviar
+int Inspectores::evaluate(int cookiesReceived){
+    int total = 0;
+    float random;
+
+    for (int i = 0; i < cookiesReceived; i++){
         random = QRandomGenerator::global()->bounded(15);
-	}
 
-    //Retorna las galletas que pasaron por la revision
-    int qualityCookies(int cookiesReceived){
-        int trash = cookiesReceived * (random/100);
-        return cookiesReceived - trash;
+        if (random > prob){
+            total++;
+        }
     }
 
-    //Retorna el numero de galletas que no fueron aceptadas
-    int badCookies(int cookiesReceived){
-        int bc =cookiesReceived * (random/100);
-        //string x = to_string(bc);
-        registro->addFirst(bc);
-        return bc;
-    }
-
-
-};
+    return total;
+}

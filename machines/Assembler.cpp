@@ -114,6 +114,17 @@ bool Assembler::receive(MixerType type, int amount){
     return wasAdded;
 }
 
+// Determina si se puede iniciar
+bool Assembler::canStart(){
+    if (dough == 0) return false;
+
+    if (chocolate == 0) return false;
+
+    if (delay == 0) return false;
+
+    return capacity == 0;
+}
+
 // Aqui se envian las galletas al horno
 void Assembler::send(int amount){
     // TODO: Si retorna false apagar la maquina

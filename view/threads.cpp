@@ -53,11 +53,48 @@ public:
         mutex = _mutex;
     }
 
+    bool canMachinesStart(){
+        QMessageBox msgBox;
+        bool can = true;
+
+        if (!planner->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique el planificador...");
+            can = false;
+        } else if (!warehouse->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique el almacen...");
+            can = false;
+        } else if (!chocolateMixer1->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique la mezcladora de chocolate 1...");
+            can = false;
+        } else if (!chocolateMixer2->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique la mezcladora de chocolate 2...");
+            can = false;
+        } else if (!doughMixer->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique la mezcladora de masa...");
+            can = false;
+        } else if (!oven->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique el horno o los inspectores...");
+            can = false;
+        } else if (!packer->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique la empacadora...");
+            can = false;
+        } else if (!trans->canStart()){
+            msgBox.setText("No se puede iniciar. Verifique los transportes...");
+            can = false;
+        }
+
+        if (!can)
+            msgBox.exec();
+
+        return can;
+    }
+
     // Aqui van a ir todos los hilos de las maquinas
     void run(){
         setMachines(true);
 
         initTimes();
+        packer->prepare();
 
         while(isTurnedOn) if (!isInPause & mutex->tryLock()){
             warehouse->checking();
@@ -66,7 +103,9 @@ public:
             doughMixer->mix();
             assembler->assembly();
             oven->start();
+            packer->working();
             trans->send();
+
             mutex->unlock();
 
             util->delay(1/10);
@@ -104,6 +143,8 @@ private:
     QLabel * lbOvenMaxCookies;
     QLabel * lbOvenWaiting;
 
+    QPlainTextEdit * tePackerPacked;
+
     QPushButton * btnStateWH;
 
     QPushButton * btnStateCM1;
@@ -112,7 +153,7 @@ private:
 
     QPushButton * btnStateAsm;
     QPushButton * btnStateOven;
-    QPushButton * btnStateTrans;
+    QPushButton * btnStateInsp;
 
     // Setea el estado de los botones
     void checkButtonsState(){
@@ -124,7 +165,7 @@ private:
 
         setStatusButton(btnStateAsm, assembler->isRunning);
         setStatusButton(btnStateOven, oven->isRunning);
-        setStatusButton(btnStateTrans, trans->isRunning);
+        setStatusButton(btnStateInsp, trans->isRunning);
     }
 
     // Se limpian todos los textEdit
@@ -163,11 +204,12 @@ private:
         string asmChocolate = assembler->chocolateInfo();
         string asmDough = assembler->doughInfo();
 
-
         string ovenTrayInfo = oven->getTraysInfo();
         string ovenWaiting = "En espera: " + to_string(oven->galletasEnEspera());
         string max = "Max Galletas: " + to_string(oven->capacity);
         string cooked = "Horneadas: " + to_string(oven->galletasHorneadas());
+
+        string packerInfo = packer->getInfo();
 
         QMetaObject::invokeMethod(lbCarQueue, "setPlainText", Q_ARG(QString, warehouseInfo.c_str()));
 
@@ -191,6 +233,8 @@ private:
         QMetaObject::invokeMethod(lbOvenCooking, "setText", Q_ARG(QString, cooked.c_str()));
         QMetaObject::invokeMethod(lbOvenMaxCookies, "setText", Q_ARG(QString, max.c_str()));
         QMetaObject::invokeMethod(lbOvenWaiting, "setText", Q_ARG(QString, ovenWaiting.c_str()));
+
+        QMetaObject::invokeMethod(tePackerPacked, "setPlainText", Q_ARG(QString, packerInfo.c_str()));
     }
 
 public:
@@ -219,6 +263,8 @@ public:
         lbOvenMaxCookies = labels->get(5);
         lbOvenWaiting = labels->get(6);
 
+        tePackerPacked = textEdits->get(10);
+
         btnStateWH = buttons->get(0);
 
         btnStateCM1 = buttons->get(1);
@@ -227,7 +273,7 @@ public:
 
         btnStateAsm = buttons->get(4);
         btnStateOven = buttons->get(5);
-        btnStateTrans = buttons->get(6);
+        btnStateInsp = buttons->get(6);
 
         mutex = _mutex;
     }
