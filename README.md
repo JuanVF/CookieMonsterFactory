@@ -5,4 +5,6 @@ The idea is to simulate a cookie factory process. In the process there are some 
 
 This app is built in with QT Creator
 
+Authors: Juan Vargas Fletes and Maximo Agrazal (@MaxAndre22)
+
 ![alt Aplicacion](https://i.imgur.com/oFO7fOq.png)
